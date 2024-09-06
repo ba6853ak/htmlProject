@@ -1,0 +1,27 @@
+
+/*======================================================================*/
+/*footer style*/
+footer {
+    background-color: #4a90e2;
+    color: white;
+    align-items: center;
+    padding: 2em;
+    bottom: 0;
+    width: 99%; /* Adjusted to 100% for full width */
+}
+
+/* Center the table inside the footer */
+#footer_table {
+    margin: 0 auto;
+    border-collapse: separate; /* 셀 간격을 테두리 내부로 설정 */
+    border-spacing: 100px 0; /* 상하는 0으로, 좌우는 10px로 설정 */
+
+}
+
+/* Center the text inside the table cells */
+#footer_table td {
+    text-align: center;
+    color: white;
+    font-size: 10pt;
+    line-height: 0.3;
+}
