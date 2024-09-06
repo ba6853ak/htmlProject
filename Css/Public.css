@@ -1,3 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Microsoft Edge의 비밀번호 보이기 버튼 숨기기 */
+input[type="password"]::-ms-reveal {
+    display: none;
+}
 
 /*======================================================================*/
 /*footer style*/

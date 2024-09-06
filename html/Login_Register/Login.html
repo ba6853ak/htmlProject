@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link href="../../Css/Login.Css" rel="stylesheet" />
+</head>
+<body>
+    <div class="login-wrapper">
+        <h2>Login</h2>
+        <form method="post" action="서버의url" id="login-form">
+            <div>
+                <input type="text" name="userName" placeholder="ID" class="ID_Input">
+            </div>
+            
+            <div style="display: flex;">
+                <input type="password" name="userPassword" id="userPassword" placeholder="Password" class="PW_Input">
+                <button type="button" onclick="togglePasswordVisibility()" class="toggle-button">보기</button>
+            </div>
+            
+            
+            <label for="remember-check">
+                <input type="checkbox" id="remember-ID">
+                <label for="remember-ID" style="margin-left: -20px; margin-right: 30px;">아이디 저장하기</label>
+                <input type="checkbox" id="Auto-Login">
+                <label for="Auto-Login" style="margin-left: -20px;">자동 로그인</label>
+            </label>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('userPassword');
+            var toggleButton = document.querySelector('button');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = '숨기기';
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = '보기';
+            }
+        }
+    </script>
+</body>
+</html>
