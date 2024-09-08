@@ -1,402 +1,396 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>학생 생각함</title>
     <style>
-        /* 전체 레이아웃 및 폰트 스타일 */
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f1f5f9;
-            color: #333;
-            line-height: 1.6;
-        }
+      /* 전체 레이아웃 및 폰트 스타일 */
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f1f5f9;
+        color: #333;
+        line-height: 1.6;
+      }
 
-        /* 컨테이너를 중앙에 배치하고 폭을 제한 */
-        .container {
-            max-width: 1200px; /* 최대 폭을 1200px로 제한 */
-            margin: 0 auto; /* 중앙 정렬 */
-            padding: 0 20px;
-        }
+      /* 컨테이너를 중앙에 배치하고 폭을 제한 */
+      .container {
+        max-width: 1200px; /* 최대 폭을 1200px로 제한 */
+        margin: 0 auto; /* 중앙 정렬 */
+        padding: 0 20px;
+      }
 
-        /* 상단 메뉴 (로그인, 회원가입, 도움말) */
-        .top-menu-wrapper {
-            width: 100vw; /* 화면 너비만큼 확장 */
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-        }
+      /* 상단 메뉴 (로그인, 회원가입, 도움말) */
+      .top-menu-wrapper {
+        width: 100vw; /* 화면 너비만큼 확장 */
+        background-color: #ffffff;
+        border-bottom: 1px solid #ddd;
+      }
 
-        .top-menu {
-            max-width: 1200px; /* container와 같은 너비 설정 */
-            margin: 0 auto; /* 중앙 정렬 */
-            padding: 10px 20px;
-            text-align: right;
-            
-        }
+      .top-menu {
+        max-width: 1200px; /* container와 같은 너비 설정 */
+        margin: 0 auto; /* 중앙 정렬 */
+        padding: 10px 20px;
+        text-align: right;
+      }
 
-        .top-menu a {
-            color: #060607;
-            text-decoration: none;
-            margin-left: 15px;
-            font-size: 14px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        }
+      .top-menu a {
+        color: #060607;
+        text-decoration: none;
+        margin-left: 15px;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-        .top-menu a:hover {
-            background-color: #4a90e2;
-            color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+      .top-menu a:hover {
+        background-color: #4a90e2;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
 
-        /* 헤더 스타일 */
-        header {
-            background-color: #ffffff;
-            color: #4a90e2;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      /* 헤더 스타일 */
+      header {
+        background-color: #ffffff;
+        color: #4a90e2;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        header .logo {
-            flex: 0.9;
-            font-size: 24px;
-            font-weight: bold;
-        }
+      header .logo {
+        flex: 0.9;
+        font-size: 24px;
+        font-weight: bold;
+      }
 
-        nav {
-            flex: 2;
-            text-align: center;
-        }
+      nav {
+        flex: 2;
+        text-align: center;
+      }
 
-        nav a {
-            color: #4a90e2;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
+      nav a {
+        color: #4a90e2;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
 
-        nav a:hover {
-            text-decoration: underline;
-            color: #3a78c2;
-        }
+      nav a:hover {
+        text-decoration: underline;
+        color: #3a78c2;
+      }
 
-        .search-bar {
-            flex: 1;
-            text-align: right;
-        }
+      .search-bar {
+        flex: 1;
+        text-align: right;
+      }
 
-        .search-bar input {
-            padding: 10px;
-            width: 200px;
-            font-size: 14px;
-            border: 1px solid #4a90e2;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
+      .search-bar input {
+        padding: 10px;
+        width: 200px;
+        font-size: 14px;
+        border: 1px solid #4a90e2;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
 
-        .search-bar button {
-            padding: 10px 15px;
-            font-size: 14px;
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      .search-bar button {
+        padding: 10px 15px;
+        font-size: 14px;
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        /* 메인 콘텐츠 */
-        .main-content {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s ease forwards;
-        }
+      /* 메인 콘텐츠 */
+      .main-content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.6s ease forwards;
+      }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        .main-content h2 {
-            text-align: center;
-            color: #555;
-            margin-bottom: 20px;
-        }
+      .main-content h2 {
+        text-align: center;
+        color: #555;
+        margin-bottom: 20px;
+      }
 
-        /* 서비스 카드 */
-        .services {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+      /* 서비스 카드 */
+      .services {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
 
-        .service-card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            flex: 1;
-            min-width: 250px; /* 카드의 최소 너비 설정 */
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.3s ease;
-        }
+      .service-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        flex: 1;
+        min-width: 250px; /* 카드의 최소 너비 설정 */
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+      }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        .service-card h3 {
-            color: #4a90e2;
-            margin-bottom: 10px;
-        }
+      .service-card h3 {
+        color: #4a90e2;
+        margin-bottom: 10px;
+      }
 
-        .service-card p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
+      .service-card p {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
 
-        .service-card button {
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
+      .service-card button {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
 
-        .service-card button:hover {
-            background-color: #3a78c2;
-        }
+      .service-card button:hover {
+        background-color: #3a78c2;
+      }
 
-        /*======================================================================*/
-        /*footer style*/
-        /*footer style*/
-        footer {
-            background-color: #4a90e2;
-            color: white;
-            align-items: center;
-            padding: 2em;
-            bottom: 0;
-            width: 99%; /* Adjusted to 100% for full width */
-        }
+      /*======================================================================*/
+      /*footer style*/
+      footer {
+        background-color: #4a90e2;
+        color: white;
+        align-items: center;
+        padding: 2em;
+        bottom: 0;
+        width: 99%; /* Adjusted to 100% for full width */
+      }
 
-        /* Center the table inside the footer */
-        #footer_table {
-            margin: 0 auto;
-            border-collapse: separate; /* 셀 간격을 테두리 내부로 설정 */
-            border-spacing: 100px 0; /* 상하는 0으로, 좌우는 10px로 설정 */
+      /* Center the table inside the footer */
+      #footer_table {
+        margin: 0 auto;
+        border-collapse: separate; /* 셀 간격을 테두리 내부로 설정 */
+        border-spacing: 100px 0; /* 상하는 0으로, 좌우는 10px로 설정 */
+      }
 
-        }
-
-        /* Center the text inside the table cells */
-        #footer_table td {
-            text-align: center;
-            color: white;
-            font-size: 10pt;
-            line-height: 0.3;
-        }
-        /*드롭 메뉴 바*/
-        nav > ul {
+      /* Center the text inside the table cells */
+      #footer_table td {
+        text-align: center;
+        color: white;
+        font-size: 10pt;
+        line-height: 0.3;
+      }
+      /*드롭 메뉴 바*/
+      nav > ul {
         display: flex;
         padding: 0;
         margin: 0;
         background-color: #ffffff;
         list-style: none; /* 동그라미 제거 */
-        }
+      }
 
-        nav > ul > li {
-            position: relative;
-            float: left;
-        }
+      nav > ul > li {
+        position: relative;
+        float: left;
+      }
 
-        nav > ul > li > a {
-            display: block;
-            padding: 15px 20px;
-            text-align: center;
-            color: #4a90e2;
-            background-color: #ffffff;
-            transition: background-color 0.3s;
-        }
+      nav > ul > li > a {
+        display: block;
+        padding: 15px 20px;
+        text-align: center;
+        color: #4a90e2;
+        background-color: #ffffff;
+        transition: background-color 0.3s;
+      }
 
-        nav > ul > li > a:hover {
-            background-color: #f1f5f9;
-        }
+      nav > ul > li > a:hover {
+        background-color: #f1f5f9;
+      }
 
-        .submenu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #ffffff;
-            min-width: 160px;
-            z-index: 1;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            list-style: none; /* 동그라미 제거 */
-            padding: 0; /* 기본 패딩 제거 */
-            margin: 0; /* 기본 마진 제거 */
-        }
+      .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        min-width: 160px;
+        z-index: 1;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+        list-style: none; /* 동그라미 제거 */
+        padding: 0; /* 기본 패딩 제거 */
+        margin: 0; /* 기본 마진 제거 */
+      }
 
-        .submenu li {
-            background-color: #f1f5f9;
-        }
+      .submenu li {
+        background-color: #f1f5f9;
+      }
 
-        .submenu li a {
-            display: block;
-            padding: 10px;
-            color: #4a90e2;
-        }
+      .submenu li a {
+        display: block;
+        padding: 10px;
+        color: #4a90e2;
+      }
 
-        .submenu li a:hover {
-            background-color: #4a90e2;
-            color: white;
-        }
+      .submenu li a:hover {
+        background-color: #4a90e2;
+        color: white;
+      }
 
-        nav > ul > li:hover .submenu {
-            max-height: 300px; /* 충분한 공간을 설정 */
-        }
+      nav > ul > li:hover .submenu {
+        max-height: 300px; /* 충분한 공간을 설정 */
+      }
     </style>
-</head>
-<body>
-
-<div class="top-menu-wrapper">
-    <div class="top-menu">
+  </head>
+  <body>
+    <div class="top-menu-wrapper">
+      <div class="top-menu">
         <a href="#">로그인</a>
         <a href="#">회원가입</a>
         <a href="#">도움말</a>
+      </div>
     </div>
-</div>
 
-<div class="container">
-
-    <header>
+    <div class="container">
+      <header>
         <div class="logo">학생 생각함</div>
         <nav>
-            <ul>
-                <li>
-                    <a href="#">생각참여</a>
-                    <ul class="submenu">
-                        <li><a href="#">서브메뉴 1</a></li>
-                        <li><a href="#">서브메뉴 2</a></li>
-                        <li><a href="#">서브메뉴 3</a></li>
-                        <li><a href="#">서브메뉴 4</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">생각실현</a>
-                    <ul class="submenu">
-                        <li><a href="#">서브메뉴 1</a></li>
-                        <li><a href="#">서브메뉴 2</a></li>
-                        <li><a href="#">서브메뉴 3</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">나의 생각함</a>
-                    <ul class="submenu">
-                        <li><a href="#">서브메뉴 1</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">생각함 소개</a>
-                    <ul class="submenu">
-                        <li><a href="#">서브메뉴 1</a></li>
-                        <li><a href="#">서브메뉴 2</a></li>
-                    </ul>
-                </li>
-            </ul>
+          <ul>
+            <li>
+              <a href="#">생각참여</a>
+              <ul class="submenu">
+                <li><a href="#">서브메뉴 1</a></li>
+                <li><a href="#">서브메뉴 2</a></li>
+                <li><a href="#">서브메뉴 3</a></li>
+                <li><a href="#">서브메뉴 4</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">생각실현</a>
+              <ul class="submenu">
+                <li><a href="#">서브메뉴 1</a></li>
+                <li><a href="#">서브메뉴 2</a></li>
+                <li><a href="#">서브메뉴 3</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">나의 생각함</a>
+              <ul class="submenu">
+                <li><a href="#">서브메뉴 1</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">생각함 소개</a>
+              <ul class="submenu">
+                <li><a href="#">서브메뉴 1</a></li>
+                <li><a href="#">서브메뉴 2</a></li>
+              </ul>
+            </li>
+          </ul>
         </nav>
         <div class="search-bar">
-            <input type="text" placeholder="서비스 검색">
-            <button>검색</button>
+          <input type="text" placeholder="서비스 검색" />
+          <button>검색</button>
         </div>
-    </header>
+      </header>
 
-    <div class="main-content">
+      <div class="main-content">
         <h2>주요 서비스</h2>
         <div class="services">
-            <div class="service-card">
-                <h3>증명서 발급</h3>
-                <p>빠르고 간편하게 증명서를 발급받을 수 있습니다.</p>
-                <button>신청하기</button>
-            </div>
+          <div class="service-card">
+            <h3>증명서 발급</h3>
+            <p>빠르고 간편하게 증명서를 발급받을 수 있습니다.</p>
+            <button>신청하기</button>
+          </div>
 
-            <div class="service-card">
-                <h3>신청 상태 확인</h3>
-                <p>현재 진행 중인 신청의 상태를 확인하세요.</p>
-                <button>확인하기</button>
-            </div>
+          <div class="service-card">
+            <h3>신청 상태 확인</h3>
+            <p>현재 진행 중인 신청의 상태를 확인하세요.</p>
+            <button>확인하기</button>
+          </div>
 
-            <div class="service-card">
-                <h3>공지사항 보기</h3>
-                <p>최신 공지사항을 확인하고 중요한 정보를 놓치지 마세요.</p>
-                <button>확인하기</button>
-            </div>
+          <div class="service-card">
+            <h3>공지사항 보기</h3>
+            <p>최신 공지사항을 확인하고 중요한 정보를 놓치지 마세요.</p>
+            <button>확인하기</button>
+          </div>
         </div>
+      </div>
     </div>
-
-    
-</div>
-<footer>
-    <table id="footer_table">
-      <tr>
-        <td id="footer_table_td1-1">
-          <p>
-            Business Address: 64-4, Guam-ri, Bongsan-myeon, Yesan-gun,
-            Chungcheongnam-do
-          </p>
-          <p>
-            Business Registration Number: 573-21-8496
-            <button
-              id="footer_table_td1-1_button"
-              onclick="footer_table_td1_1_button()"
-            >
-              Verify Business Information
-            </button>
-          </p>
-          <p>Mail Order Sales Report Number: 7894-56123</p>
-        </td>
-        <td id="footer_table_td1-2">
-          <p>Representative Number: 437-552-4594</p>
-          <p>CEO: An Suhyun</p>
-        </td>
-      </tr>
-      <tr>
-        <td id="footer_table_td2" colspan="2">
-          <p>
-            Some products posted on this site include those sold by other
-            shopping malls.
-          </p>
-          <p>
-            For products sold by other shopping malls, LG Electronics Co.,
-            Ltd. is not a party to the online sales, and therefore, we do not
-            assume responsibility for the products, transaction information,
-            and transactions.
-          </p>
-          <p>
-            All content on this site is protected by copyright law, and
-            unauthorized reproduction, copying, distribution, etc., is
-            prohibited.
-          </p>
-          <p>Copyright © 2001 ~ 2023 ASH. All Rights Reserved.</p>
-        </td>
-      </tr>
-    </table>
-  </footer>
-</body>
+    <footer>
+      <table id="footer_table">
+        <tr>
+          <td id="footer_table_td1-1">
+            <p>
+              Business Address: 64-4, Guam-ri, Bongsan-myeon, Yesan-gun,
+              Chungcheongnam-do
+            </p>
+            <p>
+              Business Registration Number: 573-21-8496
+              <button
+                id="footer_table_td1-1_button"
+                onclick="footer_table_td1_1_button()"
+              >
+                Verify Business Information
+              </button>
+            </p>
+            <p>Mail Order Sales Report Number: 7894-56123</p>
+          </td>
+          <td id="footer_table_td1-2">
+            <p>Representative Number: 437-552-4594</p>
+            <p>CEO: An Suhyun</p>
+          </td>
+        </tr>
+        <tr>
+          <td id="footer_table_td2" colspan="2">
+            <p>
+              Some products posted on this site include those sold by other
+              shopping malls.
+            </p>
+            <p>
+              For products sold by other shopping malls, LG Electronics Co.,
+              Ltd. is not a party to the online sales, and therefore, we do not
+              assume responsibility for the products, transaction information,
+              and transactions.
+            </p>
+            <p>
+              All content on this site is protected by copyright law, and
+              unauthorized reproduction, copying, distribution, etc., is
+              prohibited.
+            </p>
+            <p>Copyright © 2001 ~ 2023 ASH. All Rights Reserved.</p>
+          </td>
+        </tr>
+      </table>
+    </footer>
+  </body>
 </html>

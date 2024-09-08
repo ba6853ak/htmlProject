@@ -1,47 +1,262 @@
-* {
-    padding: 0;
-    margin: 0;
-    border: none;
-}
-
+/* 전체 페이지에 대한 기본 스타일 설정 */
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  font-family: "Noto Sans KR", sans-serif; /* 폰트 설정 */
+  margin: 0; /* 마진 제거 */
+  padding: 0; /* 패딩 제거 */
+  background-color: #f1f5f9; /* 배경색 설정 */
+  color: #333; /* 기본 텍스트 색상 설정 */
+  line-height: 1.6; /* 줄 간격 설정 */
 }
 
-/* Microsoft Edge의 비밀번호 보이기 버튼 숨기기 */
-input[type="password"]::-ms-reveal {
-    display: none;
+/* 페이지 내의 주요 컨테이너 스타일 */
+.container {
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
+  padding: 0 20px; /* 좌우 패딩 설정 */
 }
 
-/*======================================================================*/
-/*footer style*/
+/* 상단 메뉴 스타일 */
+.top-menu-wrapper {
+  width: 100vw; /* 너비를 뷰포트 너비로 설정 */
+  background-color: #ffffff; /* 배경색 설정 */
+  border-bottom: 1px solid #ddd; /* 하단 경계선 설정 */
+}
+
+.top-menu {
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
+  padding: 10px 20px; /* 패딩 설정 */
+  text-align: right; /* 오른쪽 정렬 */
+}
+
+.top-menu a {
+  color: #060607; /* 링크 색상 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+  margin-left: 15px; /* 왼쪽 마진 설정 */
+  font-size: 14px; /* 폰트 크기 설정 */
+  padding: 5px 10px; /* 패딩 설정 */
+  border-radius: 5px; /* 둥근 테두리 설정 */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 설정 */
+}
+
+.top-menu a:hover {
+  background-color: #4a90e2; /* 호버 시 배경색 변경 */
+  color: white; /* 호버 시 텍스트 색상 변경 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 호버 시 그림자 효과 추가 */
+}
+
+/* 페이지 헤더 스타일 */
+header {
+  background-color: #ffffff; /* 배경색 설정 */
+  color: #4a90e2; /* 텍스트 색상 설정 */
+  padding: 20px; /* 패딩 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  display: flex; /* 플렉스박스 모델 적용 */
+  justify-content: space-between; /* 자식 요소 사이의 공간 동일하게 설정 */
+  align-items: center; /* 세로 축 중앙 정렬 */
+}
+
+header .logo {
+  flex: 0.9; /* 플렉스 비율 설정 */
+  font-size: 24px; /* 로고 폰트 크기 설정 */
+  font-weight: bold; /* 굵은 글씨체 설정 */
+}
+
+nav {
+  flex: 2; /* 플렉스 비율 설정 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+nav a {
+  color: #4a90e2; /* 링크 색상 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+  margin: 0 15px; /* 좌우 마진 설정 */
+  font-size: 16px; /* 폰트 크기 설정 */
+  transition: color 0.3s ease; /* 색상 변경 애니메이션 설정 */
+}
+
+nav a:hover {
+  text-decoration: underline; /* 호버 시 밑줄 표시 */
+  color: #3a78c2; /* 호버 시 색상 변경 */
+}
+
+.search-bar {
+  flex: 1; /* 플렉스 비율 설정 */
+  text-align: right; /* 오른쪽 정렬 */
+}
+
+.search-bar input {
+  padding: 10px; /* 입력 필드 패딩 설정 */
+  width: 200px; /* 너비 설정 */
+  font-size: 14px; /* 폰트 크기 설정 */
+  border: 1px solid #4a90e2; /* 테두리 설정 */
+  border-radius: 5px; /* 둥근 테두리 설정 */
+  margin-right: 10px; /* 오른쪽 마진 설정 */
+}
+
+.search-bar button {
+  padding: 10px 15px; /* 버튼 패딩 설정 */
+  font-size: 14px; /* 폰트 크기 설정 */
+  background-color: #4a90e2; /* 배경색 설정 */
+  color: white; /* 텍스트 색상 설정 */
+  border: none; /* 테두리 없음 */
+  border-radius: 5px; /* 둥근 테두리 설정 */
+  cursor: pointer; /* 커서 모양 변경 */
+}
+
+/* 메인 콘텐츠 애니메이션 */
+.main-content {
+  max-width: 800px; /* 최대 너비 설정 */
+  margin: 40px auto; /* 상하 마진과 자동 좌우 마진 설정 */
+  padding: 0 20px; /* 패딩 설정 */
+  opacity: 0; /* 초기 투명도 설정 */
+  transform: translateY(20px); /* Y축 이동 설정 */
+  animation: fadeIn 0.6s ease forwards; /* 애니메이션 효과 적용 */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* 최종 투명도 설정 */
+    transform: translateY(0); /* 최종 위치 설정 */
+  }
+}
+
+.main-content h2 {
+  text-align: center; /* 중앙 정렬 */
+  color: #555; /* 텍스트 색상 설정 */
+  margin-bottom: 20px; /* 하단 마진 설정 */
+}
+
+/* 서비스 카드 스타일 */
+.services {
+  display: flex; /* 플렉스박스 모델 적용 */
+  justify-content: space-between; /* 자식 요소 사이의 공간 동일하게 설정 */
+  flex-wrap: wrap; /* 자식 요소가 너비를 초과하면 다음 줄로 이동 */
+  gap: 20px; /* 자식 요소 사이 간격 설정 */
+}
+
+.service-card {
+  background-color: white; /* 배경색 설정 */
+  border-radius: 8px; /* 둥근 테두리 설정 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* 그림자 효과 추가 */
+  flex: 1; /* 플렉스 비율 설정 */
+  min-width: 250px; /* 최소 너비 설정 */
+  padding: 20px; /* 패딩 설정 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  transition: transform 0.2s ease, box-shadow 0.3s ease; /* 변형 및 그림자 애니메이션 설정 */
+}
+
+.service-card:hover {
+  transform: translateY(-10px); /* 호버 시 Y축 이동 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 호버 시 그림자 효과 강화 */
+}
+
+.service-card h3 {
+  color: #4a90e2; /* 제목 색상 설정 */
+  margin-bottom: 10px; /* 하단 마진 설정 */
+}
+
+.service-card p {
+  color: #666; /* 텍스트 색상 설정 */
+  font-size: 14px; /* 폰트 크기 설정 */
+  margin-bottom: 15px; /* 하단 마진 설정 */
+}
+
+.service-card button {
+  background-color: #4a90e2; /* 배경색 설정 */
+  color: white; /* 텍스트 색상 설정 */
+  border: none; /* 테두리 없음 */
+  padding: 10px 15px; /* 패딩 설정 */
+  border-radius: 5px; /* 둥근 테두리 설정 */
+  cursor: pointer; /* 커서 모양 변경 */
+  font-size: 14px; /* 폰트 크기 설정 */
+}
+
+.service-card button:hover {
+  background-color: #3a78c2; /* 호버 시 배경색 변경 */
+}
+
+/* 푸터 스타일 */
 footer {
-    background-color: #4a90e2;
-    color: white;
-    align-items: center;
-    padding: 2em;
-    bottom: 0;
-    width: 99%; /* Adjusted to 100% for full width */
+  background-color: #4a90e2; /* 배경색 설정 */
+  color: white; /* 텍스트 색상 설정 */
+  align-items: center; /* 세로 축 중앙 정렬 */
+  padding: 2em; /* 패딩 설정 */
+  bottom: 0; /* 하단 위치 설정 */
+  width: 99%; /* 너비 설정 */
 }
 
-/* Center the table inside the footer */
+/* 푸터 내 테이블 스타일 */
 #footer_table {
-    margin: 0 auto;
-    border-collapse: separate; /* 셀 간격을 테두리 내부로 설정 */
-    border-spacing: 100px 0; /* 상하는 0으로, 좌우는 10px로 설정 */
-
+  margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
+  border-collapse: separate; /* 셀 경계 분리 설정 */
+  border-spacing: 100px 0; /* 셀 간격 설정 */
 }
 
-/* Center the text inside the table cells */
 #footer_table td {
-    text-align: center;
-    color: white;
-    font-size: 10pt;
-    line-height: 0.3;
+  text-align: center; /* 텍스트 중앙 정렬 */
+  color: white; /* 텍스트 색상 설정 */
+  font-size: 10pt; /* 폰트 크기 설정 */
+  line-height: 0.3; /* 줄 간격 설정 */
+}
+
+/* 드롭다운 메뉴 스타일 */
+nav > ul {
+  display: flex; /* 플렉스박스 모델 적용 */
+  padding: 0; /* 패딩 제거 */
+  margin: 0; /* 마진 제거 */
+  background-color: #ffffff; /* 배경색 설정 */
+  list-style: none; /* 목록 스타일 제거 */
+}
+
+nav > ul > li {
+  position: relative; /* 상대 위치 설정 */
+  float: left; /* 왼쪽 플로팅 설정 */
+}
+
+nav > ul > li > a {
+  display: block; /* 블록 레벨 요소로 설정 */
+  padding: 15px 20px; /* 패딩 설정 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  color: #4a90e2; /* 텍스트 색상 설정 */
+  background-color: #ffffff; /* 배경색 설정 */
+  transition: background-color 0.3s; /* 배경색 변경 애니메이션 설정 */
+}
+
+nav > ul > li > a:hover {
+  background-color: #f1f5f9; /* 호버 시 배경색 변경 */
+}
+
+.submenu {
+  position: absolute; /* 절대 위치 설정 */
+  top: 100%; /* 상위 요소 기준으로 상단 위치 설정 */
+  left: 0; /* 왼쪽 위치 설정 */
+  background-color: #ffffff; /* 배경색 설정 */
+  min-width: 160px; /* 최소 너비 설정 */
+  z-index: 1; /* z-index 설정으로 상위 레이어로 이동 */
+  max-height: 0; /* 최대 높이 초기값 설정 */
+  overflow: hidden; /* 내용이 넘치면 숨김 */
+  transition: max-height 0.5s ease-out; /* 높이 변경 애니메이션 설정 */
+  list-style: none; /* 목록 스타일 제거 */
+  padding: 0; /* 패딩 제거 */
+  margin: 0; /* 마진 제거 */
+}
+
+.submenu li {
+  background-color: #f1f5f9; /* 배경색 설정 */
+}
+
+.submenu li a {
+  display: block; /* 블록 레벨 요소로 설정 */
+  padding: 10px; /* 패딩 설정 */
+  color: #4a90e2; /* 텍스트 색상 설정 */
+}
+
+.submenu li a:hover {
+  background-color: #4a90e2; /* 호버 시 배경색 변경 */
+  color: white; /* 호버 시 텍스트 색상 변경 */
+}
+
+nav > ul > li:hover .submenu {
+  max-height: 300px; /* 호버 시 최대 높이 설정 */
 }
