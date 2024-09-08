@@ -1,5 +1,8 @@
 /* 로그인 래퍼: 중앙 정렬, 배경색, 그림자, 테두리 등을 설정 */
 .login-wrapper {
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
   width: 400px;
   padding: 40px;
   box-sizing: border-box;
