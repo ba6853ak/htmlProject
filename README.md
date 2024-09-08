@@ -1,2 +1,3 @@
 # htmlProject
-# 도망쳐
+
+Git pull Commit 시 규칙
