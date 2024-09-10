@@ -13,255 +13,323 @@ input::-ms-clear {
   display: none;
 }
 
-/* 페이지 내의 주요 컨테이너 스타일 */
-.container {
-  max-width: 1200px; /* 최대 너비 설정 */
-  margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
-  padding: 0 20px; /* 좌우 패딩 설정 */
-}
 
-/* 상단 메뉴 스타일 */
-.top-menu-wrapper {
-  width: 100vw; /* 너비를 뷰포트 너비로 설정 */
-  background-color: #ffffff; /* 배경색 설정 */
-  border-bottom: 1px solid #ddd; /* 하단 경계선 설정 */
-}
-
-.top-menu {
-  max-width: 1200px; /* 최대 너비 설정 */
-  margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
-  padding: 10px 20px; /* 패딩 설정 */
-  text-align: right; /* 오른쪽 정렬 */
-}
-
-.top-menu a {
-  color: #060607; /* 링크 색상 설정 */
-  text-decoration: none; /* 밑줄 제거 */
-  margin-left: 15px; /* 왼쪽 마진 설정 */
-  font-size: 14px; /* 폰트 크기 설정 */
-  padding: 5px 10px; /* 패딩 설정 */
-  border-radius: 5px; /* 둥근 테두리 설정 */
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 설정 */
-}
-
-.top-menu a:hover {
-  background-color: #4a90e2; /* 호버 시 배경색 변경 */
-  color: white; /* 호버 시 텍스트 색상 변경 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 호버 시 그림자 효과 추가 */
-}
-
-/* 페이지 헤더 스타일 */
-header {
-  background-color: #ffffff; /* 배경색 설정 */
-  color: #4a90e2; /* 텍스트 색상 설정 */
-  padding: 20px; /* 패딩 설정 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
-  display: flex; /* 플렉스박스 모델 적용 */
-  justify-content: space-between; /* 자식 요소 사이의 공간 동일하게 설정 */
-  align-items: center; /* 세로 축 중앙 정렬 */
-}
-
-header .logo {
-  flex: 0.9; /* 플렉스 비율 설정 */
-  font-size: 24px; /* 로고 폰트 크기 설정 */
-  font-weight: bold; /* 굵은 글씨체 설정 */
-}
-
-nav {
-  flex: 2; /* 플렉스 비율 설정 */
-  text-align: center; /* 텍스트 중앙 정렬 */
-}
-
-nav a {
-  color: #4a90e2; /* 링크 색상 설정 */
-  text-decoration: none; /* 밑줄 제거 */
-  margin: 0 15px; /* 좌우 마진 설정 */
-  font-size: 16px; /* 폰트 크기 설정 */
-  transition: color 0.3s ease; /* 색상 변경 애니메이션 설정 */
-}
-
-nav a:hover {
-  text-decoration: underline; /* 호버 시 밑줄 표시 */
-  color: #3a78c2; /* 호버 시 색상 변경 */
-}
-
-.search-bar {
-  flex: 1; /* 플렉스 비율 설정 */
-  text-align: right; /* 오른쪽 정렬 */
-}
-
-.search-bar input {
-  padding: 10px; /* 입력 필드 패딩 설정 */
-  width: 200px; /* 너비 설정 */
-  font-size: 14px; /* 폰트 크기 설정 */
-  border: 1px solid #4a90e2; /* 테두리 설정 */
-  border-radius: 5px; /* 둥근 테두리 설정 */
-  margin-right: 10px; /* 오른쪽 마진 설정 */
-}
-
-.search-bar button {
-  padding: 10px 15px; /* 버튼 패딩 설정 */
-  font-size: 14px; /* 폰트 크기 설정 */
-  background-color: #4a90e2; /* 배경색 설정 */
-  color: white; /* 텍스트 색상 설정 */
-  border: none; /* 테두리 없음 */
-  border-radius: 5px; /* 둥근 테두리 설정 */
-  cursor: pointer; /* 커서 모양 변경 */
-}
-
-/* 메인 콘텐츠 애니메이션 */
-.main-content {
-  max-width: 800px; /* 최대 너비 설정 */
-  margin: 40px auto; /* 상하 마진과 자동 좌우 마진 설정 */
-  padding: 0 20px; /* 패딩 설정 */
-  opacity: 0; /* 초기 투명도 설정 */
-  transform: translateY(20px); /* Y축 이동 설정 */
-  animation: fadeIn 0.6s ease forwards; /* 애니메이션 효과 적용 */
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1; /* 최종 투명도 설정 */
-    transform: translateY(0); /* 최종 위치 설정 */
+  /* html, body 기본 여백 제거 */
+  html,
+  body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
   }
-}
 
-.main-content h2 {
-  text-align: center; /* 중앙 정렬 */
-  color: #555; /* 텍스트 색상 설정 */
-  margin-bottom: 20px; /* 하단 마진 설정 */
-}
+  /* 상단 메뉴 바 F*/
 
-/* 서비스 카드 스타일 */
-.services {
-  display: flex; /* 플렉스박스 모델 적용 */
-  justify-content: space-between; /* 자식 요소 사이의 공간 동일하게 설정 */
-  flex-wrap: wrap; /* 자식 요소가 너비를 초과하면 다음 줄로 이동 */
-  gap: 20px; /* 자식 요소 사이 간격 설정 */
-}
 
-.service-card {
-  background-color: white; /* 배경색 설정 */
-  border-radius: 8px; /* 둥근 테두리 설정 */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* 그림자 효과 추가 */
-  flex: 1; /* 플렉스 비율 설정 */
-  min-width: 250px; /* 최소 너비 설정 */
-  padding: 20px; /* 패딩 설정 */
-  text-align: center; /* 텍스트 중앙 정렬 */
-  transition: transform 0.2s ease, box-shadow 0.3s ease; /* 변형 및 그림자 애니메이션 설정 */
-}
 
-.service-card:hover {
-  transform: translateY(-10px); /* 호버 시 Y축 이동 */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 호버 시 그림자 효과 강화 */
-}
 
-.service-card h3 {
-  color: #4a90e2; /* 제목 색상 설정 */
-  margin-bottom: 10px; /* 하단 마진 설정 */
-}
+  .top-menu-wrapper {
+      width: 100vw;
+      height: 50px;
+      /* 화면 너비만큼 확장 */
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+  }
 
-.service-card p {
-  color: #666; /* 텍스트 색상 설정 */
-  font-size: 14px; /* 폰트 크기 설정 */
-  margin-bottom: 15px; /* 하단 마진 설정 */
-}
+  .top-menu {
+      max-width: 1000px;
+      /* container와 같은 너비 설정 */
+      margin: 0 auto;
+      /* 중앙 정렬 */
+      padding: 10px 20px;
+      text-align: right;
 
-.service-card button {
-  background-color: #4a90e2; /* 배경색 설정 */
-  color: white; /* 텍스트 색상 설정 */
-  border: none; /* 테두리 없음 */
-  padding: 10px 15px; /* 패딩 설정 */
-  border-radius: 5px; /* 둥근 테두리 설정 */
-  cursor: pointer; /* 커서 모양 변경 */
-  font-size: 14px; /* 폰트 크기 설정 */
-}
+  }
 
-.service-card button:hover {
-  background-color: #3a78c2; /* 호버 시 배경색 변경 */
-}
+  .top-menu a {
+      color: #060607;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 
-/* 푸터 스타일 */
-footer {
-  background-color: #4a90e2; /* 배경색 설정 */
-  color: white; /* 텍스트 색상 설정 */
-  align-items: center; /* 세로 축 중앙 정렬 */
-  padding: 2em; /* 패딩 설정 */
-  bottom: 0; /* 하단 위치 설정 */
-  width: 99%; /* 너비 설정 */
-}
+  }
 
-/* 푸터 내 테이블 스타일 */
-#footer_table {
-  margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
-  border-collapse: separate; /* 셀 경계 분리 설정 */
-  border-spacing: 100px 0; /* 셀 간격 설정 */
-}
+  .top-menu-link {
+      display: inline-block;
+      /* 글자 크기만큼만 차지하면서 padding과 같은 속성을 추가하기 위해 inline-block 사용 */
+      color: #060607;
+      font-size: 14px;
+      padding: 5px 10px;
 
-#footer_table td {
-  text-align: center; /* 텍스트 중앙 정렬 */
-  color: white; /* 텍스트 색상 설정 */
-  font-size: 10pt; /* 폰트 크기 설정 */
-  line-height: 0.3; /* 줄 간격 설정 */
-}
+  }
 
-/* 드롭다운 메뉴 스타일 */
-nav > ul {
-  display: flex; /* 플렉스박스 모델 적용 */
-  padding: 0; /* 패딩 제거 */
-  margin: 0; /* 마진 제거 */
-  background-color: #ffffff; /* 배경색 설정 */
-  list-style: none; /* 목록 스타일 제거 */
-}
+  .top-menu a:hover {
+      color: #2292E9;
+      /* 글자 색상 변경 */
+  }
 
-nav > ul > li {
-  position: relative; /* 상대 위치 설정 */
-  float: left; /* 왼쪽 플로팅 설정 */
-}
 
-nav > ul > li > a {
-  display: block; /* 블록 레벨 요소로 설정 */
-  padding: 15px 20px; /* 패딩 설정 */
-  text-align: center; /* 텍스트 중앙 정렬 */
-  color: #4a90e2; /* 텍스트 색상 설정 */
-  background-color: #ffffff; /* 배경색 설정 */
-  transition: background-color 0.3s; /* 배경색 변경 애니메이션 설정 */
-}
 
-nav > ul > li > a:hover {
-  background-color: #f1f5f9; /* 호버 시 배경색 변경 */
-}
 
-.submenu {
-  position: absolute; /* 절대 위치 설정 */
-  top: 100%; /* 상위 요소 기준으로 상단 위치 설정 */
-  left: 0; /* 왼쪽 위치 설정 */
-  background-color: #ffffff; /* 배경색 설정 */
-  min-width: 160px; /* 최소 너비 설정 */
-  z-index: 1; /* z-index 설정으로 상위 레이어로 이동 */
-  max-height: 0; /* 최대 높이 초기값 설정 */
-  overflow: hidden; /* 내용이 넘치면 숨김 */
-  transition: max-height 0.5s ease-out; /* 높이 변경 애니메이션 설정 */
-  list-style: none; /* 목록 스타일 제거 */
-  padding: 0; /* 패딩 제거 */
-  margin: 0; /* 마진 제거 */
-}
+  /* 네비게이션 스타일 */
+  .main-nav {
+      display:grid;
+      background-color: #ffffff;
+      /* 메뉴를 하얀색으로 변경 */
+      padding: 15px 0;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      /* 부드러운 그림자 */
+      border-bottom: 1px solid #eaeaea;
+      /* 하단에 가벼운 경계 추가 */
+  }
 
-.submenu li {
-  background-color: #f1f5f9; /* 배경색 설정 */
-}
+  .nav-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+  }
 
-.submenu li a {
-  display: block; /* 블록 레벨 요소로 설정 */
-  padding: 10px; /* 패딩 설정 */
-  color: #4a90e2; /* 텍스트 색상 설정 */
-}
+  .nav-item {
+      margin: 0 20px;
+  }
 
-.submenu li a:hover {
-  background-color: #4a90e2; /* 호버 시 배경색 변경 */
-  color: white; /* 호버 시 텍스트 색상 변경 */
-}
+  .nav-item a {
+      color: #555;
+      /* 글자색을 좀 더 부드럽게 */
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  }
 
-nav > ul > li:hover .submenu {
-  max-height: 300px; /* 호버 시 최대 높이 설정 */
-}
+  .nav-item a:hover {
+      background-color: #f0f0f0;
+      /* 배경을 부드러운 회색으로 */
+      color: #007bff;
+      /* 글자색을 파란색으로 */
+      transform: translateY(-2px);
+      /* 살짝 들어 올리는 효과 */
+  }
+
+  .nav-item:first-child {
+      position: relative;
+      left: -90px;
+      /* 원하는 만큼 왼쪽으로 이동 */
+  }
+
+
+
+  .nav-item:nth-child(2) {
+      position: relative;
+      left: -35px;
+      /* 원하는 만큼 왼쪽으로 이동 */
+  }
+
+  .nav-item:nth-child(3) {
+      position: relative;
+      left: 15px;
+      /* 원하는 만큼 왼쪽으로 이동 */
+  }
+
+  .nav-item:nth-child(4) {
+      position: relative;
+      left: 70px;
+      /* 원하는 만큼 왼쪽으로 이동 */
+  }
+
+  /* 드롭다운 전체를 감싸는 컨테이너 */
+  .dropdown-wrapper {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+      /* 더 부드러운 그림자 */
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      /* 두루마기처럼 내려오는 효과 */
+      justify-content: center;
+      pointer-events: none;
+      z-index: 999;
+  }
+
+  .dropdown-wrapper.active {
+      max-height: 500px;
+      /* 충분히 큰 값으로 설정해 메뉴가 전부 나타나게 */
+      pointer-events: auto;
+  }
+
+  /* 드롭다운 메뉴 스타일 */
+  .dropdown-menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 10px 0;
+      width: 180px;
+  }
+
+  .dropdown-menu li {
+      padding: 10px 20px;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+      border-radius: 8px;
+      /* 항목에 둥근 모서리 추가 */
+      text-align: center
+  }
+
+  .dropdown-menu li:hover {
+      background-color: #f0f8ff;
+      /* 부드럽고 고급스러운 색상 변환 */
+      transform: translateX(10px);
+      /* 자연스러운 좌우 이동 */
+  }
+
+  .dropdown-menu li a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+  }
+
+  .dropdown-menu li a:hover {
+      color: #007bff;
+      /* 자연스러운 색상 변환 */
+  }
+
+  /* 메뉴에 마우스를 올리면 드롭다운이 부드럽게 펼쳐지도록 */
+  .main-nav:hover .dropdown-wrapper {
+      max-height: 500px;
+      /* 드롭다운 펼쳐짐 */
+      pointer-events: auto;
+  }
+
+  /* 메뉴에서 마우스가 떠나면 드롭다운이 부드럽게 접히도록 */
+  .main-nav:not(:hover) .dropdown-wrapper {
+      max-height: 0;
+      /* 드롭다운 접힘 */
+      pointer-events: none;
+  }
+
+ 
+
+
+
+  /* 푸터 스타일 */
+  .site-footer {
+      background-color: #f8f9fa;
+      padding: 40px 0;
+      border-top: 1px solid #e0e0e0;
+      color: #333;
+      font-size: 14px;
+  }
+
+  .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 0 20px;
+  }
+
+  .footer-info {
+      flex: 1;
+      margin-bottom: 20px;
+  }
+
+  .footer-info h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .footer-info p {
+      margin: 5px 0;
+      color: #666;
+  }
+
+  .footer-social {
+      flex: 1;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+
+  .footer-social h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+  }
+
+  .social-icons a img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+  }
+
+  .social-icons a:hover img {
+      transform: scale(1.1);
+      /* 호버 시 아이콘 확대 */
+  }
+
+  .footer-bottom {
+      background-color: #e9ecef;
+      padding: 10px 0;
+      text-align: center;
+      border-top: 1px solid #ccc;
+  }
+
+  .footer-bottom p {
+      margin: 0;
+      color: #666;
+      font-size: 12px;
+  }
+
+
+
+
+  @media (max-width: 768px) {
+
+
+
+
+
+
+
+
+      .nav-menu {
+          flex-direction: row;
+          /* 메뉴가 세로로 나열되도록 */
+          justify-content: flex-start;
+          /* 메뉴가 왼쪽에서 시작하도록 설정 */
+          align-items: center;
+          /* 메뉴 항목을 가운데 정렬 */
+      }
+
+      .nav-item {
+          display: block;
+          /* 메뉴 항목들이 사라지지 않도록 설정 */
+          margin: 1px 5;
+          /* 메뉴 항목들 사이에 적절한 간격 추가 */
+      }
+
+
+
+
+  }
