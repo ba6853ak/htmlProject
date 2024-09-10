@@ -7,11 +7,6 @@
     <title>학생 생각함</title>
     <link rel="stylesheet" href="../../Css/Public.css">
     <link rel="stylesheet" href="../../Css/Login.Css">
-    <style>
-      
-    </style>
-
-
 </head>
 
 <body>
@@ -76,6 +71,7 @@
         <form method="post" action="서버의url" id="login-form">
             <div>
                 <input
+                    id = "ID_Input"
                     type="text"
                     name="userName"
                     placeholder="ID"
@@ -87,7 +83,7 @@
                 <input
                     type="password"
                     name="userPassword"
-                    id="userPassword"
+                    id="PW_Input"
                     placeholder="Password"
                     class="PW_Input"
                 />
@@ -103,20 +99,18 @@
 
             <label for="remember-check">
                 <input type="checkbox" id="remember-ID"/>
-                <label
-                    for="remember-ID"
-                    style="margin-left: -20px; margin-right: 30px"
-                >아이디 저장하기</label
-                >
+                <label for="remember-ID" style="margin-left: -20px; margin-right: 30px">
+                    아이디 저장하기
+                </label>
                 <input type="checkbox" id="Auto-Login"/>
-                <label for="Auto-Login" style="margin-left: -20px">자동 로그인</label>
+                <label for="Auto-Login" style="margin-left: -20px">
+                    자동 로그인
+                </label>
             </label>
-            <input type="submit" value="Login"/>
+            <input type="button" value="로그인" onclick="Login_Button()"/>
         </form>
     </div>
-
-
-
+    
     <!-- 푸터 추가 -->
     <footer class="site-footer">
         <div class="footer-container">
@@ -139,83 +133,7 @@
             <p>© 2024 학생 생각함. All rights reserved.</p>
         </div>
     </footer>
-
-
-
-    <script>
-        const noticeItems = document.getElementById('noticeItems');
-        const upArrow = document.getElementById('upArrow');
-        const downArrow = document.getElementById('downArrow');
-
-        let currentIndex = 0;
-        const totalNotices = document.querySelectorAll('.notice-item').length;
-        const itemHeight = 60; // 각 공지 항목의 높이
-
-        function scrollNotices(direction) {
-            if (direction === 'up') {
-                currentIndex = (currentIndex === 0) ? totalNotices - 1 : currentIndex - 1;
-            } else if (direction === 'down') {
-                currentIndex = (currentIndex === totalNotices - 1) ? 0 : currentIndex + 1;
-            }
-            noticeItems.style.top = `-${currentIndex * itemHeight}px`;
-        }
-
-        upArrow.addEventListener('click', () => scrollNotices('up'));
-        downArrow.addEventListener('click', () => scrollNotices('down'));
-
-        // 3초마다 자동 스크롤
-        setInterval(() => scrollNotices('down'), 3000);
-    </script>
-
-
-    <script>
-        let currentSlideIndex = 0;
-        let autoSlideInterval;
-
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                moveSlide(1);
-            }, 5000);
-        }
-
-        function moveSlide(direction) {
-            const slides = document.querySelector('.slider');
-            const totalSlides = 4;
-
-            currentSlideIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
-            slides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-            updateDots();
-        }
-
-        function currentSlide(index) {
-            currentSlideIndex = index;
-            const slides = document.querySelector('.slider');
-            slides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-            updateDots();
-        }
-
-        function updateDots() {
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlideIndex);
-            });
-        }
-
-        window.onload = function () {
-            updateDots();
-            startAutoSlide();
-        };
-
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-
-        document.querySelector('.controls').addEventListener('click', resetAutoSlide);
-        document.querySelector('.dots').addEventListener('click', resetAutoSlide);
-
-    </script>
-
+    <script type="text/javascript" src="../../JS/Login.js"></script>
 </body>
 
 </html>
