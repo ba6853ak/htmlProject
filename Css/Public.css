@@ -13,6 +13,8 @@ input::-ms-clear {
   display: none;
 }
 
+
+
 /* 페이지 내의 주요 컨테이너 스타일 */
 .container {
   max-width: 1200px; /* 최대 너비 설정 */
