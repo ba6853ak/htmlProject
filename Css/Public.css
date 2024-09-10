@@ -300,6 +300,15 @@ input::-ms-clear {
       color: #666;
       font-size: 12px;
   }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-info,
+.footer-social {
+    text-align: center;
+}
 
 
 
