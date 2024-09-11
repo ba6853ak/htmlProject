@@ -1,9 +1,9 @@
 /* 전체 페이지에 대한 기본 스타일 설정 */
 body {
-  font-family: "Noto Sans KR", sans-serif; /* 폰트 설정 */
+  font-family: Arial, sans-serif; /* 폰트 설정 */
   margin: 0; /* 마진 제거 */
   padding: 0; /* 패딩 제거 */
-  background-color: #f1f5f9; /* 배경색 설정 */
+  background-color: #f9f9f9; /* 배경색 설정 */
   color: #333; /* 기본 텍스트 색상 설정 */
   line-height: 1.6; /* 줄 간격 설정 */
 }
@@ -17,12 +17,12 @@ input::-ms-clear {
   /* html, body 기본 여백 제거 */
   html,
   body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Noto Sans KR', sans-serif;
-      background-color: #f4f6f9;
-      color: #333;
+    font-family: Arial, sans-serif; /* 폰트 설정 */
+    margin: 0; /* 마진 제거 */
+    padding: 0; /* 패딩 제거 */
+    background-color: #f9f9f9; /* 배경색 설정 */
+    color: #333; /* 기본 텍스트 색상 설정 */
+    line-height: 1.6; /* 줄 간격 설정 */
   }
 
   /* 상단 메뉴 바 F*/
@@ -30,31 +30,30 @@ input::-ms-clear {
 
 
 
-  .top-menu-wrapper {
-      width: 100vw;
-      height: 50px;
-      /* 화면 너비만큼 확장 */
-      background-color: #ffffff;
-      border-bottom: 1px solid #ddd;
-  }
+/* 상단 메뉴 (로그인, 회원가입, 도움말) */
+        .top-menu-wrapper {
+            width: 100vw;
+            /* 화면 너비만큼 확장 */
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
 
-  .top-menu {
-      max-width: 1000px;
-      /* container와 같은 너비 설정 */
-      margin: 0 auto;
-      /* 중앙 정렬 */
-      padding: 10px 20px;
-      text-align: right;
+        .top-menu {
+            max-width: 1000px; /* container와 같은 너비 설정 */
+            margin: 0 auto; /* 중앙 정렬 */
+            padding: 10px 20px;
+            text-align: right;
+        }
 
-  }
-
-  .top-menu a {
-      color: #060607;
-      text-decoration: none;
-      font-size: 14px;
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-
-  }
+        .top-menu a {
+            color: #060607;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
 
   .top-menu-link {
       display: inline-block;

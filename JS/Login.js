@@ -1,12 +1,8 @@
-document.write('<script src="../../lib/JQuery/JQuery_3.7.1.js"></script>')
-
-
-
 var ID_Input = document.getElementById("ID_Input");
 var PW_Input = document.getElementById("PW_Input");
 var toggleButton = document.getElementById("found");
 let obj = { };
-
+let resu = { };
 autologin();
 
 function getCookies(name) {
@@ -32,7 +28,7 @@ function autologin() {
           'ID': getCookies('ID'),
           'pw': getCookies('pw')
       };
-      loginch();
+      //loginch();
   }
 }
 
@@ -53,7 +49,6 @@ function Login_Button() {
     'ID': ID_Input.value,
     'pw': PW_Input.value
   };
-  console.log(Object)
   loginch();
 };
 
@@ -65,7 +60,9 @@ function loginch() {
       dataType: 'json',
       success: function(res) {
           if(res.status == 200) {
+              resu = res.list;
               loginsuc()
+              
           }
           else if(res.status == 100) {
               logionfal()
@@ -83,15 +80,16 @@ function loginsuc() {
   }
   if (auto.checked) {
     let date = new Date();
-    console.log(date.toUTCString());
     date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 5));
-    console.log(date.toUTCString());
     let expires = ' expires='+date.toUTCString();
-    console.log('user=value;' + expires)
     
     document.cookie = 'ID=' + obj.ID + ';' + expires;
-    document.cookie = 'pw=' + obj.PW + ';' + expires;
+    document.cookie = 'pw=' + obj.pw + ';' + expires;
   }
+  localStorage.setItem('SC_ID', resu[0]["SC_ID"]);
+  localStorage.setItem('Name', resu[0]["Name"]);
+  
+
   location.href='../../html/main/page.html';
 }
 
