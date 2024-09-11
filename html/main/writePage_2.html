@@ -19,208 +19,6 @@
       scroll-behavior: smooth;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 60px auto;
-      background-color: #ffffff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    h2, h3 {
-      margin-bottom: 30px;
-      font-size: 28px;
-      font-weight: 700;
-      color: #333333;
-      text-align: center;
-    }
-
-    h3 {
-      font-size: 24px;
-      margin-top: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-group label {
-      font-size: 16px;
-      font-weight: 500;
-      color: #555555;
-      margin-bottom: 8px;
-    }
-
-    .form-group input[type="text"],
-    .form-group textarea,
-    .poll-option-group input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .poll-option-group input[type="text"]:focus {
-      outline: none;
-      border-color: #4a90e2;
-      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-    }
-
-    .form-group textarea {
-      height: 200px;
-      resize: none;
-    }
-
-    .form-group .buttons {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
-    }
-
-    .button {
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: 500;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.1s ease;
-    }
-
-    .button:active {
-      transform: translateY(1px);
-    }
-
-    .button-primary {
-      background-color: #4a90e2;
-      color: #ffffff;
-    }
-
-    .button-primary:hover {
-      background-color: #3a7bc8;
-    }
-
-    .button-secondary {
-      background-color: #f0f0f0;
-      color: #333333;
-      margin-right: 8px;
-    }
-
-    .button-secondary:hover {
-      background-color: #e0e0e0;
-    }
-
-    .char-count {
-      font-size: 14px;
-      color: #666;
-      margin-top: 8px;
-      text-align: right;
-    }
-
-    .file-input-wrapper {
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      background-color: #f9f9f9;
-    }
-
-    .file-input-wrapper input[type=file] {
-      position: absolute;
-      left: -9999px;
-    }
-
-    .file-input-button {
-      background-color: #f0f0f0;
-      color: #333333;
-      padding: 8px 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .file-input-button:hover {
-      background-color: #e0e0e0;
-    }
-
-    .file-input-name {
-      margin-left: 16px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-      background-color: #ffffff;
-      margin: 15% auto;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .modal-title {
-      font-size: 24px;
-      font-weight: 700;
-      color: #333333;
-      margin-bottom: 20px;
-    }
-
-    .modal-message {
-      font-size: 16px;
-      color: #555555;
-      margin-bottom: 30px;
-    }
-
-    .modal-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: 500;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .modal-button-primary {
-      background-color: #4a90e2;
-      color: #ffffff;
-    }
-
-    .modal-button-primary:hover {
-      background-color: #3a7bc8;
-    }
-
-    .modal-button-secondary {
-      background-color: #f0f0f0;
-      color: #333333;
-      margin-right: 10px;
-    }
-
-    .modal-button-secondary:hover {
-      background-color: #e0e0e0;
-    }
-
     .date-range {
       display: flex;
       align-items: center;
@@ -235,16 +33,44 @@
       margin-right: 10px;
     }
 
-    /* 투표 섹션 스타일 업데이트 */
-    #pollContainer {
+        /* 투표 섹션 스타일 */
+        #pollContainer {
       background-color: #f9f9f9;
       border-radius: 8px;
       padding: 20px;
       margin-bottom: 30px;
     }
 
-    .poll-group {
+    .poll-question-group {
+      display: flex;
+      flex-direction: column;
       margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .poll-question-group label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #555555;
+      margin-bottom: 8px;
+    }
+
+    .poll-question-group input[type="text"],
+    .poll-option-group input[type="text"] {
+      width: 99%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-bottom: 2px solid #e0e0e0;
+      background-color: transparent;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .poll-question-group input[type="text"]:focus,
+    .poll-option-group input[type="text"]:focus {
+      outline: none;
+      border-bottom-color: #4a90e2;
     }
 
     .poll-option-group {
@@ -289,10 +115,68 @@
     #addPollOption:hover {
       background-color: #3a7bc8;
     }
+
+    #addPollOption:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+
   </style>
 </head>
 
 <body>
+
+  <!-- 상단 메뉴 -->
+  <div class="top-menu-wrapper">
+    <div class="top-menu">
+      <div class="top-menu-link"><a href="/html/Login_Register/Login.html">로그인</a></div>
+      <div class="top-menu-link"><a href="/html/Login_Register/SignUp.html">회원가입</a></div>
+      <div class="top-menu-link"><a href="#">도움말</a></div>
+    </div>
+  </div>
+
+  <!-- 새로운 메뉴 바 -->
+  <nav class="main-nav">
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#">메뉴 1</a>
+      </li>
+      <li class="nav-item">
+        <a href="#">메뉴 2</a>
+      </li>
+      <li class="nav-item">
+        <a href="#">메뉴 3</a>
+      </li>
+      <li class="nav-item">
+        <a href="#">메뉴 4</a>
+      </li>
+    </ul>
+
+    <!-- 모든 메뉴의 드롭다운을 감싸는 div -->
+    <div class="dropdown-wrapper">
+      <ul class="dropdown-menu">
+        <li><a href="#">메뉴 1-1</a></li>
+        <li><a href="#">메뉴 1-2</a></li>
+        <li><a href="#">메뉴 1-3</a></li>
+      </ul>
+      <ul class="dropdown-menu">
+        <li><a href="#">메뉴 2-1</a></li>
+        <li><a href="#">메뉴 2-2</a></li>
+        <li><a href="#">메뉴 2-3</a></li>
+      </ul>
+      <ul class="dropdown-menu">
+        <li><a href="#">메뉴 3-1</a></li>
+        <li><a href="#">메뉴 3-2</a></li>
+        <li><a href="#">메뉴 3-3</a></li>
+      </ul>
+      <ul class="dropdown-menu">
+        <li><a href="#">메뉴 4-1</a></li>
+        <li><a href="#">메뉴 4-2</a></li>
+        <li><a href="#">메뉴 4-3</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
     <h2>새로운 생각 쓰기</h2>
@@ -331,10 +215,12 @@
         </div>
       </div>
 
+
+
       <!-- 투표 섹션 -->
       <h3>투표 만들기</h3>
       <div id="pollContainer">
-        <div class="poll-group">
+        <div class="poll-question-group">
           <label for="pollQuestion">투표 질문</label>
           <input type="text" id="pollQuestion" name="pollQuestion" placeholder="투표 질문을 입력하세요" maxlength="200">
         </div>
@@ -350,27 +236,197 @@
 
       <button type="button" id="addPollOption">옵션 추가</button>
 
+
+
       <div class="form-group">
         <div class="buttons">
-          <button type="submit" class="button button-primary">시작하기</button>&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="button button-primary">시작하기</button>&nbsp;&nbsp;
           <button type="button" id="cancelButton" class="button button-secondary">취소</button>
+
         </div>
       </div>
-
     </form>
   </div>
 
+  <!-- 푸터 추가 -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h4>학생 생각함</h4>
+        <p>주소: 충청남도 청양군 학사길 55 충남도립대학교</p>
+        <p>전화: 041-635-0000</p>
+        <p>이메일: admin@cnsu.ac.kr</p>
+      </div>
+      <div class="footer-social">
+        <!-- 소셜 미디어 아이콘 -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 학생 생각함. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <h3 class="modal-title">확인</h3>
+      <p class="modal-message">작성 중인 내용이 모두 삭제됩니다. <br>정말 취소하시겠습니까?</p>
+      <button id="confirmCancel" class="modal-button modal-button-secondary">아니오</button>
+      <button id="confirmOk" class="modal-button modal-button-primary">예</button>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <h3 class="modal-title">성공</h3>
+      <p class="modal-message">게시물이 성공적으로 작성되었습니다!</p>
+      <button id="successOk" class="modal-button modal-button-primary">확인</button>
+    </div>
+  </div>
+
   <script>
+    const titleInput = document.getElementById('title');
+    const titleCharCountSpan = document.getElementById('titleCharCount');
+    const cancelButton = document.getElementById('cancelButton');
+    const fileInput = document.getElementById('file');
+    const fileInputName = document.querySelector('.file-input-name');
+    const confirmModal = document.getElementById('confirmModal');
+    const successModal = document.getElementById('successModal');
+    const confirmCancel = document.getElementById('confirmCancel');
+    const confirmOk = document.getElementById('confirmOk');
+    const successOk = document.getElementById('successOk');
+    const postForm = document.getElementById('postForm');
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    const quickSelectInputs = document.querySelectorAll('input[name="quickSelect"]');
+
+
     const pollContainer = document.getElementById('pollContainer');
     const addPollOptionButton = document.getElementById('addPollOption');
 
+    titleInput.addEventListener('input', updateTitleCharCount);
+
+    function updateTitleCharCount() {
+      const charCount = titleInput.value.length;
+      titleCharCountSpan.textContent = charCount;
+    }
+
+    function showModal(modal) {
+      modal.style.display = 'block';
+    }
+
+    function hideModal(modal) {
+      modal.style.display = 'none';
+    }
+
+    function resetForm() {
+      postForm.reset();
+      titleCharCountSpan.textContent = '0';
+      fileInputName.textContent = '선택된 파일 없음';
+      startDateInput.value = new Date().toISOString().split('T')[0];
+      endDateInput.value = '';
+      quickSelectInputs.forEach(input => input.checked = false);
+    }
+
+    // 오늘 날짜 설정
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0];
+    startDateInput.min = todayString;
+    endDateInput.min = todayString;
+    startDateInput.value = todayString;
+
+    // 날짜 유효성 검사 및 자동 조정 함수
+    function validateAndAdjustDates() {
+      const startDate = new Date(startDateInput.value);
+      const endDate = new Date(endDateInput.value);
+
+      if (endDate < startDate) {
+        endDateInput.value = startDateInput.value;
+      }
+    }
+
+    // 시작일 변경 이벤트
+    startDateInput.addEventListener('change', function () {
+      endDateInput.min = this.value;
+      validateAndAdjustDates();
+    });
+
+    // 종료일 변경 이벤트
+    endDateInput.addEventListener('change', validateAndAdjustDates);
+
+    // 빠른 선택 옵션 처리
+    quickSelectInputs.forEach(input => {
+      input.addEventListener('change', function () {
+        const startDate = new Date(startDateInput.value);
+        let endDate = new Date(startDate);
+
+        switch (this.value) {
+          case '2weeks':
+            endDate.setDate(startDate.getDate() + 13); // 14일째 되는 날
+            break;
+          case '1month':
+            endDate.setMonth(startDate.getMonth() + 1);
+            endDate.setDate(startDate.getDate() - 1); // 1달 후 하루 전
+            break;
+          case '2months':
+            endDate.setMonth(startDate.getMonth() + 2);
+            endDate.setDate(startDate.getDate() - 1); // 2달 후 하루 전
+            break;
+        }
+
+        startDateInput.value = startDate.toISOString().split('T')[0];
+        endDateInput.value = endDate.toISOString().split('T')[0];
+      });
+    });
+
+    postForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      console.log('폼 데이터:', Object.fromEntries(formData));
+      showModal(successModal);
+    });
+
+    cancelButton.addEventListener('click', function () {
+      showModal(confirmModal);
+    });
+
+    confirmCancel.addEventListener('click', function () {
+      hideModal(confirmModal);
+    });
+
+    confirmOk.addEventListener('click', function () {
+      resetForm();
+      hideModal(confirmModal);
+
+      window.location.href = "newThinkWrite.html"; // 이동할 페이지의 경로
+
+    });
+
+    successOk.addEventListener('click', function () {
+      resetForm();
+      hideModal(successModal);
+    });
+
+    fileInput.addEventListener('change', function () {
+      if (this.files && this.files[0]) {
+        fileInputName.textContent = this.files[0].name;
+      } else {
+        fileInputName.textContent = '선택된 파일 없음';
+      }
+    });
+
     // 옵션 추가 기능
     addPollOptionButton.addEventListener('click', function () {
-      const pollOptionCount = pollContainer.querySelectorAll('.poll-option-group').length + 1;
+      const pollOptionCount = pollContainer.querySelectorAll('.poll-option-group').length;
+
+      if (pollOptionCount >= 10) {
+        alert('최대 10개까지 가능합니다.');
+        return;
+      }
+
       const newPollOption = document.createElement('div');
       newPollOption.classList.add('poll-option-group');
       newPollOption.innerHTML = `
-        <input type="text" id="pollOption${pollOptionCount}" name="pollOptions[]" placeholder="옵션 ${pollOptionCount}을 입력하세요">
+        <input type="text" id="pollOption${pollOptionCount + 1}" name="pollOptions[]" placeholder="옵션 ${pollOptionCount + 1}을 입력하세요">
         <button type="button" class="remove-option">삭제</button>
       `;
       pollContainer.appendChild(newPollOption);
@@ -378,30 +434,30 @@
       // 삭제 버튼 기능 추가
       newPollOption.querySelector('.remove-option').addEventListener('click', function () {
         pollContainer.removeChild(newPollOption);
+        updateAddButtonState();
       });
+
+      updateAddButtonState();
     });
 
-    // 폼 제출 이벤트 처리
-    const postForm = document.getElementById('postForm');
-    postForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+    // '옵션 추가' 버튼 상태 업데이트 함수
+    function updateAddButtonState() {
+      const pollOptionCount = pollContainer.querySelectorAll('.poll-option-group').length;
+      addPollOptionButton.disabled = pollOptionCount >= 10;
+    }
 
-      // 폼 데이터 수집
-      const formData = new FormData(postForm);
-      const pollQuestion = formData.get('pollQuestion');
-      const pollOptions = formData.getAll('pollOptions[]');
 
-      console.log('제목:', formData.get('title'));
-      console.log('내용:', formData.get('content'));
-      console.log('투표 질문:', pollQuestion);
-      console.log('투표 옵션:', pollOptions);
-
-      // 여기에 서버로 데이터 전송하는 코드를 추가하세요.
-
-      alert('폼 제출 완료');
+    // 옵션 삭제 시 '옵션 추가' 버튼 상태 업데이트
+    pollContainer.addEventListener('click', function (e) {
+      if (e.target.classList.contains('remove-option')) {
+        setTimeout(updateAddButtonState, 0);
+      }
     });
+
+    // 초기 '옵션 추가' 버튼 상태 설정
+    updateAddButtonState();
+
   </script>
-
 </body>
 
 </html>
