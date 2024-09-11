@@ -234,3 +234,15 @@ function register() {
         },
     })
 }
+
+document.getElementById('SC_FD').addEventListener('click', function() {
+    const searchTerm = document.getElementById('SC_TE').value;
+    const popup = window.open(`./SE_FE.html?term=${encodeURIComponent(searchTerm)}`, '_blank', 'width=450,height=650');
+
+    // 팝업 창이 닫힐 때 값을 받아오기 위한 이벤트 리스너
+    window.addEventListener('message', function(event) {
+        if (event.origin === window.location.origin) {
+            document.getElementById('SC_TE').value = event.data;
+        }
+    });
+});
