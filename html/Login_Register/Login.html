@@ -6,50 +6,17 @@
         <title>학생 생각함</title>
         <link rel="stylesheet" href="../../Css/Public.css">
         <link rel="stylesheet" href="../../Css/Login.Css">
+        <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#header").load("../Public/header.html");
+                $("#footer").load("../Public/footer.html");
+            });
+        </script>
     </head>
 
     <body>
-        <!-- 상단 메뉴 -->
-        <div class="top-menu-wrapper">
-            <div class="top-menu">
-                <div class="top-menu-link"><a href="/html/Login_Register/Login.html">로그인</a></div>
-                <div class="top-menu-link"><a href="/html/Login_Register/SignUp.html">회원가입</a></div>
-                <div class="top-menu-link"><a href="#">도움말</a></div>
-            </div>
-        </div>
-
-        <!-- 새로운 메뉴 바 -->
-        <nav class="main-nav">
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#">메뉴 1</a></li>
-                <li class="nav-item"><a href="#">메뉴 2</a></li>
-                <li class="nav-item"><a href="#">메뉴 3</a></li>
-                <li class="nav-item"><a href="#">메뉴 4</a></li>
-            </ul>
-
-            <div class="dropdown-wrapper">
-                <ul class="dropdown-menu">
-                    <li><a href="#">메뉴 1-1</a></li>
-                    <li><a href="#">메뉴 1-2</a></li>
-                    <li><a href="#">메뉴 1-3</a></li>
-                </ul>
-                <ul class="dropdown-menu">
-                    <li><a href="#">메뉴 2-1</a></li>
-                    <li><a href="#">메뉴 2-2</a></li>
-                    <li><a href="#">메뉴 2-3</a></li>
-                </ul>
-                <ul class="dropdown-menu">
-                    <li><a href="#">메뉴 3-1</a></li>
-                    <li><a href="#">메뉴 3-2</a></li>
-                    <li><a href="#">메뉴 3-3</a></li>
-                </ul>
-                <ul class="dropdown-menu">
-                    <li><a href="#">메뉴 4-1</a></li>
-                    <li><a href="#">메뉴 4-2</a></li>
-                    <li><a href="#">메뉴 4-3</a></li>
-                </ul>
-            </div>
-        </nav>
+        <header id="header"></header>
 
         <div class="login-wrapper">
             <h2>Login</h2>
@@ -77,23 +44,7 @@
             </form>
         </div>
 
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="footer-info">
-                    <h4>학생 생각함</h4>
-                    <p>주소: 충청남도 청양군 학사길 55 충남도립대학교</p>
-                    <p>전화: 041-635-0000</p>
-                    <p>이메일: admin@cnsu.ac.kr</p>
-                </div>
-                <div class="footer-social">
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 학생 생각함. All rights reserved.</p>
-            </div>
-        </footer>
-
-        <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+        <footer id="footer"></footer>
         <script type="text/javascript" src="../../JS/Login.js"></script>
     </body>
 
