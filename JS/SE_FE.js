@@ -22,7 +22,15 @@ document.getElementById('searchButton').addEventListener('click', function() {
 document.getElementById('confirmButton').addEventListener('click', function() {
     const selectedValue = document.querySelector('input[name="searchResult"]:checked');
     if (selectedValue) {
-        window.opener.postMessage(selectedValue.value, window.location.origin);
+        console.log(selectedValue);
+        const scId = selectedValue.getAttribute('data-scId');    //attribute에 저장 된 값 불러오기
+        //240912 추가 코드
+        let obj = new Object();
+        obj.scId = scId;
+        obj.value = selectedValue.value;
+        
+        //window.opener.postMessage(selectedValue.value, window.location.origin); //기존 코드
+        window.opener.postMessage(obj, window.location.origin);
         window.close(); // 창을 닫음
     }
 });
@@ -49,6 +57,7 @@ function getlist(searchTerm) {
 }
 
 function displayResults(allResults) {
+    console.log(allResults);
     const resultsContainer = document.getElementById('resultsList');
     const resultsDiv = document.getElementById('resultsContainer');
     resultsContainer.innerHTML = ''; // 기존 결과 초기화
@@ -65,6 +74,7 @@ function displayResults(allResults) {
     filteredResults.forEach((result, index) => {
         if (!result.SC_Name) return; // 'SC_Name' 속성이 없는 경우 추가하지 않음
 
+        console.log(result);
         const listItem = document.createElement('li');
         listItem.className = 'result-box';
         
@@ -73,6 +83,7 @@ function displayResults(allResults) {
         radioInput.name = 'searchResult';
         radioInput.id = `result${index}`;
         radioInput.value = result.SC_Name; // 객체의 'SC_Name' 속성 사용
+        radioInput.setAttribute('data-scId', result.SC_ID); //Attribute에 값 삽입.
         
         const label = document.createElement('label');
         label.setAttribute('for', `result${index}`);

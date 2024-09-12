@@ -8,6 +8,7 @@ const pw = document.getElementById('pw');
 const pwConfirm = document.getElementById('pw-confirm');
 const EMail = document.getElementById('EMail');
 const Phone = document.getElementById('Phone');
+var SC_ID = 0;
 let ID_obj = { };
 let obj = { };
 
@@ -207,6 +208,7 @@ function SignUp() {
             'pw': pw.value,
             'EMail': EMail.value,
             'Phone': Phone.value,
+            'SC_ID' : SC_ID,
             'Birthdate': birthdate,
             'Gender': gender
         };
@@ -224,15 +226,23 @@ function register() {
         dataType: 'json',
         success: function(res) {
             if(res.status == 200) {
-                resu = res.list;
-                loginsuc()
+                registerSuc()
                 
             }
             else if(res.status == 100) {
-                logionfal()
+                registerfal()
             }
         },
     })
+}
+
+function registerSuc() {
+    alert('회원가입 성공')
+    location.href='../../html/main/page.html';
+}
+
+function registerfal() {
+    alert('회원가입 실패')
 }
 
 document.getElementById('SC_FD').addEventListener('click', function() {
@@ -242,7 +252,9 @@ document.getElementById('SC_FD').addEventListener('click', function() {
     // 팝업 창이 닫힐 때 값을 받아오기 위한 이벤트 리스너
     window.addEventListener('message', function(event) {
         if (event.origin === window.location.origin) {
-            document.getElementById('SC_TE').value = event.data;
+            console.log('학교 id: ', event.data.scId)
+            SC_ID = event.data.scId;
+            document.getElementById('SC_TE').value = event.data.value;
         }
     });
 });
