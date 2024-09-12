@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="search1.css">
+    <!-- <link rel="stylesheet" href="search1.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -70,15 +70,394 @@
         .top-btn:hover {
             background-color: #2c6ad4;
         }
+
+        .search-container {
+            width: 100%;
+            max-width: 1200px;
+            /* 최대 너비를 1200px로 설정 */
+            background-color: #f5f7fa;
+            /* 동일한 배경색 */
+            border-radius: 5px;
+            padding: 20px;
+            margin: 0 auto;
+            /* 가운데 정렬 */
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 가로로 가운데 정렬 */
+            background-color: #f5f7fa;
+            padding: 10px;
+            border-radius: 5px;
+            border-bottom: 1px solid #ddd;
+            width: 98%;
+            /* 전체 너비 사용 */
+        }
+
+        .dropdown {
+            height: 40px;
+            width: 200px;
+            padding: 10px;
+            padding-right: 30px;
+            /* 오른쪽 패딩 추가하여 텍스트와 아이콘 사이 간격 확보 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            appearance: none;
+            /* 기본 드롭다운 화살표 제거 */
+            background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><polygon points='0,0 20,0 10,10' fill='%23000'/></svg>");
+            /* 사용자 지정 화살표 추가 */
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            /* 화살표 위치 설정 */
+            background-size: 10px;
+        }
+
+        .input-container {
+            width: 600px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            padding: 0 10px;
+            margin-right: 10px;
+        }
+
+        .search-icon {
+            margin-right: 5px;
+        }
+
+        .search-input {
+            height: 22px;
+            width: 50px;
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            padding: 8px;
+        }
+
+        .search-btn {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .reset-btn {
+            background-color: #ccc;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .settings-btn {
+            background-color: #4a4a4a;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .advanced-settings {
+            background-color: #f5f7fa;
+            padding: 10px;
+            /* 패딩을 20px에서 10px로 줄여서 전체 높이를 줄임 */
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            display: none;
+            pointer-events: none;
+            margin-bottom: -10px;
+            /* 아래 여백을 10px로 조정 */
+        }
+
+        .advanced-settings.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .settings-row {
+
+            margin: 15px;
+
+        }
+
+        /* 그리드에서 각 항목의 배치 설정 */
+        .settings-row:nth-child(1) {
+            grid-column: 1 / 3;
+            /* 첫 번째 줄: 참여 기간 전체 */
+            width: 100%;
+            /* 100% 너비 사용 */
+        }
+
+        .settings-row:nth-child(2) {
+            grid-column: 1 / 3;
+            /* 두 번째 줄: 참여 유형 */
+            width: 70%;
+            /* 100% 너비 사용 */
+        }
+
+        .settings-row:nth-child(3) {
+            grid-column: 3 / 3;
+            /* 두 번째 줄: 상태 */
+        }
+
+        .settings-row:nth-child(4) {
+            grid-column: 3 / 3;
+            /* 세 번째 줄: 등록자 */
+        }
+
+        /* 라벨과 버튼, 인풋 간격 및 정렬 */
+        .settings-row label {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .settings-row input,
+        .settings-row select,
+        .settings-row button {
+            margin-right: 10px;
+        }
+
+        .btn {
+            background-color: #ccc;
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn.active {
+            background-color: #4285f4;
+            /* 선택된 버튼 배경색 */
+            color: white;
+            /* 선택된 버튼 글자색 */
+            border-color: #4285f4;
+            /* 선택된 버튼 테두리 */
+        }
+
+        .settings-row {
+            margin-bottom: 20px;
+        }
+
+        /* 반응형 디자인을 위한 추가 스타일 */
+        @media (max-width: 768px) {
+            .advanced-settings {
+                grid-template-columns: 1fr;
+                /* 작은 화면에서는 한 줄씩 정렬 */
+            }
+
+            .settings-row:nth-child(1),
+            .settings-row:nth-child(2),
+            .settings-row:nth-child(3),
+            .settings-row:nth-child(4) {
+                grid-column: 1 / 2;
+                /* 모든 항목을 한 줄로 */
+            }
+        }
+
+        .rpi-container {
+            width: 100%;
+            max-width: 1200px;
+            /* 최대 너비 1200px로 제한 */
+            margin: 0 auto;
+            /* 가운데 정렬 */
+            padding: 0;
+        }
+
+        .result-info {
+            font-size: 14px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 10px;
+        }
+
+        .total-count {
+            color: #333;
+        }
+
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .divider {
+            margin: 0 10px;
+            color: #ccc;
+        }
+
+        .dropdown {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .dropdown-text {
+            margin-right: 5px;
+        }
+
+        .dropdown-arrow {
+            color: teal;
+            font-size: 12px;
+        }
+
+        .sort-option {
+            cursor: pointer;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin: 0 auto;
+            /* 가운데 정렬 */
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .type-tag {
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 10px 0;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .author,
+        .date {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .card-footer span {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .card-footer span:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 1px;
+            background-color: #eee;
+        }
+
+        .card-footer i {
+            margin-right: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .participants i {
+            color: #007bff;
+        }
+
+        .likes i {
+            color: #dc3545;
+        }
+
+        .dislikes i {
+            color: #6c757d;
+        }
+
+        .comments i {
+            color: #4CAF50;
+        }
+
+        .participants i:hover,
+        .likes i:hover,
+        .dislikes i:hover,
+        .comments i:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .new-content {
+            animation: pulse 2s infinite;
+        }
     </style>
 
 </head>
 
-
-
-
 <body>
-
 
     <div class="search-container">
         <div class="search-bar">
@@ -93,49 +472,48 @@
                 <input type="text" class="search-input" placeholder="검색어를 입력해주십시오">
             </div>
             <div class="button_group">
-
                 <button class="search-btn">검색</button>
                 <button class="reset-btn">초기화</button>
                 <button class="settings-btn" onclick="toggleSettings()">상세설정 &#9660;</button>
-
             </div>
-
         </div>
 
         <!-- 상세설정 섹션 -->
         <div id="advanced-settings" class="advanced-settings">
+
             <div class="settings-row">
                 <label>참여기간</label>
-                <input type="date" value="2023-09-11">
+                <input type="date" id="startDate" value="2023-09-11">
                 ~
-                <input type="date" value="2024-09-11">
-                <input type="radio" name="period" value="2주일"> 2주일
-                <input type="radio" name="period" value="1개월"> 1개월
-                <input type="radio" name="period" value="2개월"> 2개월
+                <input type="date" id="endDate" value="2024-09-11">
+                <input type="radio" name="period" value="2주일" onclick="setStartDate(14)"> 2주일
+                <input type="radio" name="period" value="1개월" onclick="setStartDate(30)"> 1개월
+                <input type="radio" name="period" value="2개월" onclick="setStartDate(60)"> 2개월
             </div>
 
-            <div class="settings-row">
+
+
+            <div class="settings-row btn-group" data-group="type">
                 <label>참여유형</label>
-                <button class="btn">전체</button>
-                <button class="btn">대화</button>
-                <button class="btn">투표</button>
-                <button class="btn">설문</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'type')">전체</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'type')">대화</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'type')">투표</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'type')">설문</button>
             </div>
 
-            <div class="settings-row">
-                <label>등록자</label>&nbsp;&nbsp;&nbsp;
-                <button class="btn">전체</button>
-                <button class="btn">학생</button>
-                <button class="btn">학교</button>
+            <div class="settings-row btn-group" data-group="author">
+                <label>등록자</label>
+                <button class="btn" onclick="handleGroupSelection(this, 'author')">전체</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'author')">학생</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'author')">학교</button>
             </div>
 
-            <div class="settings-row">
-                <label>상태</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="btn">전체</button>
-                <button class="btn">진행중</button>
-                <button class="btn">완료</button>
+            <div class="settings-row btn-group" data-group="status">
+                <label>상태</label>
+                <button class="btn" onclick="handleGroupSelection(this, 'status')">전체</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'status')">진행중</button>
+                <button class="btn" onclick="handleGroupSelection(this, 'status')">완료</button>
             </div>
-
         </div>
     </div>
 
@@ -160,26 +538,62 @@
             <div class="card-container" id="card-container"></div>
         </div>
 
-
-
-
-
-
-
         <!-- 페이지네이션 버튼 -->
         <ul class="pagination" id="pagination"></ul>
 
         <!-- 상단으로 이동 버튼 -->
         <button class="top-btn" id="topBtn" onclick="scrollToTop()">↑</button>
     </div>
-    <!-- 페이지네이션 버튼 -->
-    <ul class="pagination" id="pagination"></ul>
-
-    <!-- 상단으로 이동 버튼 -->
-    <button class="top-btn" id="topBtn" onclick="scrollToTop()">↑</button>
-
 
     <script>
+
+        // 각각의 섹션에 클릭 이벤트 리스너 추가
+        document.querySelectorAll('.settings-row').forEach((row, index) => {
+            row.querySelectorAll('.btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    let section = '';
+                    if (index === 1) section = '참여유형';
+                    else if (index === 2) section = '등록자';
+                    else if (index === 3) section = '상태';
+                    console.log(`${section}에서 ${button.textContent} 버튼이 눌렸습니다.`);
+                });
+            });
+        });
+
+
+        // 날짜 계산 함수
+        function setStartDate(daysAgo) {
+            // 종료일을 기준으로 daysAgo 만큼 전의 날짜를 구함
+            const endDate = new Date(document.getElementById('endDate').value);
+            if (isNaN(endDate.getTime())) {
+                alert("유효한 종료 날짜를 선택해 주세요.");
+                return;
+            }
+
+            const startDate = new Date(endDate);
+            startDate.setDate(endDate.getDate() - daysAgo);
+
+            // 계산한 시작 날짜를 startDate input에 반영
+            document.getElementById('startDate').valueAsDate = startDate;
+        }
+
+        // 종료 날짜 변경 시, 시작 날짜 업데이트
+        function updateStartDate() {
+            const selectedPeriod = document.querySelector('input[name="period"]:checked');
+            if (selectedPeriod) {
+                const daysAgo = parseInt(selectedPeriod.value);
+                setStartDate(daysAgo);
+            }
+        }
+        // 각 그룹별로 하나의 버튼만 선택되도록 설정하는 함수
+        function handleGroupSelection(clickedBtn, group) {
+            // 해당 그룹 내에서 모든 버튼의 active 클래스를 제거
+            const buttons = document.querySelectorAll(`[data-group="${group}"] .btn`);
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // 클릭된 버튼에만 active 클래스를 추가
+            clickedBtn.classList.add('active');
+        }
 
         document.querySelector('.settings-btn').addEventListener('click', function () {
             var advancedSettings = document.querySelector('.advanced-settings');
@@ -198,8 +612,6 @@
                 }, 10);  // 애니메이션 적용을 위한 약간의 지연 시간
             }
         });
-
-
 
         // 카드 데이터 (100개 예시)
         const cards = [];
@@ -221,52 +633,63 @@
         let currentPage = 1;
 
         function displayCards(page) {
-            const cardContainer = document.getElementById('card-container');
-            cardContainer.style.opacity = 0;
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.style.opacity = 0;
 
-            const startIndex = (page - 1) * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, cards.length);
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, cards.length);
 
-            cardContainer.innerHTML = ''; // 기존 카드 제거
-            for (let i = startIndex; i < endIndex; i++) {
-                const cardHTML = `
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="type-tag">${cards[i].type}</span>
-                            <span class="new-content" style="color: #4CAF50; font-weight: 500;">New</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">${cards[i].title}</h3>
-                            <p class="author">${cards[i].author}</p>
-                            <p class="date">${cards[i].date}</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="participants">
-                                <i class="fa fa-user"></i>
-                                <span>${cards[i].participants}</span>
-                            </span>
-                            <span class="likes">
-                                <i class="fa fa-thumbs-up"></i>
-                                <span>${cards[i].likes}</span>
-                            </span>
-                            <span class="dislikes">
-                                <i class="fa fa-thumbs-down"></i>
-                                <span>${cards[i].dislikes}</span>
-                            </span>
-                            <span class="comments">
-                                <i class="fa fa-comment"></i>
-                                <span>${cards[i].comments}</span>
-                            </span>
-                        </div>
-                    </div>
-                `;
-                cardContainer.innerHTML += cardHTML;
-            }
+    cardContainer.innerHTML = ''; // 기존 카드 제거
+    for (let i = startIndex; i < endIndex; i++) {
+        const cardHTML = `
+            <div class="card" data-index="${i}">
+                <div class="card-header">
+                    <span class="type-tag">${cards[i].type}</span>
+                    <span class="new-content" style="color: #4CAF50; font-weight: 500;">New</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">${cards[i].title}</h3>
+                    <p class="author">${cards[i].author}</p>
+                    <p class="date">${cards[i].date}</p>
+                </div>
+                <div class="card-footer">
+                    <span class="participants">
+                        <i class="fa fa-user"></i>
+                        <span>${cards[i].participants}</span>
+                    </span>
+                    <span class="likes">
+                        <i class="fa fa-thumbs-up"></i>
+                        <span>${cards[i].likes}</span>
+                    </span>
+                    <span class="dislikes">
+                        <i class="fa fa-thumbs-down"></i>
+                        <span>${cards[i].dislikes}</span>
+                    </span>
+                    <span class="comments">
+                        <i class="fa fa-comment"></i>
+                        <span>${cards[i].comments}</span>
+                    </span>
+                </div>
+            </div>
+        `;
+        cardContainer.innerHTML += cardHTML;
+    }
 
-            setTimeout(() => {
-                cardContainer.style.opacity = 1;
-            }, 100); // 애니메이션 효과
-        }
+    // 카드에 클릭 이벤트 리스너 추가
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach(card => {
+        card.addEventListener('click', function () {
+            const cardIndex = this.getAttribute('data-index');
+            const cardTitle = cards[cardIndex].title;
+            console.log(`Card clicked: ${cardTitle}`);
+            // 원하는 다른 동작을 여기에 추가하세요.
+        });
+    });
+
+    setTimeout(() => {
+        cardContainer.style.opacity = 1;
+    }, 100); // 애니메이션 효과
+}
 
         function displayPagination() {
             const pagination = document.getElementById('pagination');
@@ -332,8 +755,6 @@
             document.getElementById('current-page-info').innerText = `현재 페이지: ${currentPage} / ${totalPages}`;
         }
 
-
-
         function updateDisplay() {
             displayCards(currentPage);
             displayPagination();
@@ -354,8 +775,6 @@
 
         // 초기 로드 시 실행
         updateDisplay();
-
-
 
 
 
