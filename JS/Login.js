@@ -90,7 +90,6 @@ function loginsuc() {
   localStorage.setItem('Name', resu[0]["Name"]);
   localStorage.setItem('Profile_Image', resu[0]["Profile_Image"]);
   
-
   location.href='../../html/main/page.html';
 }
 
