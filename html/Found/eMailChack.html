@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이메일 체크</title>
+    <link rel="stylesheet" href="../../Css/find.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="tabs">
+        <div id="find-id-tab" class="tab">아이디 찾기</div>
+        <div id="find-pw-tab" class="tab active">비밀번호 찾기</div>
+    </div>
+    <div id="find-id-content">
+        <div class="input-group">
+            <div class="input-wrapper">
+                <input type="text" id="input-field" placeholder="가입된 이메일">
+                <input type="button" id="check-email-button" value="확인">
+            </div>
+        </div>
+        <div id="new-field-container"></div> <!-- 새 입력 칸이 추가될 영역 -->
+        <div id="timer"></div> <!-- 타이머 표시 영역 -->
+        <div class="error-message" id="error-message"></div>
+        <button id="find-pw-button">이메일 확인</button>
+    </div>
+</div>
+
+<script>
+    const inputField = document.getElementById('input-field');
+    const checkEmailButton = document.getElementById('check-email-button');
+    const errorMessage = document.getElementById('error-message');
+    const newFieldContainer = document.getElementById('new-field-container');
+    const timerElement = document.getElementById('timer');
+
+    function redirectToFindId() {
+        window.location.href = 'id.html';
+    }
+
+    document.getElementById('find-id-tab').addEventListener('click', redirectToFindId);
+
+    checkEmailButton.addEventListener('click', () => {
+        const emailValue = inputField.value.trim();
+
+        if (emailValue === '') {
+            errorMessage.textContent = '이메일을 입력해 주세요';
+            errorMessage.style.display = 'block';
+        }else if (!emailValue.includes('@')) {
+            errorMessage.textContent = '유효한 이메일 주소를 입력해 주세요';
+            errorMessage.style.display = 'block';
+        }else {
+            // 이메일 입력이 유효할 경우
+            errorMessage.style.display = 'none';
+            inputField.disabled = true; // 이메일 입력 필드를 비활성화
+            checkEmailButton.style.display = 'none';
+
+            // 새 입력란 추가
+            if (!document.getElementById('new-field')) {
+                const newField = document.createElement('div');
+                newField.classList.add('input-group');
+                newField.innerHTML = '<input type="text" id="new-field" placeholder="새로운 입력란">';
+                newFieldContainer.appendChild(newField);
+
+                // 타이머 시작
+                startTimer(180); // 3분(180초) 타이머 시작
+            }
+            alert('메일함을 확인해 주세요');
+        }
+    });
+
+    // 타이머 함수
+    function startTimer(duration) {
+        let timeRemaining = duration;
+        const timerInterval = setInterval(() => {
+            let minutes = Math.floor(timeRemaining / 60);
+            let seconds = timeRemaining % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            timerElement.textContent = `남은 시간: ${minutes}:${seconds}`;
+            timeRemaining--;
+
+            if (timeRemaining < 0) {
+                clearInterval(timerInterval);
+                timerElement.textContent = '시간이 만료되었습니다.';
+                document.getElementById('new-field').disabled = true; // 새 입력란 비활성화
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
