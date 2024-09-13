@@ -54,7 +54,7 @@ function Login_Button() {
 
 function loginch() {
   $.ajax({
-      url: 'http://localhost:3000/Login',
+      url: 'http://218.158.137.183:8080/Login',
       type: 'get',    //default는 get이기 때문에 생략 가능.
       data: obj,
       dataType: 'json',
@@ -88,6 +88,7 @@ function loginsuc() {
   }
   localStorage.setItem('SC_ID', resu[0]["SC_ID"]);
   localStorage.setItem('Name', resu[0]["Name"]);
+  localStorage.setItem('Profile_Image', resu[0]["Profile_Image"]);
   
 
   location.href='../../html/main/page.html';
