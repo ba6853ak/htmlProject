@@ -38,7 +38,7 @@ document.getElementById('confirmButton').addEventListener('click', function() {
 // 서버로부터 데이터를 가져오는 함수
 function getlist(searchTerm) {
     $.ajax({
-        url: 'http://localhost:3000/SE_SC',
+        url: 'http://218.158.137.183:8080/SE_SC',
         type: 'get',
         data: { 'SC': searchTerm },
         dataType: 'json',
