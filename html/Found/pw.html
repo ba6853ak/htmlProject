@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>비밀번호 찾기</title>
-    <link rel="stylesheet" href="../../Css/find.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../Css/Found/find.css" />
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
+    </script>
+  </head>
 
-<div class="container">
-    <div class="tabs">
+  <body>
+    <header id="header"></header>
+
+    <div class="container">
+      <div class="tabs">
         <div id="find-id-tab" class="tab">아이디 찾기</div>
         <div id="find-pw-tab" class="tab active">비밀번호 찾기</div>
-    </div>
-    <div id="find-pw-content">
+      </div>
+      <div id="find-pw-content">
         <div class="input-group">
-            <input type="text" id="input-field" placeholder="가입된 아이디">
+          <input type="text" id="input-field" placeholder="가입된 아이디" />
         </div>
         <div class="error-message" id="error-message"></div>
         <button id="find-pw-button">비밀번호 찾기</button>
+      </div>
     </div>
-</div>
 
-<script>
-    const inputField = document.getElementById('input-field');
-    const findPwButton = document.getElementById('find-pw-button');
-    const errorMessage = document.getElementById('error-message');
-
-    function redirectToFindId() {
-        window.location.href = 'id.html';
-    }
-
-    document.getElementById('find-id-tab').addEventListener('click', redirectToFindId);
-
-    findPwButton.addEventListener('click', () => {
-        if (inputField.value.trim() === '') {
-            errorMessage.textContent = '아이디를 입력해 주세요';
-            errorMessage.style.display = 'block';
-        } else {
-            errorMessage.style.display = 'none';
-            alert('비밀번호 찾기 버튼이 클릭되었습니다!');
-            // 비밀번호 찾기 관련 로직 추가
-        }
-    });
-</script>
-
-</body>
+    <footer id="footer"></footer>
+    <script type="text/javascript" src="../../JS/Found/PW.js"></script>
+  </body>
 </html>
