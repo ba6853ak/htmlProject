@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>학생 생각함</title>
-        <link rel="stylesheet" href="../../Css/Public.css">
-        <link rel="stylesheet" href="../../Css/Login.Css">
-        <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#header").load("../Public/header.html");
-                $("#footer").load("../Public/footer.html");
-            });
-        </script>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학생 생각함</title>
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
+    <link rel="stylesheet" href="../../Css/Login_Register/Login.Css" />
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
+    </script>
+  </head>
 
-    <body>
-        <header id="header"></header>
+  <body>
+    <header id="header"></header>
 
-        <div class="login-wrapper">
-            <h2>Login</h2>
-            <form method="post" action="서버의url" id="login-form">
-                <div>
-                    <input id="ID_Input" type="text" name="userName" placeholder="ID" class="ID_Input" />
-                </div>
-                <div style="display: flex">
-                    <input type="password" name="userPassword" id="PW_Input" placeholder="Password" class="PW_Input" />
-                    <button type="button" onclick="togglePasswordVisibility()" class="toggle-button" id="found">
-                        보기
-                    </button>
-                </div>
-                <label for="remember-check">
-                    <input type="checkbox" id="remember-ID" />
-                    <label for="remember-ID" style="margin-left: -20px; margin-right: 30px">
-                        아이디 저장하기
-                    </label>
-                    <input type="checkbox" id="Auto-Login" />
-                    <label for="Auto-Login" style="margin-left: -20px">
-                        자동 로그인
-                    </label>
-                </label>
-                <input type="button" value="로그인" onclick="Login_Button()" />
-            </form>
+    <div class="login-wrapper">
+      <h2>Login</h2>
+      <form method="post" action="서버의url" id="login-form">
+        <div>
+          <input
+            id="ID_Input"
+            type="text"
+            name="userName"
+            placeholder="ID"
+            class="ID_Input"
+          />
         </div>
+        <div style="display: flex">
+          <input
+            type="password"
+            name="userPassword"
+            id="PW_Input"
+            placeholder="Password"
+            class="PW_Input"
+          />
+          <button
+            type="button"
+            onclick="togglePasswordVisibility()"
+            class="toggle-button"
+            id="found"
+          >
+            보기
+          </button>
+        </div>
+        <label for="remember-check">
+          <input type="checkbox" id="remember-ID" />
+          <label
+            for="remember-ID"
+            style="margin-left: -20px; margin-right: 30px"
+          >
+            아이디 저장하기
+          </label>
+          <input type="checkbox" id="Auto-Login" />
+          <label for="Auto-Login" style="margin-left: -20px">
+            자동 로그인
+          </label>
+        </label>
+        <input type="button" value="로그인" onclick="Login_Button()" />
+        <input type="button" value="ID/PW 찾기" onclick="IDPW_Found()" />
+      </form>
+    </div>
 
-        <footer id="footer"></footer>
-        <script type="text/javascript" src="../../JS/Login.js"></script>
-    </body>
-
+    <footer id="footer"></footer>
+    <script
+      type="text/javascript"
+      src="../../JS/Login_Register/Login.js"
+    ></script>
+  </body>
 </html>

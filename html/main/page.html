@@ -1,182 +1,163 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>학생 생각함</title>
-    <link rel="stylesheet" href="../../Css/Public.css">
-    <link rel="stylesheet" href="../../Css/Page.css">
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
+    <link rel="stylesheet" href="../../Css/main/Page.css" />
     <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#header").load("../Public/header.html");
-            $("#footer").load("../Public/footer.html");
-        });
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
     </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header id="header"></header>
 
-    
     <!-- 슬라이더 추가 -->
     <div class="slider-container">
-        <div class="slider">
-            <div class="slide slide1">슬라이드 1: 국민을 위한 서비스</div>
-            <div class="slide slide2">슬라이드 2: 공공 정보 제공</div>
-            <div class="slide slide3">슬라이드 3: 쉽게 접근 가능한 플랫폼</div>
-            <div class="slide slide4">슬라이드 4: 안전한 서비스 제공</div>
-        </div>
+      <div class="slider">
+        <div class="slide slide1">슬라이드 1: 국민을 위한 서비스</div>
+        <div class="slide slide2">슬라이드 2: 공공 정보 제공</div>
+        <div class="slide slide3">슬라이드 3: 쉽게 접근 가능한 플랫폼</div>
+        <div class="slide slide4">슬라이드 4: 안전한 서비스 제공</div>
+      </div>
 
-        <div class="controls">
-            <button class="control-btn" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="control-btn" onclick="moveSlide(1)">&#10095;</button>
-        </div>
+      <div class="controls">
+        <button class="control-btn" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="control-btn" onclick="moveSlide(1)">&#10095;</button>
+      </div>
 
-        <div class="dots">
-            <span class="dot" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
+      <div class="dots">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
     </div>
 
     <!-- Shortcut 메뉴 -->
     <div class="shortcut-wrap">
-        <div class="shortcut-menu">
-            <div class="shortcut-item">
-                <a href="#">생각쓰기</a>
-            </div>
-            <div class="separator"></div>
-            <div class="shortcut-item">
-                <a href="#">생각모음</a>
-            </div>
-            <div class="separator"></div>
-            <div class="shortcut-item">
-                <a href="#">생각실현</a>
-            </div>
-            <div class="separator"></div>
-            <div class="shortcut-item">
-                <a href="#">생각소개</a>
-            </div>
+      <div class="shortcut-menu">
+        <div class="shortcut-item">
+          <a href="#">생각쓰기</a>
         </div>
+        <div class="separator"></div>
+        <div class="shortcut-item">
+          <a href="#">생각모음</a>
+        </div>
+        <div class="separator"></div>
+        <div class="shortcut-item">
+          <a href="#">생각실현</a>
+        </div>
+        <div class="separator"></div>
+        <div class="shortcut-item">
+          <a href="#">생각소개</a>
+        </div>
+      </div>
     </div>
-
 
     <!-- 검색창 -->
     <div class="search-wrap">
-        <div class="search-container">
-            <span class="search-label">생각열기</span>
-            <input type="text" placeholder="찾으시는 검색어를 입력하세요.">
-            <button type="submit">검색</button>
-        </div>
+      <div class="search-container">
+        <span class="search-label">생각열기</span>
+        <input type="text" placeholder="찾으시는 검색어를 입력하세요." />
+        <button type="submit">검색</button>
+      </div>
     </div>
 
     <!-- "오늘의 생각" 추가 -->
     <div class="wrapper">
-        <!-- 첫 번째 박스 -->
-        <div class="container">
-            <div class="header">
-                <h2>오늘의 생각</h2>
-                <button><span>학생</span>+</button>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">인천신현고등학교 근처 쓰레기</div>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">불법외국인 소득세 추징과 퇴직</div>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">오해마세요!!!</div>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">특수학교내 CCTV설치</div>
-            </div>
+      <!-- 첫 번째 박스 -->
+      <div class="container">
+        <div class="header">
+          <h2>오늘의 생각</h2>
+          <button><span>학생</span>+</button>
         </div>
 
-
-
-        <!-- 두 번째 박스 -->
-        <div class="container">
-            <div class="header">
-                <h2>오늘의 생각</h2>
-                <button><span>학교</span>+</button>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">국군의날 임시 공휴일에 대하여</div>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">광양시 의견을 듣고싶어요</div>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">교통문제에 대한 생각</div>
-            </div>
-
-            <div class="list-item">
-                <div class="tag">대화</div>
-                <div class="text">환경보호를 위한 아이디어</div>
-            </div>
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">인천신현고등학교 근처 쓰레기</div>
         </div>
+
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">불법외국인 소득세 추징과 퇴직</div>
+        </div>
+
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">오해마세요!!!</div>
+        </div>
+
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">특수학교내 CCTV설치</div>
+        </div>
+      </div>
+
+      <!-- 두 번째 박스 -->
+      <div class="container">
+        <div class="header">
+          <h2>오늘의 생각</h2>
+          <button><span>학교</span>+</button>
+        </div>
+
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">국군의날 임시 공휴일에 대하여</div>
+        </div>
+
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">광양시 의견을 듣고싶어요</div>
+        </div>
+
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">교통문제에 대한 생각</div>
+        </div>
+
+        <div class="list-item">
+          <div class="tag">대화</div>
+          <div class="text">환경보호를 위한 아이디어</div>
+        </div>
+      </div>
     </div>
 
-    <div class="noticeandbutton">
-
-
-
-
-
-    </div>
+    <div class="noticeandbutton"></div>
 
     <!-- 공지함을 첫 번째 박스 아래에 배치 -->
     <div class="notice-container-wrap">
-        <div class="notice-container">
-            <div class="icon">🔔</div>
-            <div class="notice-title">공지함</div>
-            <div class="notice-content">
-                <div class="notice-items" id="noticeItems">
-                    <div class="notice-item">상금 소득에 대한 세금 기준 안내</div>
-                    <div class="notice-item">새로운 학기 등록 안내</div>
-                    <div class="notice-item">졸업 프로젝트 제출 기한 안내</div>
-                    <div class="notice-item">학과 세미나 참여 안내</div>
-                    <div class="notice-item">컴퓨터 과학과 워크숍 일정 공지</div>
-                </div>
-            </div>
-            <div class="arrow">
-                <span id="upArrow">▲</span>
-                <span id="downArrow">▼</span>
-            </div>
+      <div class="notice-container">
+        <div class="icon">🔔</div>
+        <div class="notice-title">공지함</div>
+        <div class="notice-content">
+          <div class="notice-items" id="noticeItems">
+            <div class="notice-item">상금 소득에 대한 세금 기준 안내</div>
+            <div class="notice-item">새로운 학기 등록 안내</div>
+            <div class="notice-item">졸업 프로젝트 제출 기한 안내</div>
+            <div class="notice-item">학과 세미나 참여 안내</div>
+            <div class="notice-item">컴퓨터 과학과 워크숍 일정 공지</div>
+          </div>
         </div>
-
-        <div class="button-container">
-            <a href="#" class="button button-usage">
-                이용안내
-            </a>
-            <a href="#" class="button button-card">
-                생각카드
-            </a>
+        <div class="arrow">
+          <span id="upArrow">▲</span>
+          <span id="downArrow">▼</span>
         </div>
+      </div>
 
+      <div class="button-container">
+        <a href="#" class="button button-usage"> 이용안내 </a>
+        <a href="#" class="button button-card"> 생각카드 </a>
+      </div>
     </div>
-
 
     <footer id="footer"></footer>
     <script type="text/javascript" src="../../JS/page.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,125 +1,154 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>회원가입</title>
-        <link rel="stylesheet" href="../../Css/Public.css">
-        <link rel="stylesheet" href="../../Css/SignUp.css">
-        <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#header").load("../Public/header.html");
-                $("#footer").load("../Public/footer.html");
-            });
-        </script>
-    </head>
-    <body>
-        <header id="header"></header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
+    <link rel="stylesheet" href="../../Css/Login_Register/SignUp.css" />
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
+    </script>
+  </head>
+  <body>
+    <header id="header"></header>
 
-        <div class="container">
-            <div class="header-section">
-                <h3>회원정보 입력</h3>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="Name">이름</label>
-                <input type="text" id="Name" placeholder="이름을 입력하세요">
-            </div>
+    <div class="container">
+      <div class="header-section">
+        <h3>회원정보 입력</h3>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="Name">이름</label>
+        <input type="text" id="Name" placeholder="이름을 입력하세요" />
+      </div>
 
-            <div class="form-group">
-                <label for="ID">아이디</label>
-                <input type="text" id="ID" placeholder="아이디를 입력하세요">
-                &nbsp;&nbsp;&nbsp;<button class="submit-btn" onclick="ID_Check()">ID 중복확인</button><p class="small-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;영어 소문자와 숫자만 입력 가능하며, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4~12자로 제한됩니다.</p>
-            </div>
+      <div class="form-group">
+        <label for="ID">아이디</label>
+        <input type="text" id="ID" placeholder="아이디를 입력하세요" />
+        &nbsp;&nbsp;&nbsp;<button class="submit-btn" onclick="ID_Check()">
+          ID 중복확인
+        </button>
+        <p class="small-text">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;영어 소문자와 숫자만 입력
+          가능하며, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4~12자로
+          제한됩니다.
+        </p>
+      </div>
 
-            <div class="form-group">
-                <label for="pw">비밀번호</label>
-                <input type="password" id="pw" placeholder="비밀번호를 입력하세요">
-                <p class="small-text">&nbsp;&nbsp;&nbsp;영문 대소문자, 숫자, 특수문자를 포함해 10~20자로 입력하세요.</p>
-            </div>
+      <div class="form-group">
+        <label for="pw">비밀번호</label>
+        <input type="password" id="pw" placeholder="비밀번호를 입력하세요" />
+        <p class="small-text">
+          &nbsp;&nbsp;&nbsp;영문 대소문자, 숫자, 특수문자를 포함해 10~20자로
+          입력하세요.
+        </p>
+      </div>
 
-            <div class="form-group">
-                <label for="pw-confirm">비밀번호 확인</label>
-                <input type="password" id="pw-confirm" placeholder="비밀번호를 다시 입력하세요">
-            </div>
+      <div class="form-group">
+        <label for="pw-confirm">비밀번호 확인</label>
+        <input
+          type="password"
+          id="pw-confirm"
+          placeholder="비밀번호를 다시 입력하세요"
+        />
+      </div>
 
-            <div class="form-group">
-                <label for="EMail">이메일</label>
-                <input type="email" id="EMail" placeholder="이메일을 입력하세요">
-                <p class="small-text">&nbsp;&nbsp;&nbsp;이메일 형식에 맞게 입력하세요.</p>
-            </div>
+      <div class="form-group">
+        <label for="EMail">이메일</label>
+        <input type="email" id="EMail" placeholder="이메일을 입력하세요" />
+        <p class="small-text">
+          &nbsp;&nbsp;&nbsp;이메일 형식에 맞게 입력하세요.
+        </p>
+      </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="Phone">휴대전화</label>
-                    <input type="text" id="Phone" placeholder="휴대전화번호">
-                    <p class="small-text">&nbsp;&nbsp;&nbsp;하이픈(-)을 제외하고 입력하세요.</p>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="SC_TE">학교</label>
-                    <input type="text" id="SC_TE" placeholder="학교를 선택하세요" disabled>
-                    &nbsp;&nbsp;&nbsp;<button class="submit-btn" id="SC_FD">학교 검색</button>
-                </div>
-            </div>
-
-            <!-- 생년월일을 드롭다운으로 선택할 수 있도록 구현 -->
-            <div class="form-group">
-                <label for="birth-year">생년월일</label>
-                <select id="birth-year">
-                    <option value="">년도</option>
-                    <script>
-                        const yearSelect = document.getElementById("birth-year");
-                        const currentYear = new Date().getFullYear();
-                        for (let year = currentYear; year >= 1900; year--) {
-                            const option = document.createElement("option");
-                            option.value = year;
-                            option.textContent = year + "년";
-                            yearSelect.appendChild(option);
-                        }
-                    </script>
-                </select>
-
-                <select id="birth-month">
-                    <option value="">월</option>
-                    <option value="1">1월</option>
-                    <option value="2">2월</option>
-                    <option value="3">3월</option>
-                    <option value="4">4월</option>
-                    <option value="5">5월</option>
-                    <option value="6">6월</option>
-                    <option value="7">7월</option>
-                    <option value="8">8월</option>
-                    <option value="9">9월</option>
-                    <option value="10">10월</option>
-                    <option value="11">11월</option>
-                    <option value="12">12월</option>
-                </select>
-
-                <select id="birth-day">
-                    <option value="">일</option>
-                </select>
-            </div>
-
-            <!-- 성별 토글 버튼 -->
-            <div class="form-group">
-                <label for="gender">성별</label>
-                <div class="toggle-container">
-                    <div class="toggle-button" onclick="selectGender('male')">남성</div>
-                    <div class="toggle-button" onclick="selectGender('female')">여성</div>
-                </div>
-            </div>
-            <div class="form-group1">
-                <button class="submit-btn" onclick="SignUp()">회원가입</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="submit-btn" onclick="clear()">다시 작성</button>
-            </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="Phone">휴대전화</label>
+          <input type="text" id="Phone" placeholder="휴대전화번호" />
+          <p class="small-text">
+            &nbsp;&nbsp;&nbsp;하이픈(-)을 제외하고 입력하세요.
+          </p>
         </div>
+      </div>
 
-        <footer id="footer"></footer>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="SC_TE">학교</label>
+          <input
+            type="text"
+            id="SC_TE"
+            placeholder="학교를 선택하세요"
+            disabled
+          />
+          &nbsp;&nbsp;&nbsp;<button class="submit-btn" id="SC_FD">
+            학교 검색
+          </button>
+        </div>
+      </div>
 
-        <script type="text/javascript" src="../../JS/SignUp.js"></script>
-    </body>
+      <!-- 생년월일을 드롭다운으로 선택할 수 있도록 구현 -->
+      <div class="form-group">
+        <label for="birth-year">생년월일</label>
+        <select id="birth-year">
+          <option value="">년도</option>
+          <script>
+            const yearSelect = document.getElementById("birth-year");
+            const currentYear = new Date().getFullYear();
+            for (let year = currentYear; year >= 1900; year--) {
+              const option = document.createElement("option");
+              option.value = year;
+              option.textContent = year + "년";
+              yearSelect.appendChild(option);
+            }
+          </script>
+        </select>
+
+        <select id="birth-month">
+          <option value="">월</option>
+          <option value="1">1월</option>
+          <option value="2">2월</option>
+          <option value="3">3월</option>
+          <option value="4">4월</option>
+          <option value="5">5월</option>
+          <option value="6">6월</option>
+          <option value="7">7월</option>
+          <option value="8">8월</option>
+          <option value="9">9월</option>
+          <option value="10">10월</option>
+          <option value="11">11월</option>
+          <option value="12">12월</option>
+        </select>
+
+        <select id="birth-day">
+          <option value="">일</option>
+        </select>
+      </div>
+
+      <!-- 성별 토글 버튼 -->
+      <div class="form-group">
+        <label for="gender">성별</label>
+        <div class="toggle-container">
+          <div class="toggle-button" onclick="selectGender('male')">남성</div>
+          <div class="toggle-button" onclick="selectGender('female')">여성</div>
+        </div>
+      </div>
+      <div class="form-group1">
+        <button class="submit-btn" onclick="SignUp()">회원가입</button
+        >&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="submit-btn" onclick="clear()">다시 작성</button>
+      </div>
+    </div>
+
+    <footer id="footer"></footer>
+
+    <script
+      type="text/javascript"
+      src="../../JS/Login_Register/SignUp.js"
+    ></script>
+  </body>
 </html>
