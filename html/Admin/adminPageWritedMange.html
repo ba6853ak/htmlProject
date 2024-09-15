@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 및 댓글 관리</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Css/introduce.css">
+    <link rel="stylesheet" href="../../Css/Public/Public.css">
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#header").load("../Public/header.html");
+            $("#footer").load("../Public/footer.html");
+
+            // 탭 전환 스크립트
+            $(".tab-link").click(function() {
+                var target = $(this).attr("data-target");
+
+                // 모든 탭 콘텐츠 숨기기
+                $(".tab-content").hide();
+
+                // 클릭한 탭의 콘텐츠만 보이기
+                $("#" + target).show();
+
+                // 모든 탭 링크에서 active 클래스 제거
+                $(".tab-link").removeClass("active");
+
+                // 클릭한 탭에 active 클래스 추가
+                $(this).addClass("active");
+            });
+
+            // 기본으로 첫 번째 탭을 보여줌
+            $(".tab-link:first").click();
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        /* 전체 컨테이너 */
+        .wrapper-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* 사이드바 스타일 */
+        .sidebar {
+            width: 250px;
+            background-color: #2e6ab8;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
+            color: #e0e7f1;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #1e497b;
+        }
+
+        /* 메인 콘텐츠 */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .header {
+            padding: 10px 20px;
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            color: #2e6ab8;
+        }
+
+        .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .header .user-info span {
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* 탭 스타일 */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 20px;
+        }
+
+        .tabs .tab-link {
+            padding: 15px 30px;
+            cursor: pointer;
+            color: #333;
+            background-color: #f4f6f8;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tabs .tab-link.active {
+            background-color: #2e6ab8;
+            color: white;
+        }
+
+        .tabs .tab-link:hover {
+            background-color: #1e497b;
+            color: white;
+        }
+
+        /* 탭 콘텐츠 */
+        .tab-content {
+            display: none;
+        }
+
+        /* 게시글 및 댓글 테이블 스타일 */
+        .manage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .manage-table th, .manage-table td {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .manage-table th {
+            background-color: #f4f6f8;
+            color: #2e6ab8;
+            font-weight: bold;
+        }
+
+        .manage-table td {
+            color: #333;
+        }
+
+        /* 수정 및 삭제 버튼 스타일 */
+        .action-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-btn {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .edit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .wrapper-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .manage-table {
+                font-size: 0.8em;
+            }
+
+            .action-btn {
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 로드 -->
+    <header id="header"></header>
+
+    <!-- 메인 컨테이너 -->
+    <div class="wrapper-container">
+        <!-- 사이드바 -->
+        <div class="sidebar">
+            <h2>관리자 메뉴</h2>
+            <ul>
+                <li><a href="#">대시보드</a></li>
+                <li><a href="#">사용자 관리</a></li>
+                <li><a href="#">게시글 관리</a></li>
+                <li><a href="#">댓글 관리</a></li>
+                <li><a href="#">통계</a></li>
+                <li><a href="#">설정</a></li>
+                <li><a href="#">로그아웃</a></li>
+            </ul>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="header">
+                <h1>게시글 및 댓글 관리</h1>
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                    <span>관리자님</span>
+                </div>
+            </div>
+
+            <!-- 탭 -->
+            <div class="tabs">
+                <div class="tab-link active" data-target="posts-tab">게시글 관리</div>
+                <div class="tab-link" data-target="comments-tab">댓글 관리</div>
+            </div>
+
+            <!-- 게시글 관리 탭 -->
+            <div id="posts-tab" class="tab-content">
+                <h2>게시글 관리</h2>
+                <table class="manage-table">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                            <th>상태</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 게시글 데이터 예시 -->
+                        <tr>
+                            <td>1</td>
+                            <td>게시글 제목 예시 1</td>
+                            <td>홍길동</td>
+                            <td>2023-09-01</td>
+                            <td>활성</td>
+                            <td>
+                                <button class="action-btn edit-btn">수정</button>
+                                <button class="action-btn delete-btn">삭제</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>게시글 제목 예시 2</td>
+                            <td>이몽룡</td>
+                            <td>2023-09-02</td>
+                            <td>비활성</td>
+                            <td>
+                                <button class="action-btn edit-btn">수정</button>
+                                <button class="action-btn delete-btn">삭제</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 댓글 관리 탭 -->
+            <div id="comments-tab" class="tab-content">
+                <h2>댓글 관리</h2>
+                <table class="manage-table">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>내용</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                            <th>상태</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 댓글 데이터 예시 -->
+                        <tr>
+                            <td>1</td>
+                            <td>댓글 내용 예시 1</td>
+                            <td>홍길동</td>
+                            <td>2023-09-01</td>
+                            <td>활성</td>
+                            <td>
+                                <button class="action-btn edit-btn">수정</button>
+                                <button class="action-btn delete-btn">삭제</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>댓글 내용 예시 2</td>
+                            <td>이몽룡</td>
+                            <td>2023-09-02</td>
+                            <td>비활성</td>
+                            <td>
+                                <button class="action-btn edit-btn">수정</button>
+                                <button class="action-btn delete-btn">삭제</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 로드 -->
+    <footer id="footer"></footer>
+</body>
+</html>
