@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>국가가 싼 똥은 국가가 치운다 007</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .title_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 0px solid #ddd;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      .title_header h1 {
+        font-size: 28px;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      .author-info {
+        color: #888;
+        font-size: 14px;
+      }
+
+      .content {
+        margin-top: 20px;
+        line-height: 1.8;
+        text-align: left;
+      }
+
+      .attachment {
+        margin-top: 30px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .attachment i {
+        margin-right: 10px;
+        font-size: 18px;
+        color: #6c757d;
+      }
+
+      .attachment a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .attachment a:hover {
+        color: #007bff;
+      }
+
+      .meta-info {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .talk_button {
+        background-color: #029acc;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: none;
+        display: inline-block;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+      }
+
+      .url-button {
+        padding: 10px 20px;
+        border-radius: 50%;
+        background-color: #6c757d;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        width: 1px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .url-button:hover {
+        background-color: #5a6268;
+      }
+
+      .title_header_right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .info-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: -10px;
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .author strong {
+        font-weight: bold;
+      }
+
+      .author span {
+        margin: 0 5px;
+        font-size: 18px;
+        color: #999;
+      }
+
+      .date {
+        color: #999;
+        font-size: 14px;
+      }
+
+      .icons {
+        display: flex;
+        align-items: center;
+      }
+
+      .icons div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 35px;
+        margin-left: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        color: #555;
+        font-size: 16px;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          transform 0.2s ease;
+      }
+
+      .icons div:hover {
+        background-color: #e0e0e0;
+        color: #333;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+
+      .icons div:active {
+        background-color: #ccc;
+        color: #222;
+        transform: scale(0.95);
+      }
+
+      .clicked-star {
+        color: #e6ca18 !important;
+      }
+
+      .clicked-heart {
+        color: #e63946 !important;
+      }
+
+      .clicked-comment {
+        color: #457b9d !important;
+      }
+
+      .divider {
+        border: none;
+        border-top: 2px solid #eae8e8;
+        margin: 20px 0;
+      }
+
+      .comment-container {
+        margin-top: 20px;
+      }
+
+      .comment {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* 안내 문구 */
+      .comment-info {
+        margin-bottom: 15px;
+        color: #555;
+        font-size: 13px;
+        text-align: left;
+      }
+
+      .comment-author {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      .comment-date {
+        color: #999;
+        font-size: 14px;
+      }
+
+      .comment-content {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .comment-actions {
+        margin-top: 10px;
+      }
+
+      .comment-actions button {
+        background-color: #f1f1f1;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      .comment-actions button:hover {
+        background-color: #ddd;
+      }
+
+      .char-count {
+        margin-left: 20px;
+        margin-right: 20px;
+        color: #777;
+        font-size: 14px;
+      }
+
+      /* 등록 버튼 */
+      .submit-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 0;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-right: 20px;
+        white-space: nowrap;
+      }
+
+      /* 등록 버튼 호버 효과 */
+      .submit-button:hover {
+        background-color: #555;
+      }
+
+      .comment-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+        padding: 20px;
+      }
+
+      .comment-input {
+        width: 80%;
+        padding: 10px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+      }
+
+      .list-button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+
+      .list-button {
+        background-color: #4285f4;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .list-button:hover {
+        background-color: #357ae8;
+      }
+
+      @media (max-width: 600px) {
+        .comment-box {
+          flex-direction: column;
+        }
+
+        .submit-button {
+          width: 100%;
+        }
+      }
+
+      /* 설문 폼 스타일 */
+      .survey-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .survey-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .survey-header img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .survey-header h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .survey-header .participants {
+        font-size: 16px;
+        color: #555;
+      }
+
+      .survey-question {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+      }
+
+      .survey-question p {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .vote-button-form {
+        background-color: #007bff;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin: 30px auto 0;
+        max-width: 200px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .vote-button-form img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      .vote-button-form:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="small_top_left">
+        <input type="button" class="talk_button" value="투표" />
+      </div>
+
+      <div class="title_header">
+        <h1>글의 제목을 표시하는 영역입니다.</h1>
+        <div class="title_header_right">
+          <a href="#" class="url-button">URL</a>
+        </div>
+      </div>
+
+      <!-- 작성자 정보와 아이콘이 한 줄로 배치됨 -->
+      <div class="info-container">
+        <div class="author">
+          <strong>홍길동</strong> &nbsp;님의 생각
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <span class="date">2024.09.12</span>
+        </div>
+
+        <div class="icons">
+          <div id="star">
+            <i class="fas fa-star"></i>
+          </div>
+          <div id="heart"><i class="fas fa-heart"></i>&nbsp;<span>1</span></div>
+          <div id="comment">
+            <i class="fas fa-comment"></i>&nbsp;<span>0</span>
+          </div>
+        </div>
+      </div>
+      <hr class="divider" />
+      <!-- 작성자 정보와 아이콘 끝 -->
+
+      <div class="content">
+        <p>글의 내용을 표시하는 영역입니다.</p>
+        <hr class="divider" />
+        <!-- 설문 폼 시작 -->
+        <div class="survey-container">
+          <div class="survey-header">
+            <div style="display: flex; align-items: center">
+              <img
+                src="https://img.icons8.com/ios-filled/50/007bff/survey.png"
+                alt="설문 아이콘"
+              />
+              <h2 style="margin-left: 10px">설문에 참여해 주세요</h2>
+            </div>
+            <div class="participants">현재 참여인원: <strong>0명</strong></div>
+          </div>
+          <!-- 질문 목록 -->
+          <div class="survey-question">
+            <p>질문 1: 우리 제품에 얼마나 만족하시나요?</p>
+          </div>
+          <div class="survey-question">
+            <p>질문 2: 고객 서비스에 대한 만족도를 알려주세요.</p>
+          </div>
+          <div class="survey-question">
+            <p>질문 3: 제품 개선을 위해 어떤 점을 추천하시나요?</p>
+          </div>
+          <!-- 참여하기 버튼 -->
+          <button class="vote-button-form" onclick="submitVote()">
+            <img
+              src="https://img.icons8.com/ios-filled/50/ffffff/checkmark--v1.png"
+              alt="체크 아이콘"
+            />
+            참여하기
+          </button>
+        </div>
+        <!-- 설문 폼 끝 -->
+      </div>
+
+      <div class="attachment">
+        <a href="#"><strong>첨부파일</strong><br />📄 193.pdf</a>
+      </div>
+      <hr class="divider" />
+      <div class="meta-info">
+        <p>참여기간: 2024-09-12 ~ 2024-11-11</p>
+        <button class="list-button">생각신고</button>
+      </div>
+
+      <!-- 투표 관련 버튼과 섹션이 제거되었습니다 -->
+
+      <div class="comment-container">
+        <div class="comment-info">
+          ※ 건전한 토론을 위해 비방·욕설·도배 등은 삭제될 수 있습니다.
+        </div>
+        <div class="comment-box">
+          <textarea
+            class="comment-input"
+            rows="4"
+            maxlength="1000"
+            placeholder="의견을 입력하세요."
+          ></textarea>
+          <span class="char-count">0/1000</span>
+          <button class="list-button">등록</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- 댓글 목록 -->
+      <div class="comment-container">
+        <div class="comment">
+          <div>
+            <span class="comment-author">홍길동</span>
+            <span class="comment-date">2024-09-12 13:52</span>
+          </div>
+          <div class="comment-content">
+            한국재정정보원의 역할은 날이 갈수록 커져가는 것 같아요. 시대적
+            흐름에 맞게 가치체계 등이 변화가 되어 잘 반영이 되면 좋겠습니다.
+          </div>
+          <div class="comment-actions">
+            <button>수정</button>
+            <button>삭제</button>
+            <button>신고</button>
+          </div>
+        </div>
+
+        <div class="comment">
+          <div>
+            <span class="comment-author">CuAgain</span>
+            <span class="comment-date">2024-09-12 13:45</span>
+          </div>
+          <div class="comment-content">
+            미션 및 비전, 가치체계는 한국재정정보원의 역할과 설립목적이 잘
+            반영되어있다고 생각합니다. 한국재정정보원 응원합니다.
+          </div>
+          <div class="comment-actions">
+            <button>수정</button>
+            <button>삭제</button>
+            <button>신고</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-button-container">
+        <button class="list-button">목록</button>
+      </div>
+    </div>
+
+    <!-- 투표 관련 모달이 제거되었습니다 -->
+
+    <script>
+      // 기타 이벤트 리스너
+      document.getElementById("star").addEventListener("click", function () {
+        this.querySelector("i").classList.toggle("clicked-star");
+      });
+
+      document.getElementById("heart").addEventListener("click", function () {
+        this.querySelector("i").classList.toggle("clicked-heart");
+      });
+
+      document.getElementById("comment").addEventListener("click", function () {
+        this.querySelector("i").classList.toggle("clicked-comment");
+      });
+
+      const commentInput = document.querySelector(".comment-input");
+      const charCount = document.querySelector(".char-count");
+
+      commentInput.addEventListener("input", () => {
+        charCount.textContent = `${commentInput.value.length}/1000`;
+      });
+    </script>
+  </body>
+</html>

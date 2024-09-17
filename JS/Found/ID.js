@@ -36,8 +36,6 @@ checkEmailButton.addEventListener("click", () => {
       success: function (res) {
         if (res.status == 200) {
           resu = res.security;
-          console.log(resu);
-          console.log(res);
           emailsuc();
         } else if (res.status == 100) {
           emailfal();
@@ -89,7 +87,6 @@ function id_found() {
   const email_Ckeck = localStorage.getItem("email_Ckeck");
 
   obj = { email: emailValue, check: check_cord, sec: email_Ckeck };
-  console.log(obj);
   $.ajax({
     url: "http://218.158.137.183:8080/id_Found",
     type: "get", //default는 get이기 때문에 생략 가능.

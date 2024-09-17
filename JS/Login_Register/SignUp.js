@@ -263,7 +263,6 @@ document.getElementById("SC_FD").addEventListener("click", function () {
   // 팝업 창이 닫힐 때 값을 받아오기 위한 이벤트 리스너
   window.addEventListener("message", function (event) {
     if (event.origin === window.location.origin) {
-      console.log("학교 id: ", event.data.scId);
       SC_ID = event.data.scId;
       document.getElementById("SC_TE").value = event.data.value;
     }
