@@ -34,8 +34,6 @@ checkEmailButton.addEventListener("click", () => {
       success: function (res) {
         if (res.status == 200) {
           resu = res.security;
-          console.log(resu);
-          console.log(res);
           emailsuc();
         } else if (res.status == 100) {
           emailfal();
@@ -87,7 +85,6 @@ function pw_found() {
   const check_cord = document.getElementById("check_cord").value; // 여기를 수정
   const email_Ckeck = localStorage.getItem("email_Ckeck");
   obj = { email: emailValue, check: check_cord, sec: email_Ckeck };
-  console.log(obj);
   $.ajax({
     url: "http://218.158.137.183:8080/pw_found",
     type: "get", //default는 get이기 때문에 생략 가능.
@@ -106,7 +103,6 @@ function pw_found() {
 
 function checksuc() {
   alert("인증에 성공했습니다.");
-  console.log(resu);
   location.href = `../../html/Found/pwChange.html?key=${resu}`;
 }
 

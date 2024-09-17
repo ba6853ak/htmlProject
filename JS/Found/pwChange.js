@@ -15,7 +15,6 @@ changePw.addEventListener("click", () => {
     let search = window.location.search;
     let sp = search.split("=");
     obj = { email: sp[1], pw: NP.trim() };
-    console.log(obj);
     $.ajax({
       url: "http://218.158.137.183:8080/pw_change",
       type: "get", //default는 get이기 때문에 생략 가능.
