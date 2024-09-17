@@ -18,7 +18,29 @@ findPwButton.addEventListener("click", () => {
     errorMessage.style.display = "block";
   } else {
     errorMessage.style.display = "none";
-    alert("비밀번호 찾기 버튼이 클릭되었습니다!");
+    obj = { ID: input };
+    $.ajax({
+      url: "http://218.158.137.183:8080/PW_ID_Check",
+      type: "get", //default는 get이기 때문에 생략 가능.
+      data: obj,
+      dataType: "json",
+      success: function (res) {
+        if (res.status == 200) {
+          ID_Check_suc();
+        } else if (res.status == 100) {
+          ID_Check_fal();
+        }
+      },
+    });
     // 비밀번호 찾기 관련 로직을 여기에 추가하세요.
   }
 });
+
+function ID_Check_suc() {
+  alert("ID확인했습니다.");
+  location.href = `../../html/Found/eMailChack.html`;
+}
+
+function ID_Check_fal() {
+  alert("입력한 ID는 없는 ID입니다.");
+}

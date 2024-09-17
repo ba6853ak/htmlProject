@@ -3,16 +3,14 @@ const checkEmailButton = document.getElementById("check-email-button");
 const errorMessage = document.getElementById("error-message");
 const newFieldContainer = document.getElementById("new-field-container");
 const timerElement = document.getElementById("timer");
-let obj = {};
-let resu;
 
-function redirectToFindPw() {
-  window.location.href = "pw.html";
+function redirectToFindId() {
+  window.location.href = "id.html";
 }
 
 document
-  .getElementById("find-pw-tab")
-  .addEventListener("click", redirectToFindPw);
+  .getElementById("find-id-tab")
+  .addEventListener("click", redirectToFindId);
 
 checkEmailButton.addEventListener("click", () => {
   const emailValue = inputField.value.trim();
@@ -65,6 +63,7 @@ function emailfal() {
   alert("E-Mail인증에 실패했습니다.");
 }
 
+// 타이머 함수
 function startTimer(duration) {
   let timeRemaining = duration;
   const timerInterval = setInterval(() => {
@@ -78,26 +77,25 @@ function startTimer(duration) {
     if (timeRemaining < 0) {
       clearInterval(timerInterval);
       timerElement.textContent = "시간이 만료되었습니다.";
-      document.getElementById("check_cord").disabled = true;
+      document.getElementById("check_cord").disabled = true; // 새 입력란 비활성화
     }
   }, 1000);
 }
 
-function id_found() {
+function pw_found() {
   const emailValue = inputField.value.trim();
   const check_cord = document.getElementById("check_cord").value; // 여기를 수정
   const email_Ckeck = localStorage.getItem("email_Ckeck");
-
   obj = { email: emailValue, check: check_cord, sec: email_Ckeck };
   console.log(obj);
   $.ajax({
-    url: "http://218.158.137.183:8080/id_Found",
+    url: "http://218.158.137.183:8080/pw_found",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
     success: function (res) {
       if (res.status == 200) {
-        resu = res.ID;
+        resu = res.EMail;
         checksuc();
       } else if (res.status == 100) {
         emailfal();
@@ -107,8 +105,9 @@ function id_found() {
 }
 
 function checksuc() {
-  alert("인증에 성공했습니다.\n ID : " + resu);
-  location.href = "../../html/main/page.html";
+  alert("인증에 성공했습니다.");
+  console.log(resu);
+  location.href = `../../html/Found/pwChange.html?key=${resu}`;
 }
 
 function emailfal() {
