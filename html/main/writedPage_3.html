@@ -50,6 +50,7 @@
         .content {
             margin-top: 20px;
             line-height: 1.8;
+            text-align: left;
         }
 
         .attachment {
@@ -57,11 +58,9 @@
             padding: 15px 20px;
             border-radius: 8px;
             background-color: #f8f9fa;
-            /* 이미지처럼 연한 배경색 추가 */
             display: flex;
             align-items: center;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            /* 그림자 추가 */
         }
 
         .attachment i {
@@ -82,16 +81,16 @@
         }
 
         .meta-info {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
         .talk_button {
-            background-color: #219b72;
+            background-color: #029acc;
             color: white;
             padding: 5px 15px;
             border-radius: 5px;
@@ -136,8 +135,6 @@
             padding-bottom: 10px;
             margin-bottom: -10px;
         }
-
-
 
         .author {
             display: flex;
@@ -185,7 +182,6 @@
             background-color: #e0e0e0;
             color: #333;
             transform: scale(1.1);
-            /* 확대 효과 */
             cursor: pointer;
         }
 
@@ -193,204 +189,24 @@
             background-color: #ccc;
             color: #222;
             transform: scale(0.95);
-            /* 눌렀을 때 살짝 작아짐 */
         }
 
         .clicked-star {
             color: #e6ca18 !important;
-            /* 짙은 노란색 */
         }
 
         .clicked-heart {
             color: #e63946 !important;
-            /* 짙은 빨간색 */
         }
 
         .clicked-comment {
             color: #457b9d !important;
-            /* 짙은 파란색 */
         }
 
         .divider {
             border: none;
             border-top: 2px solid #eae8e8;
-            /* 구분선 두께와 색상 설정 */
             margin: 20px 0;
-            /* 위아래 여백 설정 */
-        }
-
-
-        .vote-container {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            /* 가로로 가운데 정렬 */
-        }
-
-        .vote-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 2px solid #ddd;
-            font-size: 14px;
-            font-weight: bold;
-            color: #555;
-            background-color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .vote-button i {
-            margin-right: 5px;
-        }
-
-        /* 추천 버튼 스타일 */
-        .like {
-            border-color: red;
-            color: red;
-        }
-
-        /* 비추천 버튼 스타일 */
-        .dislike {
-            border-color: #ccc;
-            color: #888;
-        }
-
-        /* hover 효과 */
-        .vote-button:hover {
-            background-color: #f4f4f4;
-        }
-
-
-        /* 전체 컨테이너 */
-        .comment-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto;
-            font-family: 'Roboto', Arial, sans-serif;
-            color: #333;
-        }
-
-        /* 안내 문구 */
-        .comment-info {
-            margin-bottom: 15px;
-            color: #555;
-            font-size: 13px;
-            text-align: left;
-        }
-
-        /* 의견 입력창과 등록 버튼을 감싸는 컨테이너 */
-        .comment-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #ddd;
-            padding: 0;
-            border-radius: 0;
-            /* 각지게 설정 */
-        }
-
-        /* 텍스트 입력창 */
-        .comment-input {
-            width: 100%;
-            padding: 20px;
-            border: none;
-            border-right: 1px solid #ddd;
-            font-size: 16px;
-            outline: none;
-            color: #333;
-            resize: none;
-            box-sizing: border-box;
-        }
-
-        /* 문자 수 카운트 */
-        .char-count {
-            margin-left: 20px;
-            margin-right: 20px;
-            color: #777;
-            font-size: 14px;
-        }
-
-        /* 등록 버튼 */
-        .submit-button {
-            display: flex;
-            /* 플렉스 박스를 사용해 내부 요소 정렬 */
-            justify-content: center;
-            /* 가로 중앙 정렬 */
-            align-items: center;
-            /* 세로 중앙 정렬 */
-            padding: 50px 50px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 0;
-            /* 각진 모양 */
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-
-            white-space: nowrap;
-            /* 가로로 한 줄에 표시되도록 설정 */
-        }
-
-        /* 등록 버튼 호버 효과 */
-        .submit-button:hover {
-            background-color: #555;
-        }
-
-        /* 반응형 디자인을 위한 추가 스타일 */
-        @media (max-width: 600px) {
-            .comment-box {
-                flex-direction: column;
-            }
-
-            .comment-input {
-                border-right: none;
-                border-bottom: 1px solid #ddd;
-            }
-
-            .submit-button {
-                width: 80%;
-                margin: 10px;
-            }
-
-            .char-count {
-                margin-right: 0;
-                text-align: right;
-                padding: 10px 0;
-            }
-        }
-    </style>
-
-
-
-    <style>
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .title_header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 0px solid #ddd;
-            padding-bottom: 10px;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-
-        .title_header h1 {
-            font-size: 28px;
-            margin: 0;
-            flex-grow: 1;
         }
 
         .comment-container {
@@ -400,6 +216,14 @@
         .comment {
             padding: 15px;
             border-bottom: 1px solid #ddd;
+        }
+
+        /* 안내 문구 */
+        .comment-info {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 13px;
+            text-align: left;
         }
 
         .comment-author {
@@ -482,7 +306,6 @@
             font-size: 16px;
         }
 
-
         .list-button-container {
             display: flex;
             justify-content: flex-end;
@@ -513,6 +336,80 @@
                 width: 100%;
             }
         }
+
+        /* 설문 폼 스타일 */
+        .survey-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .survey-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .survey-header img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .survey-header h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .survey-header .participants {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .survey-question {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .survey-question p {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .vote-button-form {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+            max-width: 200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .vote-button-form img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .vote-button-form:hover {
+            background-color: #0056b3;
+        }
     </style>
 
 </head>
@@ -520,7 +417,7 @@
 <body>
     <div class="container">
         <div class="small_top_left">
-            <input type="button" class="talk_button" value="대화">
+            <input type="button" class="talk_button" value="투표">
         </div>
 
         <div class="title_header">
@@ -555,14 +452,36 @@
 
         <div class="content">
             <p>글의 내용을 표시하는 영역입니다.</p>
-
-            
-
-
-
-
-
+            <hr class="divider">
+            <!-- 설문 폼 시작 -->
+            <div class="survey-container">
+                <div class="survey-header">
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://img.icons8.com/ios-filled/50/007bff/survey.png" alt="설문 아이콘">
+                        <h2 style="margin-left: 10px;">설문에 참여해 주세요</h2>
+                    </div>
+                    <div class="participants">
+                        현재 참여인원: <strong>0명</strong>
+                    </div>
+                </div>
+                <!-- 질문 목록 -->
+                <div class="survey-question">
+                    <p>질문 1: 우리 제품에 얼마나 만족하시나요?</p>
+                </div>
+                <div class="survey-question">
+                    <p>질문 2: 고객 서비스에 대한 만족도를 알려주세요.</p>
+                </div>
+                <div class="survey-question">
+                    <p>질문 3: 제품 개선을 위해 어떤 점을 추천하시나요?</p>
+                </div>
+                <!-- 참여하기 버튼 -->
+                <button class="vote-button-form" onclick="submitVote()">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/checkmark--v1.png" alt="체크 아이콘"> 참여하기
+                </button>
+            </div>
+            <!-- 설문 폼 끝 -->
         </div>
+
         <div class="attachment">
             <a href="#"><strong>첨부파일</strong><br>📄 193.pdf</a>
         </div>
@@ -572,20 +491,7 @@
             <button class="list-button">생각신고</button>
         </div>
 
-        <div class="vote-container">
-            <!-- 추천 버튼 -->
-            <div class="vote-button like">
-                <i class="fas fa-thumbs-up"></i>
-                찬성 2
-            </div>
-
-            <!-- 비추천 버튼 -->
-            <div class="vote-button dislike">
-                <i class="fas fa-thumbs-down"></i>
-                반대 0
-            </div>
-        </div>
-
+        <!-- 투표 관련 버튼과 섹션이 제거되었습니다 -->
 
         <div class="comment-container">
             <div class="comment-info">
@@ -599,7 +505,6 @@
         </div>
 
         <hr class="divider">
-
 
         <!-- 댓글 목록 -->
         <div class="comment-container">
@@ -639,11 +544,10 @@
         </div>
     </div>
 
-
-
-
+    <!-- 투표 관련 모달이 제거되었습니다 -->
 
     <script>
+        // 기타 이벤트 리스너
         document.getElementById('star').addEventListener('click', function () {
             this.querySelector('i').classList.toggle('clicked-star');
         });
@@ -655,9 +559,7 @@
         document.getElementById('comment').addEventListener('click', function () {
             this.querySelector('i').classList.toggle('clicked-comment');
         });
-    </script>
 
-    <script>
         const commentInput = document.querySelector('.comment-input');
         const charCount = document.querySelector('.char-count');
 
@@ -665,8 +567,6 @@
             charCount.textContent = `${commentInput.value.length}/1000`;
         });
     </script>
-
-
 
 </body>
 

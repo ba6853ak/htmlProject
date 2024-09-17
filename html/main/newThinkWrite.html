@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>학생 생각함</title>
-    <link rel="stylesheet" href="../../Css/Public.css">
-    <style>
-      
+    <link rel="stylesheet" href="../../Css/Public/Public.css">
 
-      body {
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#header").load("../Public/header.html");
+            $("#footer").load("../Public/footer.html");
+        });
+    </script>
+
+    <style>
+        body {
             font-family: 'Pretendard', sans-serif;
             background: linear-gradient(135deg, #ffffff, #f5f5f5);
             margin: 0;
@@ -111,16 +118,9 @@
             text-decoration: none;
             color: inherit;
         }
-
     </style>
 
-<script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#header").load("../Public/header.html");
-        $("#footer").load("../Public/footer.html");
-    });
-</script>
+
 
 
 </head>
@@ -163,12 +163,12 @@
 
 
 
-        <!-- 애니메이션 스크립트 추가 -->
-        <script>
-            window.addEventListener('load', function() {
-                document.querySelector('.container').classList.add('visible');
-            });
-        </script>
+    <!-- 애니메이션 스크립트 추가 -->
+    <script>
+        window.addEventListener('load', function () {
+            document.querySelector('.container').classList.add('visible');
+        });
+    </script>
     <footer id="footer"></footer>
 </body>
 
