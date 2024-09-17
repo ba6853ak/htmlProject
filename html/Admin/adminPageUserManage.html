@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="../../Css/Public/Public.css">
     <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#header").load("../Public/header.html");
             $("#footer").load("../Public/footer.html");
         });
@@ -27,7 +28,6 @@
             color: #333;
         }
 
-        /* 전체 컨테이너 */
         .wrapper-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -36,7 +36,6 @@
             gap: 20px;
         }
 
-        /* 사이드바 스타일 */
         .sidebar {
             width: 250px;
             background-color: #2e6ab8;
@@ -74,7 +73,6 @@
             background-color: #1e497b;
         }
 
-        /* 메인 콘텐츠 */
         .main-content {
             flex-grow: 1;
             padding: 20px;
@@ -114,14 +112,66 @@
             color: #333;
         }
 
-        /* 사용자 테이블 스타일 */
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .filter-field {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #f9f9f9;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-field:focus {
+            border-color: #2e6ab8;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            flex-grow: 1;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:hover {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            padding: 8px;
+            font-size: 16px;
+        }
+
         .user-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
 
-        .user-table th, .user-table td {
+        .user-table th,
+        .user-table td {
             padding: 15px;
             border: 1px solid #dee2e6;
             text-align: center;
@@ -138,7 +188,16 @@
             color: #333;
         }
 
-        /* 수정 및 삭제 버튼 스타일 */
+        .user-table td.name-cell {
+            cursor: pointer;
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        .user-table td.name-cell:hover {
+            color: #2980b9;
+        }
+
         .action-btn {
             padding: 8px 12px;
             border: none;
@@ -146,15 +205,6 @@
             cursor: pointer;
             font-size: 0.9em;
             transition: background-color 0.3s ease;
-        }
-
-        .edit-btn {
-            background-color: #3498db;
-            color: white;
-        }
-
-        .edit-btn:hover {
-            background-color: #2980b9;
         }
 
         .delete-btn {
@@ -166,49 +216,144 @@
             background-color: #c0392b;
         }
 
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            .wrapper-container {
-                flex-direction: column;
-            }
+        /* 모달 스타일 */
+        #profile-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
 
-            .sidebar {
-                width: 100%;
-            }
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 600px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
 
-            .main-content {
-                margin-left: 0;
-            }
+        .modal-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-            .user-table {
-                font-size: 0.8em;
-            }
+        .modal-content img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
 
-            .action-btn {
-                padding: 6px 10px;
-            }
+        .profile-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .profile-table th,
+        .profile-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-table th {
+            width: 30%;
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .profile-table td {
+            background-color: #fff;
+        }
+
+        .modal-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .close-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .close-btn:active {
+            background-color: #1f78b4;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .pagination li {
+            margin: 0 5px;
+        }
+
+        .pagination li button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .pagination li button.active {
+            background-color: #2e6ab8;
+            color: white;
+        }
+
+        .pagination li button.disabled {
+            background-color: #f4f6f8;
+            color: #ccc;
+            cursor: not-allowed;
         }
     </style>
 </head>
+
 <body>
-    <!-- 헤더 로드 -->
     <header id="header"></header>
 
-    <!-- 메인 컨테이너 -->
     <div class="wrapper-container">
-        <!-- 사이드바 -->
         <div class="sidebar">
             <h2>관리자 메뉴</h2>
             <ul>
                 <li><a href="#">대시보드</a></li>
                 <li><a href="#">사용자 관리</a></li>
-                <li><a href="#">통계</a></li>
+                <li><a href="#">게시글 관리</a></li>
+                <li><a href="#">댓글 관리</a></li>
+                <li><a href="#">로그인 기록 관리</a></li>
                 <li><a href="#">설정</a></li>
-                <li><a href="#">로그아웃</a></li>
             </ul>
         </div>
 
-        <!-- 메인 콘텐츠 -->
         <div class="main-content">
             <div class="header">
                 <h1>사용자 관리</h1>
@@ -218,48 +363,316 @@
                 </div>
             </div>
 
+            <!-- 검색 및 필터 컨테이너 -->
+            <div class="search-container">
+                <div class="filter-bar">
+                    <select id="filter-field" class="filter-field">
+                        <option value="id">아이디</option>
+                        <option value="name">이름</option>
+                        <option value="email">이메일</option>
+                    </select>
+                </div>
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="search-input" placeholder="검색어를 입력하세요 (실시간 검색 지원)">
+                </div>
+            </div>
+            <p style="text-align: left; font-size: 0.9em; color: #666; margin-bottom: 10px;">
+                이름을 클릭하면 사용자의 프로필 정보가 표시됩니다.
+            </p>
+
             <table class="user-table">
                 <thead>
                     <tr>
                         <th>번호</th>
+                        <th>아이디</th>
                         <th>이름</th>
                         <th>이메일</th>
-                        <th>가입일</th>
                         <th>상태</th>
+                        <th>권한</th>
                         <th>관리</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- 사용자 데이터 예시 -->
+                <tbody id="user-table-body">
                     <tr>
                         <td>1</td>
-                        <td>홍길동</td>
+                        <td>hong123</td>
+                        <td class="name-cell" data-id="hong123" data-name="홍길동" data-birthday="1990-01-01"
+                            data-gender="남성" data-phone="010-1234-5678" data-email="hong@example.com">홍길동</td>
                         <td>hong@example.com</td>
-                        <td>2023-09-01</td>
                         <td>활성</td>
                         <td>
-                            <button class="action-btn edit-btn">수정</button>
+                            <select class="role-select">
+                                <option value="user">일반 유저</option>
+                                <option value="admin">관리자</option>
+                                <option value="banned">이용정지</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="action-btn reset-btn">PW Reset</button>
                             <button class="action-btn delete-btn">삭제</button>
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>김철수</td>
+                        <td>kim456</td>
+                        <td class="name-cell" data-id="kim456" data-name="김철수" data-birthday="1992-05-12"
+                            data-gender="남성" data-phone="010-5678-1234" data-email="kim@example.com">김철수</td>
                         <td>kim@example.com</td>
-                        <td>2023-09-02</td>
                         <td>비활성</td>
                         <td>
-                            <button class="action-btn edit-btn">수정</button>
+                            <select class="role-select">
+                                <option value="user">일반 유저</option>
+                                <option value="admin">관리자</option>
+                                <option value="banned">이용정지</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="action-btn reset-btn">PW Reset</button>
                             <button class="action-btn delete-btn">삭제</button>
                         </td>
                     </tr>
-                    <!-- 추가 사용자 데이터 -->
                 </tbody>
+
+            </table>
+            <!-- 페이지네이션을 위한 ul 태그 추가 -->
+            <ul class="pagination" id="pagination"></ul>
+
+        </div>
+    </div>
+
+
+
+
+    <footer id="footer"></footer>
+
+    <!-- 모달 -->
+    <div id="profile-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal">닫기</button>
+            <h2 class="modal-header">프로필 정보</h2>
+            <img src="https://via.placeholder.com/120" alt="Profile Image" id="profile-image">
+            <table class="profile-table">
+                <tr>
+                    <th>아이디</th>
+                    <td id="modal-id"></td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td id="modal-name"></td>
+                </tr>
+                <tr>
+                    <th>생일</th>
+                    <td id="modal-birthday"></td>
+                </tr>
+                <tr>
+                    <th>성별</th>
+                    <td id="modal-gender"></td>
+                </tr>
+                <tr>
+                    <th>핸드폰 번호</th>
+                    <td id="modal-phone"></td>
+                </tr>
+                <tr>
+                    <th>이메일</th>
+                    <td id="modal-email"></td>
+                </tr>
             </table>
         </div>
     </div>
 
-    <!-- 푸터 로드 -->
-    <footer id="footer"></footer>
+    <script>
+        // let filteredData = []; // 필터링된 데이터를 저장하는 배열
+        // const originalData = Array.from(document.querySelectorAll('#user-table-body tr')); // 원래 데이터
+
+        // // 한글 초성 검색 함수
+        // function extractInitials(str) {
+        //     const initials = [];
+        //     const offset = 44032; // 한글의 시작 유니코드 값
+        //     const initialConsonants = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+
+        //     for (let i = 0; i < str.length; i++) {
+        //         const code = str.charCodeAt(i) - offset;
+        //         if (code >= 0 && code <= 11171) {
+        //             initials.push(initialConsonants[Math.floor(code / 588)]);
+        //         } else {
+        //             initials.push(str[i]);
+        //         }
+        //     }
+        //     return initials.join("");
+        // }
+
+        // function filterUsersByInitials(keyword) {
+        //     const rows = Array.from(document.querySelectorAll("#user-table-body tr"));
+        //     filteredData = rows.filter(row => {
+        //         const nameCell = row.querySelector("td.name-cell");
+        //         const name = nameCell.textContent;
+        //         const initials = extractInitials(name);
+
+        //         return initials.includes(keyword) || name.includes(keyword);
+        //     });
+
+        //     // 필터링된 데이터를 기준으로 페이지네이션과 테이블을 업데이트
+        //     currentPage = 1; // 검색 후 첫 페이지로 이동
+        //     updateDisplay(); // 페이지네이션과 테이블 다시 렌더링
+        // }
+
+        // // 검색 버튼 클릭 시 초성 검색
+        // document.getElementById("search-input").addEventListener("input", function () {
+        //     const keyword = this.value.trim();
+        //     filterUsersByInitials(keyword);
+        // });
+
+        // 프로필 보기 기능 (사용자 이름 클릭 시)
+        document.querySelectorAll('.name-cell').forEach(cell => {
+            cell.addEventListener('click', function () {
+                const id = this.getAttribute("data-id");
+                const name = this.getAttribute("data-name");
+                const birthday = this.getAttribute("data-birthday");
+                const gender = this.getAttribute("data-gender");
+                const phone = this.getAttribute("data-phone");
+                const email = this.getAttribute("data-email");
+
+                document.getElementById("modal-id").textContent = id;
+                document.getElementById("modal-name").textContent = name;
+                document.getElementById("modal-birthday").textContent = birthday;
+                document.getElementById("modal-gender").textContent = gender;
+                document.getElementById("modal-phone").textContent = phone;
+                document.getElementById("modal-email").textContent = email;
+
+                document.getElementById("profile-modal").style.display = "flex";
+            });
+        });
+
+        // 모달 닫기 기능
+        document.getElementById("close-modal").addEventListener("click", function () {
+            document.getElementById("profile-modal").style.display = "none";
+        });
+
+
+
+    </script>
+
+    <script>
+        let filteredData = Array.from(document.querySelectorAll('#user-table-body tr')); // 초기 데이터 저장
+        const originalData = filteredData.slice(); // 원본 데이터 복사
+    
+        // 한글 초성 검색 함수
+        function extractInitials(str) {
+            const initials = [];
+            const offset = 44032; // 한글의 시작 유니코드 값
+            const initialConsonants = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+    
+            for (let i = 0; i < str.length; i++) {
+                const code = str.charCodeAt(i) - offset;
+                if (code >= 0 && code <= 11171) {
+                    initials.push(initialConsonants[Math.floor(code / 588)]);
+                } else {
+                    initials.push(str[i]);
+                }
+            }
+            return initials.join("");
+        }
+    
+        // 검색 및 필터링 함수
+        function filterUsersByKeyword(keyword, field) {
+            const rows = originalData; // 원본 데이터 사용
+            
+            // 검색어가 비어있으면 전체 데이터를 보여줍니다.
+            if (keyword === '') {
+                filteredData = originalData.slice(); // 전체 데이터
+            } else {
+                filteredData = rows.filter(row => {
+                    let cell;
+                    // 필드에 맞는 셀 선택 (아이디, 이름, 이메일에 따라 다르게 처리)
+                    if (field === "id") {
+                        cell = row.querySelector("td:nth-child(2)"); // 아이디는 2번째 컬럼
+                    } else if (field === "name") {
+                        cell = row.querySelector("td.name-cell"); // 이름은 클래스가 name-cell
+                    } else if (field === "email") {
+                        cell = row.querySelector("td:nth-child(4)"); // 이메일은 4번째 컬럼
+                    }
+    
+                    const content = cell ? cell.textContent.trim() : '';
+    
+                    if (field === "name") {
+                        const initials = extractInitials(content); // 이름은 초성 검색
+                        return initials.includes(keyword) || content.includes(keyword);
+                    } else {
+                        return content.includes(keyword); // 아이디나 이메일은 일반 검색
+                    }
+                });
+            }
+    
+            // 테이블 초기화 및 다시 표시
+            renderTable(filteredData);
+            setupPagination(filteredData); // 페이지네이션 갱신
+        }
+    
+        // 테이블 데이터 렌더링 함수
+        function renderTable(data) {
+            const tbody = document.getElementById('user-table-body');
+            tbody.innerHTML = ''; // 기존 데이터를 모두 삭제
+            
+            // 필터링된 데이터를 기준으로 테이블에 추가
+            data.forEach(row => {
+                tbody.appendChild(row); // 필터링된 데이터 표시
+            });
+        }
+    
+        // 페이지네이션 버튼 생성 함수
+        function setupPagination(data) {
+            const itemsPerPage = 10;
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = ''; // 페이지네이션 초기화
+    
+            const pageCount = Math.ceil(data.length / itemsPerPage); // 페이지 수 계산
+            if (pageCount === 0) return;
+    
+            let currentPage = 1; // 현재 페이지를 초기화
+    
+            function displayPage(page) {
+                const start = (page - 1) * itemsPerPage;
+                const end = page * itemsPerPage;
+                renderTable(data.slice(start, end)); // 현재 페이지에 맞는 데이터만 표시
+            }
+    
+            function createPageButton(page) {
+                const li = document.createElement('li');
+                const button = document.createElement('button');
+                button.textContent = page;
+                button.addEventListener('click', () => {
+                    currentPage = page;
+                    displayPage(currentPage);
+                });
+                li.appendChild(button);
+                pagination.appendChild(li);
+            }
+    
+            for (let i = 1; i <= pageCount; i++) {
+                createPageButton(i);
+            }
+    
+            displayPage(currentPage); // 첫 페이지 표시
+        }
+    
+        // 필터 필드와 검색어에 맞게 필터링
+        document.getElementById("search-input").addEventListener("input", function () {
+            const keyword = this.value.trim();
+            const filterField = document.getElementById("filter-field").value; // 선택한 필터 필드
+            filterUsersByKeyword(keyword, filterField); // 필터링 실행
+        });
+    
+        // 페이지네이션 초기화
+        setupPagination(originalData);
+    </script>
+    
+    
+    
+    
+    
+    
+
+
 </body>
+
 </html>
