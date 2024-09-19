@@ -183,7 +183,7 @@ function addFirstQuestion() {
     const newQuestion = document.createElement("div");
     newQuestion.classList.add("survey-question");
     newQuestion.innerHTML = `
-<div id="merge"><label for="surveyQuestion${questionCount}" >질문 ${questionCount}&nbsp;</label>
+<div id="merge"><label for="surveyQuestion${questionCount}" >질문 ${questionCount}</label>
 <input type="text" id="surveyQuestion${questionCount}" placeholder="설문 질문을 입력하세요" maxlength="200"></div>
 <div id="optionsContainer${questionCount}">
   <div class="survey-option">
