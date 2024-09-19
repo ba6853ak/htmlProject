@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 세부 페이지</title>
+    <link rel="stylesheet" href="/path/to/your/css/noticeDetail.css">
+    <script src="/path/to/your/js/noticeDetail.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>공지사항 세부 정보</h1>
+    </header>
+
+    <main>
+        <article id="notice-detail">
+            <h2 id="notice-title">공지사항 제목</h2>
+            <p id="notice-date">날짜</p>
+            <div id="notice-content">내용을 불러오는 중...</div>
+        </article>
+    </main>
+
+
+
+    <script>
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const noticeId = getNoticeIdFromUrl();
+
+            if (noticeId) {
+                fetchNoticeDetails(noticeId);
+            } else {
+                document.getElementById('notice-content').textContent = '공지사항을 불러올 수 없습니다.';
+            }
+        });
+
+        // URL에서 공지사항 ID를 추출하는 함수
+        function getNoticeIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // 공지사항 세부 정보를 가져오는 함수
+        async function fetchNoticeDetails(id) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/notice/${id}`);
+
+                if (!response.ok) {
+                    throw new Error('공지사항을 불러올 수 없습니다.');
+                }
+
+                const notice = await response.json();
+
+                // 공지사항 세부 정보 표시
+                document.getElementById('notice-title').textContent = notice.title;
+                document.getElementById('notice-date').textContent = notice.date;
+                document.getElementById('notice-content').textContent = notice.content;
+            } catch (error) {
+                console.error('세부 공지사항을 불러오는 중 오류 발생:', error);
+                document.getElementById('notice-content').textContent = '공지사항을 불러오는 중 오류가 발생했습니다.';
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
