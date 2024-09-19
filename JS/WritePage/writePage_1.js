@@ -116,6 +116,7 @@ postForm.addEventListener("submit", function (e) {
 
   $.ajax({
     url: "http://218.158.137.183:8080/writePage",
+    //url: "http://localhost:3000/contentSerch",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: parsedData,
     dataType: "json",

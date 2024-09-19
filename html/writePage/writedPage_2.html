@@ -1,894 +1,916 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>국가가 싼 똥은 국가가 치운다 007</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+      body {
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
 
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+      .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-        .title_header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 0px solid #ddd;
-            padding-bottom: 10px;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
+      .title_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 0px solid #ddd;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
 
-        .title_header h1 {
-            font-size: 28px;
-            margin: 0;
-            flex-grow: 1;
-        }
+      .title_header h1 {
+        font-size: 28px;
+        margin: 0;
+        flex-grow: 1;
+      }
 
-        .author-info {
-            color: #888;
-            font-size: 14px;
-        }
+      .author-info {
+        color: #888;
+        font-size: 14px;
+      }
 
-        .content {
-            margin-top: 20px;
-            line-height: 1.8;
-            text-align: left;
-        }
+      .content {
+        margin-top: 20px;
+        line-height: 1.8;
+        text-align: left;
+      }
 
-        .attachment {
-            margin-top: 30px;
-            padding: 15px 20px;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
+      .attachment {
+        margin-top: 30px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
 
-        .attachment i {
-            margin-right: 10px;
-            font-size: 18px;
-            color: #6c757d;
-        }
+      .attachment i {
+        margin-right: 10px;
+        font-size: 18px;
+        color: #6c757d;
+      }
 
-        .attachment a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 16px;
-        }
+      .attachment a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-size: 16px;
+      }
 
-        .attachment a:hover {
-            color: #007bff;
-        }
+      .attachment a:hover {
+        color: #007bff;
+      }
 
-        .meta-info {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .meta-info {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .talk_button {
-            background-color: #029acc;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 16px;
-            border: none;
-            display: inline-block;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-        }
+      .talk_button {
+        background-color: #029acc;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: none;
+        display: inline-block;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+      }
 
-        .url-button {
-            padding: 10px 20px;
-            border-radius: 50%;
-            background-color: #6c757d;
-            color: white;
-            font-size: 12px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            width: 1px;
-            height: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .url-button {
+        padding: 10px 20px;
+        border-radius: 50%;
+        background-color: #6c757d;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        width: 1px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .url-button:hover {
-            background-color: #5a6268;
-        }
+      .url-button:hover {
+        background-color: #5a6268;
+      }
 
-        .title_header_right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
+      .title_header_right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
 
-        .info-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            padding-bottom: 10px;
-            margin-bottom: -10px;
-        }
+      .info-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: -10px;
+      }
 
-        .author {
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            color: #333;
-        }
+      .author {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: #333;
+      }
 
-        .author strong {
-            font-weight: bold;
-        }
+      .author strong {
+        font-weight: bold;
+      }
 
-        .author span {
-            margin: 0 5px;
-            font-size: 18px;
-            color: #999;
-        }
+      .author span {
+        margin: 0 5px;
+        font-size: 18px;
+        color: #999;
+      }
 
-        .date {
-            color: #999;
-            font-size: 14px;
-        }
+      .date {
+        color: #999;
+        font-size: 14px;
+      }
 
-        .icons {
-            display: flex;
-            align-items: center;
-        }
+      .icons {
+        display: flex;
+        align-items: center;
+      }
 
-        .icons div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 35px;
-            margin-left: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            color: #555;
-            font-size: 16px;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-        }
+      .icons div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 35px;
+        margin-left: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        color: #555;
+        font-size: 16px;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          transform 0.2s ease;
+      }
 
-        .icons div:hover {
-            background-color: #e0e0e0;
-            color: #333;
-            transform: scale(1.1);
-            cursor: pointer;
-        }
+      .icons div:hover {
+        background-color: #e0e0e0;
+        color: #333;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
 
-        .icons div:active {
-            background-color: #ccc;
-            color: #222;
-            transform: scale(0.95);
-        }
+      .icons div:active {
+        background-color: #ccc;
+        color: #222;
+        transform: scale(0.95);
+      }
 
-        .clicked-star {
-            color: #e6ca18 !important;
-        }
+      .clicked-star {
+        color: #e6ca18 !important;
+      }
 
-        .clicked-heart {
-            color: #e63946 !important;
-        }
+      .clicked-heart {
+        color: #e63946 !important;
+      }
 
-        .clicked-comment {
-            color: #457b9d !important;
-        }
+      .clicked-comment {
+        color: #457b9d !important;
+      }
 
-        .divider {
-            border: none;
-            border-top: 2px solid #eae8e8;
-            margin: 20px 0;
-        }
+      .divider {
+        border: none;
+        border-top: 2px solid #eae8e8;
+        margin: 20px 0;
+      }
 
+      .votes-container-form {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .vote-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .vote-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: 2px solid #ddd;
+        font-size: 14px;
+        font-weight: bold;
+        color: #555;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .vote-button i {
+        margin-right: 5px;
+      }
+
+      .vote-header-form {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .vote-header-form img {
+        width: 50px;
+        margin-bottom: 10px;
+      }
+
+      .vote-header-form h2 {
+        font-size: 24px;
+        margin: 0;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .vote-meta-form {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #555;
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+      }
+
+      .vote-meta-form div {
+        display: flex;
+        align-items: center;
+      }
+
+      .vote-meta-form div i {
+        margin-right: 8px;
+        font-size: 16px;
+        color: #007bff;
+      }
+
+      .vote-option-form {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+      }
+
+      .vote-option-form:hover {
+        background-color: #f0f8ff;
+        border-color: #cce7ff;
+      }
+
+      .vote-option-form input {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .vote-option-form label {
+        font-size: 16px;
+        color: #333;
+      }
+
+      .vote-button-form {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 18px;
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .vote-button-form img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      .vote-button-form:hover {
+        background-color: #0056b3;
+      }
+
+      .divider-form {
+        border: none;
+        border-top: 1px solid #eee;
+        margin: 30px 0;
+      }
+
+      .vote-result-form {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+      }
+
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
         .votes-container-form {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .vote-container {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .vote-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 2px solid #ddd;
-            font-size: 14px;
-            font-weight: bold;
-            color: #555;
-            background-color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .vote-button i {
-            margin-right: 5px;
-        }
-
-        .vote-header-form {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .vote-header-form img {
-            width: 50px;
-            margin-bottom: 10px;
+          padding: 20px;
         }
 
         .vote-header-form h2 {
-            font-size: 24px;
-            margin: 0;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .vote-meta-form {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #555;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            text-align: center;
-        }
-
-        .vote-meta-form div {
-            display: flex;
-            align-items: center;
-        }
-
-        .vote-meta-form div i {
-            margin-right: 8px;
-            font-size: 16px;
-            color: #007bff;
+          font-size: 20px;
         }
 
         .vote-option-form {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            transition: all 0.3s ease;
-        }
-
-        .vote-option-form:hover {
-            background-color: #f0f8ff;
-            border-color: #cce7ff;
-        }
-
-        .vote-option-form input {
-            margin-right: 10px;
-            width: 20px;
-            height: 20px;
-        }
-
-        .vote-option-form label {
-            font-size: 16px;
-            color: #333;
+          flex-direction: column;
+          align-items: flex-start;
         }
 
         .vote-button-form {
-            width: 100%;
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 18px;
-            border: none;
-            text-align: center;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          padding: 12px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .votes-container-form {
+          padding: 15px;
         }
 
-        .vote-button-form img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
+        .vote-header-form h2 {
+          font-size: 18px;
         }
 
-        .vote-button-form:hover {
-            background-color: #0056b3;
+        .vote-button-form {
+          font-size: 14px;
         }
+      }
 
-        .divider-form {
-            border: none;
-            border-top: 1px solid #eee;
-            margin: 30px 0;
-        }
+      /* 추천 버튼 스타일 */
+      .like {
+        border-color: red;
+        color: red;
+      }
 
-        .vote-result-form {
-            text-align: center;
-            font-size: 14px;
-            color: #555;
-        }
+      /* 비추천 버튼 스타일 */
+      .dislike {
+        border-color: #ccc;
+        color: #888;
+      }
 
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            .votes-container-form {
-                padding: 20px;
-            }
+      /* hover 효과 */
+      .vote-button:hover {
+        background-color: #f4f4f4;
+      }
 
-            .vote-header-form h2 {
-                font-size: 20px;
-            }
+      /* 투표 결과 스타일 추가 */
+      .vote-result-option {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      }
 
-            .vote-option-form {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+      .vote-result-option label {
+        width: 100px;
+        font-size: 16px;
+        color: #333;
+      }
 
-            .vote-button-form {
-                padding: 12px;
-                font-size: 16px;
-            }
-        }
+      .progress-bar {
+        flex-grow: 1;
+        height: 20px;
+        background-color: #f0f0f0;
+        margin: 0 10px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
 
-        @media (max-width: 480px) {
-            .votes-container-form {
-                padding: 15px;
-            }
+      .progress {
+        height: 100%;
+        background-color: #007bff;
+        width: 0%;
+      }
 
-            .vote-header-form h2 {
-                font-size: 18px;
-            }
+      .vote-result-option span {
+        width: 100px;
+        text-align: right;
+        font-size: 16px;
+        color: #333;
+      }
 
-            .vote-button-form {
-                font-size: 14px;
-            }
-        }
+      .comment-container {
+        margin-top: 20px;
+      }
 
-        /* 추천 버튼 스타일 */
-        .like {
-            border-color: red;
-            color: red;
-        }
+      .comment {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+      }
 
-        /* 비추천 버튼 스타일 */
-        .dislike {
-            border-color: #ccc;
-            color: #888;
-        }
+      /* 안내 문구 */
+      .comment-info {
+        margin-bottom: 15px;
+        color: #555;
+        font-size: 13px;
+        text-align: left;
+      }
 
-        /* hover 효과 */
-        .vote-button:hover {
-            background-color: #f4f4f4;
-        }
+      .comment-author {
+        font-weight: bold;
+        margin-right: 10px;
+      }
 
-        /* 투표 결과 스타일 추가 */
-        .vote-result-option {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
+      .comment-date {
+        color: #999;
+        font-size: 14px;
+      }
 
-        .vote-result-option label {
-            width: 100px;
-            font-size: 16px;
-            color: #333;
-        }
+      .comment-content {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
+      }
 
-        .progress-bar {
-            flex-grow: 1;
-            height: 20px;
-            background-color: #f0f0f0;
-            margin: 0 10px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+      .comment-actions {
+        margin-top: 10px;
+      }
 
-        .progress {
-            height: 100%;
-            background-color: #007bff;
-            width: 0%;
-        }
+      .comment-actions button {
+        background-color: #f1f1f1;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
 
-        .vote-result-option span {
-            width: 100px;
-            text-align: right;
-            font-size: 16px;
-            color: #333;
-        }
+      .comment-actions button:hover {
+        background-color: #ddd;
+      }
 
-        .comment-container {
-            margin-top: 20px;
-        }
+      .char-count {
+        margin-left: 20px;
+        margin-right: 20px;
+        color: #777;
+        font-size: 14px;
+      }
 
-        .comment {
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-        }
+      /* 등록 버튼 */
+      .submit-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 0;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-right: 20px;
+        white-space: nowrap;
+      }
 
-        /* 안내 문구 */
-        .comment-info {
-            margin-bottom: 15px;
-            color: #555;
-            font-size: 13px;
-            text-align: left;
-        }
+      /* 등록 버튼 호버 효과 */
+      .submit-button:hover {
+        background-color: #555;
+      }
 
-        .comment-author {
-            font-weight: bold;
-            margin-right: 10px;
-        }
+      .comment-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+        padding: 20px;
+      }
 
-        .comment-date {
-            color: #999;
-            font-size: 14px;
-        }
+      .comment-input {
+        width: 80%;
+        padding: 10px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+      }
 
-        .comment-content {
-            margin-top: 10px;
-            font-size: 16px;
-            color: #333;
-        }
+      .list-button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
 
-        .comment-actions {
-            margin-top: 10px;
-        }
+      .list-button {
+        background-color: #4285f4;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+      }
 
-        .comment-actions button {
-            background-color: #f1f1f1;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
+      .list-button:hover {
+        background-color: #357ae8;
+      }
 
-        .comment-actions button:hover {
-            background-color: #ddd;
-        }
-
-        .char-count {
-            margin-left: 20px;
-            margin-right: 20px;
-            color: #777;
-            font-size: 14px;
-        }
-
-        /* 등록 버튼 */
-        .submit-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 0;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-right: 20px;
-            white-space: nowrap;
-        }
-
-        /* 등록 버튼 호버 효과 */
-        .submit-button:hover {
-            background-color: #555;
-        }
-
+      @media (max-width: 600px) {
         .comment-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #ddd;
-            margin-top: 20px;
-            padding: 20px;
+          flex-direction: column;
         }
 
-        .comment-input {
-            width: 80%;
-            padding: 10px;
-            border: none;
-            outline: none;
-            font-size: 16px;
+        .submit-button {
+          width: 100%;
         }
+      }
 
-        .list-button-container {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
 
-        .list-button {
-            background-color: #4285f4;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            display: inline-block;
-        }
+      .modal-content {
+        background-color: #ffffff;
+        margin: 15% auto;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        text-align: center;
+      }
 
-        .list-button:hover {
-            background-color: #357ae8;
-        }
+      .modal-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #333333;
+        margin-bottom: 20px;
+      }
 
-        @media (max-width: 600px) {
-            .comment-box {
-                flex-direction: column;
-            }
+      .modal-message {
+        font-size: 16px;
+        color: #555555;
+        margin-bottom: 30px;
+      }
 
-            .submit-button {
-                width: 100%;
-            }
-        }
+      .modal-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
+      .modal-button-primary {
+        background-color: #4a90e2;
+        color: #ffffff;
+      }
 
-        .modal-content {
-            background-color: #ffffff;
-            margin: 15% auto;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            text-align: center;
-        }
+      .modal-button-primary:hover {
+        background-color: #3a7bc8;
+      }
 
-        .modal-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333333;
-            margin-bottom: 20px;
-        }
+      .modal-button-secondary {
+        background-color: #f0f0f0;
+        color: #333333;
+        margin-right: 10px;
+      }
 
-        .modal-message {
-            font-size: 16px;
-            color: #555555;
-            margin-bottom: 30px;
-        }
-
-        .modal-button {
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 500;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .modal-button-primary {
-            background-color: #4a90e2;
-            color: #ffffff;
-        }
-
-        .modal-button-primary:hover {
-            background-color: #3a7bc8;
-        }
-
-        .modal-button-secondary {
-            background-color: #f0f0f0;
-            color: #333333;
-            margin-right: 10px;
-        }
-
-        .modal-button-secondary:hover {
-            background-color: #e0e0e0;
-        }
+      .modal-button-secondary:hover {
+        background-color: #e0e0e0;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <div class="small_top_left">
-            <input type="button" class="talk_button" value="투표">
+      <div class="small_top_left">
+        <input type="button" class="talk_button" value="투표" />
+      </div>
+
+      <div class="title_header">
+        <h1>글의 제목을 표시하는 영역입니다.</h1>
+        <div class="title_header_right">
+          <a href="#" class="url-button">URL</a>
+        </div>
+      </div>
+
+      <!-- 작성자 정보와 아이콘이 한 줄로 배치됨 -->
+      <div class="info-container">
+        <div class="author">
+          <strong>홍길동</strong> &nbsp;님의 생각
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <span class="date">2024.09.12</span>
         </div>
 
-        <div class="title_header">
-            <h1>글의 제목을 표시하는 영역입니다.</h1>
-            <div class="title_header_right">
-                <a href="#" class="url-button">URL</a>
-            </div>
+        <div class="icons">
+          <div id="star">
+            <i class="fas fa-star"></i>
+          </div>
+          <div id="heart"><i class="fas fa-heart"></i>&nbsp;<span>1</span></div>
+          <div id="comment">
+            <i class="fas fa-comment"></i>&nbsp;<span>0</span>
+          </div>
         </div>
+      </div>
+      <hr class="divider" />
+      <!-- 작성자 정보와 아이콘 끝 -->
 
-        <!-- 작성자 정보와 아이콘이 한 줄로 배치됨 -->
-        <div class="info-container">
-            <div class="author">
-                <strong>홍길동</strong> &nbsp;님의 생각 <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <span class="date">2024.09.12</span>
+      <div class="content">
+        <p>글의 내용을 표시하는 영역입니다.</p>
+        <hr class="divider" />
+        <div class="votes-container-form">
+          <!-- 투표 폼 -->
+          <div class="vote-header-form">
+            <img
+              src="https://img.icons8.com/ios-filled/50/007bff/ballot.png"
+              alt="투표 아이콘"
+            />
+            <h2>투표에 참여해 주세요</h2>
+          </div>
+
+          <div class="vote-meta-form">
+            <div>
+              <i class="fas fa-users"></i> 총 참여인원: &nbsp;<strong
+                >5명</strong
+              >
             </div>
-
-            <div class="icons">
-                <div id="star">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div id="heart">
-                    <i class="fas fa-heart"></i>&nbsp;<span>1</span>
-                </div>
-                <div id="comment">
-                    <i class="fas fa-comment"></i>&nbsp;<span>0</span>
-                </div>
+            <div>
+              <i class="fas fa-calendar-alt"></i> 실시기간: &nbsp;<strong
+                >2024-09-12 ~ 2024-12-11</strong
+              >
             </div>
+          </div>
 
-        </div>
-        <hr class="divider">
-        <!-- 작성자 정보와 아이콘 끝 -->
+          <!-- 투표 옵션 -->
+          <div class="vote-option-form">
+            <input type="radio" name="vote" id="option1" value="매우 만족" />
+            <label for="option1">매우 만족</label>
+          </div>
 
-        <div class="content">
-            <p>글의 내용을 표시하는 영역입니다.</p>
-            <hr class="divider">
-            <div class="votes-container-form">
+          <div class="vote-option-form">
+            <input type="radio" name="vote" id="option2" value="만족" />
+            <label for="option2">만족</label>
+          </div>
 
-                <!-- 투표 폼 -->
-                <div class="vote-header-form">
-                    <img src="https://img.icons8.com/ios-filled/50/007bff/ballot.png" alt="투표 아이콘">
-                    <h2>투표에 참여해 주세요</h2>
-                </div>
+          <div class="vote-option-form">
+            <input type="radio" name="vote" id="option3" value="보통" />
+            <label for="option3">보통</label>
+          </div>
 
-                <div class="vote-meta-form">
-                    <div>
-                        <i class="fas fa-users"></i> 총 참여인원: &nbsp;<strong>5명</strong>
-                    </div>
-                    <div>
-                        <i class="fas fa-calendar-alt"></i> 실시기간: &nbsp;<strong>2024-09-12 ~ 2024-12-11</strong>
-                    </div>
-                </div>
+          <div class="vote-option-form">
+            <input type="radio" name="vote" id="option4" value="불만족" />
+            <label for="option4">불만족</label>
+          </div>
 
-                <!-- 투표 옵션 -->
-                <div class="vote-option-form">
-                    <input type="radio" name="vote" id="option1" value="매우 만족">
-                    <label for="option1">매우 만족</label>
-                </div>
+          <div class="vote-option-form">
+            <input type="radio" name="vote" id="option5" value="매우 불만족" />
+            <label for="option5">매우 불만족</label>
+          </div>
 
-                <div class="vote-option-form">
-                    <input type="radio" name="vote" id="option2" value="만족">
-                    <label for="option2">만족</label>
-                </div>
+          <div class="vote-option-form">
+            <input type="radio" name="vote" id="option6" value="기타 의견" />
+            <label for="option6">기타 의견</label>
+          </div>
 
-                <div class="vote-option-form">
-                    <input type="radio" name="vote" id="option3" value="보통">
-                    <label for="option3">보통</label>
-                </div>
+          <button class="vote-button-form" onclick="submitVote()">
+            <img
+              src="https://img.icons8.com/ios-filled/50/ffffff/checkmark--v1.png"
+              alt="체크 아이콘"
+            />
+            투표하기
+          </button>
 
-                <div class="vote-option-form">
-                    <input type="radio" name="vote" id="option4" value="불만족">
-                    <label for="option4">불만족</label>
-                </div>
+          <hr class="divider-form" />
 
-                <div class="vote-option-form">
-                    <input type="radio" name="vote" id="option5" value="매우 불만족">
-                    <label for="option5">매우 불만족</label>
-                </div>
-
-                <div class="vote-option-form">
-                    <input type="radio" name="vote" id="option6" value="기타 의견">
-                    <label for="option6">기타 의견</label>
-                </div>
-
-                <button class="vote-button-form" onclick="submitVote()">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/checkmark--v1.png" alt="체크 아이콘"> 투표하기
-                </button>
-
-                <hr class="divider-form">
-
-                <!-- 투표 결과 하단 문구 제거 -->
-                <!-- <div class="vote-result-form">
+          <!-- 투표 결과 하단 문구 제거 -->
+          <!-- <div class="vote-result-form">
                     현재 참여자 수: <strong>5명</strong>
                 </div> -->
-            </div>
+        </div>
+      </div>
 
+      <hr class="divider" />
+      <div class="meta-info">
+        <p>참여기간: 2024-09-12 ~ 2024-11-11</p>
+        <button class="list-button">생각신고</button>
+      </div>
+
+      <div class="vote-container">
+        <!-- 추천 버튼 -->
+        <div class="vote-button like">
+          <i class="fas fa-thumbs-up"></i>
+          찬성 2
         </div>
 
-        <div class="attachment">
-            <a href="#"><strong>첨부파일</strong><br>📄 193.pdf</a>
+        <!-- 비추천 버튼 -->
+        <div class="vote-button dislike">
+          <i class="fas fa-thumbs-down"></i>
+          반대 0
         </div>
-        <hr class="divider">
-        <div class="meta-info">
-            <p>참여기간: 2024-09-12 ~ 2024-11-11</p>
-            <button class="list-button">생각신고</button>
+      </div>
+
+      <div class="comment-container">
+        <div class="comment-info">
+          ※ 건전한 토론을 위해 비방·욕설·도배 등은 삭제될 수 있습니다.
         </div>
-
-        <div class="vote-container">
-            <!-- 추천 버튼 -->
-            <div class="vote-button like">
-                <i class="fas fa-thumbs-up"></i>
-                찬성 2
-            </div>
-
-            <!-- 비추천 버튼 -->
-            <div class="vote-button dislike">
-                <i class="fas fa-thumbs-down"></i>
-                반대 0
-            </div>
+        <div class="comment-box">
+          <textarea
+            class="comment-input"
+            rows="4"
+            maxlength="1000"
+            placeholder="의견을 입력하세요."
+          ></textarea>
+          <span class="char-count">0/1000</span>
+          <button class="list-button">등록</button>
         </div>
+      </div>
 
-        <div class="comment-container">
-            <div class="comment-info">
-                ※ 건전한 토론을 위해 비방·욕설·도배 등은 삭제될 수 있습니다.
-            </div>
-            <div class="comment-box">
-                <textarea class="comment-input" rows="4" maxlength="1000" placeholder="의견을 입력하세요."></textarea>
-                <span class="char-count">0/1000</span>
-                <button class="list-button">등록</button>
-            </div>
-        </div>
+      <hr class="divider" />
 
-        <hr class="divider">
-
-        <!-- 댓글 목록 -->
-        <div class="comment-container">
-            <div class="comment">
-                <div>
-                    <span class="comment-author">홍길동</span>
-                    <span class="comment-date">2024-09-12 13:52</span>
-                </div>
-                <div class="comment-content">
-                    한국재정정보원의 역할은 날이 갈수록 커져가는 것 같아요. 시대적 흐름에 맞게 가치체계 등이 변화가 되어 잘 반영이 되면 좋겠습니다.
-                </div>
-                <div class="comment-actions">
-                    <button>수정</button>
-                    <button>삭제</button>
-                    <button>신고</button>
-                </div>
-            </div>
-
-            <div class="comment">
-                <div>
-                    <span class="comment-author">CuAgain</span>
-                    <span class="comment-date">2024-09-12 13:45</span>
-                </div>
-                <div class="comment-content">
-                    미션 및 비전, 가치체계는 한국재정정보원의 역할과 설립목적이 잘 반영되어있다고 생각합니다. 한국재정정보원 응원합니다.
-                </div>
-                <div class="comment-actions">
-                    <button>수정</button>
-                    <button>삭제</button>
-                    <button>신고</button>
-                </div>
-            </div>
+      <!-- 댓글 목록 -->
+      <div class="comment-container">
+        <div class="comment">
+          <div>
+            <span class="comment-author">홍길동</span>
+            <span class="comment-date">2024-09-12 13:52</span>
+          </div>
+          <div class="comment-content">
+            한국재정정보원의 역할은 날이 갈수록 커져가는 것 같아요. 시대적
+            흐름에 맞게 가치체계 등이 변화가 되어 잘 반영이 되면 좋겠습니다.
+          </div>
+          <div class="comment-actions">
+            <button>수정</button>
+            <button>삭제</button>
+            <button>신고</button>
+          </div>
         </div>
 
-        <div class="list-button-container">
-            <button class="list-button">목록</button>
+        <div class="comment">
+          <div>
+            <span class="comment-author">CuAgain</span>
+            <span class="comment-date">2024-09-12 13:45</span>
+          </div>
+          <div class="comment-content">
+            미션 및 비전, 가치체계는 한국재정정보원의 역할과 설립목적이 잘
+            반영되어있다고 생각합니다. 한국재정정보원 응원합니다.
+          </div>
+          <div class="comment-actions">
+            <button>수정</button>
+            <button>삭제</button>
+            <button>신고</button>
+          </div>
         </div>
+      </div>
+
+      <div class="list-button-container">
+        <button class="list-button">목록</button>
+      </div>
     </div>
 
     <!-- 성공 모달 -->
     <div id="successModal" class="modal">
-        <div class="modal-content">
-            <h3 class="modal-title">성공</h3>
-            <p class="modal-message">투표에 참여해 주셔서 감사합니다.</p>
-            <button id="successOk" class="modal-button modal-button-primary">확인</button>
-        </div>
+      <div class="modal-content">
+        <h3 class="modal-title">성공</h3>
+        <p class="modal-message">투표에 참여해 주셔서 감사합니다.</p>
+        <button id="successOk" class="modal-button modal-button-primary">
+          확인
+        </button>
+      </div>
     </div>
 
     <!-- 경고 모달 -->
     <div id="warningModal" class="modal">
-        <div class="modal-content">
-            <h3 class="modal-title">경고</h3>
-            <p class="modal-message">투표 항목을 선택해 주세요.</p>
-            <button id="warningOk" class="modal-button modal-button-primary">확인</button>
-        </div>
+      <div class="modal-content">
+        <h3 class="modal-title">경고</h3>
+        <p class="modal-message">투표 항목을 선택해 주세요.</p>
+        <button id="warningOk" class="modal-button modal-button-primary">
+          확인
+        </button>
+      </div>
     </div>
 
     <script>
-        // 투표 데이터 초기화
-        let voteCounts = {
-            '매우 만족': 2,
-            '만족': 1,
-            '보통': 1,
-            '불만족': 1,
-            '매우 불만족': 0,
-            '기타 의견': 0
-        };
+      // 투표 데이터 초기화
+      let voteCounts = {
+        "매우 만족": 2,
+        만족: 1,
+        보통: 1,
+        불만족: 1,
+        "매우 불만족": 0,
+        "기타 의견": 0,
+      };
 
-        const successModal = document.getElementById('successModal');
-        const warningModal = document.getElementById('warningModal');
-        const successOk = document.getElementById('successOk');
-        const warningOk = document.getElementById('warningOk');
+      const successModal = document.getElementById("successModal");
+      const warningModal = document.getElementById("warningModal");
+      const successOk = document.getElementById("successOk");
+      const warningOk = document.getElementById("warningOk");
 
-        // 모달 표시 함수
-        function showModal(modal) {
-            modal.style.display = 'block';
+      // 모달 표시 함수
+      function showModal(modal) {
+        modal.style.display = "block";
+      }
+
+      // 모달 숨기기 함수
+      function hideModal(modal) {
+        modal.style.display = "none";
+      }
+
+      // 성공 모달 확인 버튼 처리
+      successOk.addEventListener("click", function () {
+        hideModal(successModal);
+        showResults();
+      });
+
+      // 경고 모달 확인 버튼 처리
+      warningOk.addEventListener("click", function () {
+        hideModal(warningModal);
+      });
+
+      // 투표 제출 함수
+      function submitVote() {
+        const selectedVote = document.querySelector(
+          'input[name="vote"]:checked'
+        );
+        if (selectedVote) {
+          // 투표 수 업데이트
+          const voteValue = selectedVote.value;
+          if (voteCounts[voteValue] !== undefined) {
+            voteCounts[voteValue]++;
+          } else {
+            voteCounts[voteValue] = 1;
+          }
+          showModal(successModal);
+        } else {
+          showModal(warningModal);
+        }
+      }
+
+      // 투표 결과 표시 함수
+      function showResults() {
+        const voteContainer = document.querySelector(".votes-container-form");
+
+        let totalVotes = 0;
+        for (let key in voteCounts) {
+          totalVotes += voteCounts[key];
         }
 
-        // 모달 숨기기 함수
-        function hideModal(modal) {
-            modal.style.display = 'none';
-        }
-
-        // 성공 모달 확인 버튼 처리
-        successOk.addEventListener('click', function () {
-            hideModal(successModal);
-            showResults();
-        });
-
-        // 경고 모달 확인 버튼 처리
-        warningOk.addEventListener('click', function () {
-            hideModal(warningModal);
-        });
-
-        // 투표 제출 함수
-        function submitVote() {
-            const selectedVote = document.querySelector('input[name="vote"]:checked');
-            if (selectedVote) {
-                // 투표 수 업데이트
-                const voteValue = selectedVote.value;
-                if (voteCounts[voteValue] !== undefined) {
-                    voteCounts[voteValue]++;
-                } else {
-                    voteCounts[voteValue] = 1;
-                }
-                showModal(successModal);
-            } else {
-                showModal(warningModal);
-            }
-        }
-
-        // 투표 결과 표시 함수
-        function showResults() {
-            const voteContainer = document.querySelector('.votes-container-form');
-
-            let totalVotes = 0;
-            for (let key in voteCounts) {
-                totalVotes += voteCounts[key];
-            }
-
-            let resultsHTML = `
+        let resultsHTML = `
                 <div class="vote-header-form">
                     <img src="https://img.icons8.com/ios-filled/50/007bff/ballot.png" alt="투표 아이콘">
                     <h2>투표 결과</h2>
@@ -904,10 +926,10 @@
                 </div>
             `;
 
-            for (let option in voteCounts) {
-                let count = voteCounts[option];
-                let percentage = ((count / totalVotes) * 100).toFixed(2);
-                resultsHTML += `
+        for (let option in voteCounts) {
+          let count = voteCounts[option];
+          let percentage = ((count / totalVotes) * 100).toFixed(2);
+          resultsHTML += `
                     <div class="vote-result-option">
                         <label>${option}</label>
                         <div class="progress-bar">
@@ -916,38 +938,36 @@
                         <span>${count}명 (${percentage}%)</span>
                     </div>
                 `;
-            }
+        }
 
-            resultsHTML += `
+        resultsHTML += `
                 <div class="vote-result-form">
                     *2024-09-14 일에 투표에 참여하셨습니다.
                 </div>
             `;
 
-            voteContainer.innerHTML = resultsHTML;
-        }
+        voteContainer.innerHTML = resultsHTML;
+      }
 
-        // 기타 이벤트 리스너
-        document.getElementById('star').addEventListener('click', function () {
-            this.querySelector('i').classList.toggle('clicked-star');
-        });
+      // 기타 이벤트 리스너
+      document.getElementById("star").addEventListener("click", function () {
+        this.querySelector("i").classList.toggle("clicked-star");
+      });
 
-        document.getElementById('heart').addEventListener('click', function () {
-            this.querySelector('i').classList.toggle('clicked-heart');
-        });
+      document.getElementById("heart").addEventListener("click", function () {
+        this.querySelector("i").classList.toggle("clicked-heart");
+      });
 
-        document.getElementById('comment').addEventListener('click', function () {
-            this.querySelector('i').classList.toggle('clicked-comment');
-        });
+      document.getElementById("comment").addEventListener("click", function () {
+        this.querySelector("i").classList.toggle("clicked-comment");
+      });
 
-        const commentInput = document.querySelector('.comment-input');
-        const charCount = document.querySelector('.char-count');
+      const commentInput = document.querySelector(".comment-input");
+      const charCount = document.querySelector(".char-count");
 
-        commentInput.addEventListener('input', () => {
-            charCount.textContent = `${commentInput.value.length}/1000`;
-        });
+      commentInput.addEventListener("input", () => {
+        charCount.textContent = `${commentInput.value.length}/1000`;
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
