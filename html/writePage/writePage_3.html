@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -153,6 +154,7 @@
         </div>
       </div>
 
+
       <div class="form-group">
         <label for="content">내용</label>
         <textarea id="content" name="content" placeholder="내용을 입력하세요..." required></textarea>
@@ -164,6 +166,7 @@
           <input type="date" id="startDate" name="startDate" required />
           <span>~</span>
           <input type="date" id="endDate" name="endDate" required />
+
         </div>
         <div class="quick-select">
           <label><input type="radio" name="quickSelect" value="2weeks" />
@@ -193,6 +196,7 @@
             <input type="text" id="surveyQuestion1" name="surveyQuestions[]" placeholder="설문 질문을 입력하세요"
               maxlength="200" />
           </div>
+
           <div class="survey-option">
             <input type="text" name="surveyOptions1[]" placeholder="옵션 1을 입력하세요" />
             <button type="button" class="remove-option">삭제</button>
@@ -200,6 +204,7 @@
           <div class="survey-option">
             <input type="text" name="surveyOptions1[]" placeholder="옵션 2를 입력하세요" />
             <button type="button" class="remove-option">삭제</button>
+
           </div>
         </div>
         <button type="button" id="addOptionButton">옵션 추가</button>
@@ -335,6 +340,7 @@
             break;
         }
 
+
         startDateInput.value = startDate.toISOString().split("T")[0];
         endDateInput.value = endDate.toISOString().split("T")[0];
       });
@@ -392,6 +398,7 @@
       `;
       surveySection.appendChild(newOption);
 
+
       // 삭제 버튼 기능 추가
       newOption
         .querySelector(".remove-option")
@@ -407,7 +414,14 @@
       newQuestion.classList.add("survey-question");
       newQuestion.innerHTML = `
         <label for="surveyQuestion${questionCount}">질문 ${questionCount}</label>
-        <input type="text" id="surveyQuestion${questionCount}" name="surveyQuestions[]" placeholder="설문 질문을 입력하세요" maxlength="200">
+        <input type="text" id="surveyQuestion${questionCount}" placeholder="설문 질문을 입력하세요" maxlength="200">
+        <div id="optionsContainer${questionCount}">
+          <div class="survey-option">
+            <input type="text" name="surveyOptions${questionCount}[]" placeholder="옵션 1을 입력하세요">
+            <button type="button" class="remove-option">삭제</button>
+          </div>
+        </div>
+        <button type="button" id="addOptionButton${questionCount}" class="add-option-button">옵션 추가</button>
       `;
 
       const newOption1 = document.createElement("div");
