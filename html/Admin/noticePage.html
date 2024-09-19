@@ -4,22 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항 세부 페이지</title>
-    <link rel="stylesheet" href="/path/to/your/css/noticeDetail.css">
+    <title>공지함</title>
+    <link rel="stylesheet" href="/Css/Admin/noticePage.css">
     <script src="/path/to/your/js/noticeDetail.js" defer></script>
+
+    <link rel="stylesheet" href="../../Css/Public/Public.css">
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#header").load("../Public/header.html");
+            $("#footer").load("../Public/footer.html");
+        });
+    </script>
+
+
 </head>
 
 <body>
-    <header>
-        <h1>공지사항 세부 정보</h1>
+    <header id="header"></header>
+    <header class="header--notice">
+        <h1>공지함</h1>
     </header>
-
-    <main>
-        <article id="notice-detail">
-            <h2 id="notice-title">공지사항 제목</h2>
-            <p id="notice-date">날짜</p>
-            <div id="notice-content">내용을 불러오는 중...</div>
-        </article>
+    
+    <main class="main--notice">
+        <div class="container">
+            <article id="notice-detail" class="notice-detail">
+                <h2 id="notice-title" class="notice-title">공지사항 제목</h2>
+                <p id="notice-date" class="notice-date">날짜</p>
+                <div id="notice-content" class="notice-content">내용을 불러오는 중...</div>
+            </article>
+        </div>
     </main>
 
 
@@ -66,7 +81,7 @@
         }
 
     </script>
-
+    <header id="footer"></header>
 
 </body>
 
