@@ -1,0 +1,233 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  width: 58.5%;
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+.header .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  width: 60%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  flex-grow: 1;
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 20%; /* 화면에서 20% 차지 */
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+/* Sidebar Links 기본 스타일 */
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  font-weight: normal; /* 기본 상태에서 일반 텍스트 색상 */
+  border-bottom: 2px solid transparent; /* 기본적으로 밑줄 없음 */
+  padding-bottom: 5px;
+}
+
+/* Sidebar에서 선택된 항목에 대한 스타일 */
+.sidebar ul li a.active {
+  color: #007bff !important; /* 선택된 항목의 글씨 파란색 */
+  border-bottom: 2px solid #007bff; /* 파란색 밑줄 */
+  font-weight: bold; /* 선택된 항목은 굵은 글씨체 */
+}
+
+.sidebar ul li a.side {
+  color: black;
+  font-weight: bold;
+}
+
+/* Profile Info Styles */
+.profile-info {
+  flex: 1;
+  padding: 20px;
+  position: relative; /* 하단 버튼을 위치시키기 위해 상대적 위치 설정 */
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-photo img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+/* 사진 변경 버튼을 프로필 이미지 바로 밑에 위치 */
+.change-photo-button {
+  display: block;
+  margin: 0 auto 20px auto; /* 중앙 정렬 및 프로필 이미지와의 간격 */
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+}
+
+.input-group {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+
+  margin-left: 190px; /* 글자를 조금 왼쪽으로 이동 */
+  text-align: left; /* label을 왼쪽 정렬 */
+}
+
+.input-group input {
+  width: 50%; /* 입력 필드 너비를 90%로 설정 */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+}
+
+.input-group input[disabled] {
+  background-color: #f0f0f0;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  margin-left: 10px;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 20px; /* 하단에서 20px 떨어지도록 설정 */
+  right: 20px; /* 오른쪽에서 20px 떨어지도록 설정 */
+  text-align: right;
+  width: 100%; /* 전체 너비를 차지하도록 설정 */
+}
+
+.buttons button {
+  margin-left: 10px; /* 버튼 간격 */
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Right Profile Section */
+.right-profile {
+  width: 20%;
+  text-align: center;
+  padding-left: 20px;
+  border-left: 1px solid #ddd;
+  position: relative;
+}
+
+.h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.right-profile .profile-photo {
+  margin: 0 auto 15px;
+}
+
+/* 회원탈퇴 버튼을 하단에 고정 */
+.delete-account-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  position: absolute;
+  bottom: 20px; /* 하단에서 20px 띄움 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.edit-button,
+.save-button {
+  background-color: #007bff; /* 기본 버튼 색상 */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  margin-left: 10px;
+}
+
+.edit-button[disabled],
+.save-button[disabled] {
+  background-color: #ccc; /* 비활성화된 버튼 색상 */
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: none;
+  margin-left: 190px;
+}

@@ -1,0 +1,402 @@
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0px solid #ddd;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.title_header h1 {
+  font-size: 28px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.author-info {
+  color: #888;
+  font-size: 14px;
+}
+
+.content {
+  margin-top: 20px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.attachment {
+  margin-top: 30px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.attachment i {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #6c757d;
+}
+
+.attachment a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.attachment a:hover {
+  color: #007bff;
+}
+
+.meta-info {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.talk_button {
+  background-color: #029acc;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.url-button {
+  padding: 10px 20px;
+  border-radius: 50%;
+  background-color: #6c757d;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  width: 1px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.url-button:hover {
+  background-color: #5a6268;
+}
+
+.title_header_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+}
+
+.author strong {
+  font-weight: bold;
+}
+
+.author span {
+  margin: 0 5px;
+  font-size: 18px;
+  color: #999;
+}
+
+.date {
+  color: #999;
+  font-size: 14px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 35px;
+  margin-left: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.icons div:hover {
+  background-color: #e0e0e0;
+  color: #333;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.icons div:active {
+  background-color: #ccc;
+  color: #222;
+  transform: scale(0.95);
+}
+
+.clicked-star {
+  color: #e6ca18 !important;
+}
+
+.clicked-heart {
+  color: #e63946 !important;
+}
+
+.clicked-comment {
+  color: #457b9d !important;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid #eae8e8;
+  margin: 20px 0;
+}
+
+.comment-container {
+  margin-top: 20px;
+}
+
+.comment {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 안내 문구 */
+.comment-info {
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 13px;
+  text-align: left;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.comment-date {
+  color: #999;
+  font-size: 14px;
+}
+
+.comment-content {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.comment-actions {
+  margin-top: 10px;
+}
+
+.comment-actions button {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.comment-actions button:hover {
+  background-color: #ddd;
+}
+
+.char-count {
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* 등록 버튼 */
+.submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+/* 등록 버튼 호버 효과 */
+.submit-button:hover {
+  background-color: #555;
+}
+
+.comment-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.comment-input {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.list-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.list-button {
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.list-button:hover {
+  background-color: #357ae8;
+}
+
+@media (max-width: 600px) {
+  .comment-box {
+    flex-direction: column;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+}
+
+/* 설문 폼 스타일 */
+.survey-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.survey-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.survey-header img {
+  width: 40px;
+  height: 40px;
+}
+
+.survey-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.survey-header .participants {
+  font-size: 16px;
+  color: #555;
+}
+
+.survey-question {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.survey-question p {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.vote-button-form {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+}
+
+.vote-button-form img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.vote-button-form:hover {
+  background-color: #0056b3;
+}

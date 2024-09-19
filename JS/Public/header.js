@@ -20,7 +20,7 @@ function Login() {
             <img src="/path/to/profile.png" alt="Profile" style="width: 30px; height: 30px; border-radius: 50%;">
         </div>
         <div class="top-menu-link">
-            <a href="#">${userName}님 환영합니다.</a>
+            <a href="../../html/User/Profil.html">${userName}님 환영합니다.</a>
         </div>
         <div class="top-menu-link">
             <a href="#" onclick="logout()">로그아웃</a>
@@ -31,4 +31,5 @@ function Login() {
 function logout() {
   localStorage.clear(); // 로컬 스토리지 클리어
   window.location.reload(); // 페이지 새로고침
+  location.href = "../../html/main/page.html";
 }
