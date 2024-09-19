@@ -24,8 +24,8 @@
         <div class="sidebar">
             <h2>관리자 메뉴</h2>
             <ul>
-                <li><a href="#">사용자 관리</a></li>
-                <li><a href="#">로그인 기록 관리</a></li>
+                <li><a href="/html/Admin/adminPageUserManage.html">사용자 관리</a></li>
+                <li><a href="/html/Admin/adminPageUserLog.html">로그인 기록 관리</a></li>
             </ul>
         </div>
 
@@ -68,44 +68,7 @@
                     </tr>
                 </thead>
                 <tbody id="user-table-body">
-                    <tr>
-                        <td>1</td>
-                        <td>hong123</td>
-                        <td class="name-cell" data-id="hong123" data-name="홍길동" data-birthday="1990-01-01"
-                            data-gender="남성" data-phone="010-1234-5678" data-email="hong@example.com">홍길동</td>
-                        <td>hong@example.com</td>
-                        <td>활성</td>
-                        <td>
-                            <select class="role-select">
-                                <option value="user">일반 유저</option>
-                                <option value="admin">관리자</option>
-                                <option value="banned">이용정지</option>
-                            </select>
-                        </td>
-                        <td>
-                            <button class="action-btn reset-btn">PW Reset</button>
-                            <button class="action-btn delete-btn">삭제</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>kim456</td>
-                        <td class="name-cell" data-id="kim456" data-name="김철수" data-birthday="1992-05-12"
-                            data-gender="남성" data-phone="010-5678-1234" data-email="kim@example.com">김철수</td>
-                        <td>kim@example.com</td>
-                        <td>비활성</td>
-                        <td>
-                            <select class="role-select">
-                                <option value="user">일반 유저</option>
-                                <option value="admin">관리자</option>
-                                <option value="banned">이용정지</option>
-                            </select>
-                        </td>
-                        <td>
-                            <button class="action-btn reset-btn">PW Reset</button>
-                            <button class="action-btn delete-btn">삭제</button>
-                        </td>
-                    </tr>
+
                 </tbody>
 
             </table>
@@ -125,7 +88,6 @@
         <div class="modal-content">
             <button class="close-btn" id="close-modal">닫기</button>
             <h2 class="modal-header">프로필 정보</h2>
-            <img src="https://via.placeholder.com/120" alt="Profile Image" id="profile-image">
             <table class="profile-table">
                 <tr>
                     <th>아이디</th>
@@ -137,8 +99,8 @@
                 </tr>
                 <tr>
                     <th>학교</th>
-                    <td id="school-name"></td>
-                </tr>
+                    <td id="modal-school"></td>  <!-- 학교명이 들어갈 위치 -->
+                  </tr>
                 <tr>
                     <th>생일</th>
                     <td id="modal-birthday"></td>
