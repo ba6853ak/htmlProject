@@ -130,33 +130,28 @@ input::-ms-clear {
 
   .nav-item:first-child {
       position: relative;
-      left: -250px;
+      left: -35px;
       /* 원하는 만큼 왼쪽으로 이동 */
   }
 
   .nav-item:nth-child(2) {
     position: relative;
-    left: -90px;
+    left: 0px;
     /* 원하는 만큼 왼쪽으로 이동 */
 }
 
   .nav-item:nth-child(3) {
       position: relative;
-      left: -35px;
+      left: 25px;
       /* 원하는 만큼 왼쪽으로 이동 */
   }
 
   .nav-item:nth-child(4) {
       position: relative;
-      left: 15px;
+      left: 40px;
       /* 원하는 만큼 왼쪽으로 이동 */
   }
 
-  .nav-item:nth-child(45) {
-      position: relative;
-      left: 70px;
-      /* 원하는 만큼 왼쪽으로 이동 */
-  }
 
   /* 드롭다운 전체를 감싸는 컨테이너 */
   .dropdown-wrapper {

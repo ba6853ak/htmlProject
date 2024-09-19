@@ -11,10 +11,9 @@ const successOk = document.getElementById("successOk");
 const postForm = document.getElementById("postForm");
 const startDateInput = document.getElementById("startDate");
 const endDateInput = document.getElementById("endDate");
-const quickSelectInputs = document.querySelectorAll(
-  'input[name="quickSelect"]'
-);
-var obj = {};
+
+const quickSelectInputs = document.querySelectorAll('input[name="quickSelect"]');
+
 
 titleInput.addEventListener("input", updateTitleCharCount);
 
@@ -92,7 +91,27 @@ quickSelectInputs.forEach((input) => {
 });
 
 postForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+
+  e.preventDefault(); // 폼 기본 제출 기능 중지
+
+  // FormData 객체 생성
+  var formData = new FormData(postForm);
+
+  const schoolId = localStorage.setItem("SC_ID", resu[0]["SC_ID"]);
+  const storedName = localStorage.getItem("Name");
+  /// const storedName = "유근형";
+  /// const schoolId = 110;
+  // 폼 요소가 제대로 선택되었는지 확인
+  if (!postForm) {
+    console.error("폼이 선택되지 않았습니다. 선택자를 확인하세요.");
+  } else {
+    console.log("폼이 제대로 선택되었습니다.");
+  }
+
+  // FormData 내용을 콘솔에 출력 (디버깅용)
+  for (let [key, value] of formData.entries()) {
+    console.log(key, value);
+  }
 
   // FormData 생성
   const formData = new FormData(this);
@@ -115,19 +134,30 @@ postForm.addEventListener("submit", function (e) {
   console.log(parsedData);
 
   $.ajax({
-    url: "http://218.158.137.183:8080/writePage",
-    //url: "http://localhost:3000/contentSerch",
-    type: "get", //default는 get이기 때문에 생략 가능.
-    data: parsedData,
-    dataType: "json",
+    url: "http://localhost:3000/writePage_1", // 서버 URL
+    type: "POST", // 전송 방식
+    data: JSON.stringify({
+      title: formData.get("title"),
+      content: formData.get("content"),
+      startDate: formData.get("startDate"),
+      endDate: formData.get("endDate"),
+      sc_id: schoolId,
+      name: storedName, // localStorage에서 가져온 Name을 전송
+    }),
+    contentType: "application/json", // JSON 데이터로 전송
+    processData: false, // 데이터 처리하지 않음
     success: function (res) {
       if (res.status == 200) {
-        resu = res.ID;
-        showModal(successModal);
-      } else if (res.status == 100) {
-        emailfal();
+        showModal(successModal); // 성공 모달 표시
+      } else {
+        console.error("게시물 작성 실패:", res);
       }
     },
+    error: function (xhr, status, error) {
+      // 오류 처리 로직
+      console.error("데이터 전송 중 오류 발생:", error);
+    },
+
   });
 });
 

@@ -1,236 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인/로그아웃 기록 관리</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../Css/introduce.css">
+    <link rel="stylesheet" href="../../Css/Admin/adminPageUserLog.css">
     <link rel="stylesheet" href="../../Css/Public/Public.css">
     <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#header").load("../Public/header.html");
             $("#footer").load("../Public/footer.html");
         });
     </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-        }
-
-        .wrapper-container {
-            display: flex;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #2e6ab8;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            position: sticky;
-            top: 0;
-            height: calc(100vh - 80px); /* 사이드바가 너무 길지 않도록 조정 */
-        }
-
-        .sidebar h2 {
-            color: #fff;
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-        }
-
-        .sidebar ul li {
-            margin-bottom: 15px;
-        }
-
-        .sidebar ul li a {
-            color: #e0e7f1;
-            text-decoration: none;
-            font-size: 1.1em;
-            padding: 10px;
-            border-radius: 5px;
-            display: block;
-            transition: background-color 0.3s ease;
-        }
-
-        .sidebar ul li a:hover {
-            background-color: #1e497b;
-        }
-
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            margin-left: 20px;
-            min-width: 0; /* 컨텐츠가 꽉 차지 않도록 설정 */
-        }
-
-        .header {
-            padding: 10px 20px;
-            border-bottom: 2px solid #dee2e6;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1 {
-            font-size: 1.8em;
-            color: #2e6ab8;
-        }
-
-        .header .user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .header .user-info img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .header .user-info span {
-            font-size: 1em;
-            color: #333;
-        }
-
-        .filter-container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .filter-container select, .filter-container input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        .filter-container input {
-            width: 300px;
-        }
-
-        .filter-container button {
-            padding: 10px 20px;
-            background-color: #2e6ab8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-        }
-
-        .filter-container button:hover {
-            background-color: #1e497b;
-        }
-
-        .manage-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        .manage-table th, .manage-table td {
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            text-align: center;
-            font-size: 1em;
-        }
-
-        .manage-table th {
-            background-color: #f4f6f8;
-            color: #2e6ab8;
-            font-weight: bold;
-        }
-
-        .manage-table td {
-            color: #333;
-        }
-
-        .action-btn {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease;
-        }
-
-        .edit-btn {
-            background-color: #3498db;
-            color: white;
-        }
-
-        .edit-btn:hover {
-            background-color: #2980b9;
-        }
-
-        .delete-btn {
-            background-color: #e74c3c;
-            color: white;
-        }
-
-        .delete-btn:hover {
-            background-color: #c0392b;
-        }
-
-        .excel-download {
-            background-color: #27ae60;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            display: inline-block;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-
-        .excel-download:hover {
-            background-color: #2ecc71;
-        }
-
-        @media (max-width: 768px) {
-            .wrapper-container {
-                flex-direction: column;
-            }
-
-            .filter-container {
-                flex-direction: column;
-            }
-
-            .filter-container input, .filter-container select, .filter-container button {
-                margin-bottom: 10px;
-                width: 100%;
-            }
-
-            .sidebar {
-                height: auto;
-            }
-        }
+    
     </style>
 </head>
+
 <body>
     <header id="header"></header>
 
@@ -238,18 +27,14 @@
         <div class="sidebar">
             <h2>관리자 메뉴</h2>
             <ul>
-                <li><a href="#">대시보드</a></li>
                 <li><a href="#">사용자 관리</a></li>
-                <li><a href="#">게시글 관리</a></li>
-                <li><a href="#">댓글 관리</a></li>
                 <li><a href="#">로그인 기록 관리</a></li>
-                <li><a href="#">설정</a></li>
             </ul>
         </div>
 
         <div class="main-content">
             <div class="header">
-                <h1>로그인/로그아웃 기록 관리</h1>
+                <h1>사용자 기록 관리</h1>
                 <div class="user-info">
                     <img src="https://via.placeholder.com/40" alt="User">
                     <span>관리자님</span>
@@ -257,20 +42,21 @@
             </div>
 
             <div class="filter-container">
-                <input type="text" id="search-input" placeholder="사용자 이름 검색">
                 <select id="filter">
                     <option value="all">전체</option>
                     <option value="login">로그인</option>
                     <option value="logout">로그아웃</option>
                 </select>
+                <input type="text" id="search-input" placeholder="사용자 ID 또는 IP 주소 검색">
+
                 <button id="search-btn">검색</button>
-                <button class="excel-download">엑셀 다운로드</button>
             </div>
 
-            <table class="manage-table">
+            <table class="manage-table" id="manage-table">
                 <thead>
                     <tr>
                         <th>번호</th>
+                        <th>사용자 ID</th>
                         <th>사용자 이름</th>
                         <th>로그인/로그아웃</th>
                         <th>시간</th>
@@ -278,57 +64,19 @@
                         <th>조치</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>홍길동</td>
-                        <td>로그인</td>
-                        <td>2024-09-15 10:15</td>
-                        <td>192.168.0.1</td>
-                        <td>
-                            <button class="action-btn edit-btn">수정</button>
-                            <button class="action-btn delete-btn">삭제</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>김철수</td>
-                        <td>로그아웃</td>
-                        <td>2024-09-15 12:00</td>
-                        <td>192.168.0.2</td>
-                        <td>
-                            <button class="action-btn edit-btn">수정</button>
-                            <button class="action-btn delete-btn">삭제</button>
-                        </td>
-                    </tr>
+                <tbody id="table-body">
+                    <!-- JavaScript를 통해 데이터가 여기에 삽입됩니다. -->
                 </tbody>
             </table>
+
+            <ul class="pagination" id="pagination"></ul>
         </div>
     </div>
 
     <footer id="footer"></footer>
 
-    <script>
-        document.getElementById('search-btn').addEventListener('click', function() {
-            const searchInput = document.getElementById('search-input').value.toLowerCase();
-            const filter = document.getElementById('filter').value;
-            const rows = document.querySelectorAll('.manage-table tbody tr');
+    <script type="text/javascript" src="../../JS/Admin/adminPageUserLog.js"></script>
 
-            rows.forEach(row => {
-                const username = row.cells[1].textContent.toLowerCase();
-                const action = row.cells[2].textContent;
-
-                if (username.includes(searchInput) && (filter === 'all' || filter === action)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-
-        document.querySelector('.excel-download').addEventListener('click', function() {
-            alert('엑셀 파일 다운로드가 시작됩니다.');
-        });
-    </script>
 </body>
+
 </html>
