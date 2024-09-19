@@ -29,7 +29,7 @@
   <body>
     <div class="container">
       <div class="small_top_left">
-        <input type="button" class="talk_button" value="설문" />
+        <input type="button" class="talk_button" value="대화" />
       </div>
 
       <div class="title_header">
@@ -71,22 +71,17 @@
                 src="https://img.icons8.com/ios-filled/50/007bff/survey.png"
                 alt="설문 아이콘"
               />
-              <h2 style="margin-left: 10px">설문에 참여해 주세요</h2>
+              <h2 style="margin-left: 10px" id="sur_title">설문에 참여해 주세요</h2>
             </div>
-            <div class="participants">현재 참여인원: <strong>0명</strong></div>
+            <div class="participants">현재 참여인원: <strong id="People_count">0명</strong></div>
           </div>
           <!-- 질문 목록 -->
-          <div class="survey-question">
-            <p>질문 1: 우리 제품에 얼마나 만족하시나요?</p>
-          </div>
-          <div class="survey-question">
-            <p>질문 2: 고객 서비스에 대한 만족도를 알려주세요.</p>
-          </div>
-          <div class="survey-question">
-            <p>질문 3: 제품 개선을 위해 어떤 점을 추천하시나요?</p>
-          </div>
+           <div id="sur_list">
+
+           </div>
+        
           <!-- 참여하기 버튼 -->
-          <button class="vote-button-form" onclick="submitVote()">
+          <button class="vote-button-form" onclick="submitVote()" id="vote_button">
             <img
               src="https://img.icons8.com/ios-filled/50/ffffff/checkmark--v1.png"
               alt="체크 아이콘"
@@ -103,6 +98,20 @@
         <button class="list-button">생각신고</button>
       </div>
 
+      <div class="vote-container">
+        <!-- 추천 버튼 -->
+        <div class="vote-button like" onclick="goodbu()">
+          <i class="fas fa-thumbs-up"></i>
+          찬성 <p id="good">2</p>
+        </div>
+
+        <!-- 비추천 버튼 -->
+        <div class="vote-button dislike" onclick="badbu()">
+          <i class="fas fa-thumbs-down"></i>
+          반대 <p id="Bad">2</p>
+        </div>
+      </div>
+
       <!-- 투표 관련 버튼과 섹션이 제거되었습니다 -->
 
       <div class="comment-container">
@@ -111,54 +120,25 @@
         </div>
         <div class="comment-box">
           <textarea
+          id="dat_text"
             class="comment-input"
             rows="4"
             maxlength="1000"
             placeholder="의견을 입력하세요."
           ></textarea>
           <span class="char-count">0/1000</span>
-          <button class="list-button">등록</button>
+          <button class="list-button" onclick="input()">등록</button>
         </div>
       </div>
 
       <hr class="divider" />
 
       <!-- 댓글 목록 -->
-      <div class="comment-container">
-        <div class="comment">
-          <div>
-            <span class="comment-author">홍길동</span>
-            <span class="comment-date">2024-09-12 13:52</span>
-          </div>
-          <div class="comment-content">
-            한국재정정보원의 역할은 날이 갈수록 커져가는 것 같아요. 시대적
-            흐름에 맞게 가치체계 등이 변화가 되어 잘 반영이 되면 좋겠습니다.
-          </div>
-          <div class="comment-actions">
-            <button>수정</button>
-            <button>삭제</button>
-            <button>신고</button>
-          </div>
-        </div>
-
-        <div class="comment">
-          <div>
-            <span class="comment-author">CuAgain</span>
-            <span class="comment-date">2024-09-12 13:45</span>
-          </div>
-          <div class="comment-content">
-            미션 및 비전, 가치체계는 한국재정정보원의 역할과 설립목적이 잘
-            반영되어있다고 생각합니다. 한국재정정보원 응원합니다.
-          </div>
-          <div class="comment-actions">
-            <button>수정</button>
-            <button>삭제</button>
-            <button>신고</button>
-          </div>
-        </div>
+      <div class="comment-container" id="dat_list">
+      
       </div>
 
-      <div class="list-button-container">
+      <div class="list-button-containffer">
         <button class="list-button">목록</button>
       </div>
     </div>

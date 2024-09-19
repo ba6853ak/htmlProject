@@ -199,6 +199,235 @@ body {
   margin: 20px 0;
 }
 
+.votes-container-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vote-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.vote-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 2px solid #ddd;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vote-button i {
+  margin-right: 5px;
+}
+
+.vote-header-form {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.vote-header-form img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.vote-header-form h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.vote-meta-form {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.vote-meta-form div {
+  display: flex;
+  align-items: center;
+}
+
+.vote-meta-form div i {
+  margin-right: 8px;
+  font-size: 16px;
+  color: #007bff;
+}
+
+.vote-option-form {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.vote-option-form:hover {
+  background-color: #f0f8ff;
+  border-color: #cce7ff;
+}
+
+.vote-option-form input {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.vote-option-form label {
+  font-size: 16px;
+  color: #333;
+}
+
+.vote-button-form {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vote-button-form img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.vote-button-form:hover {
+  background-color: #0056b3;
+}
+
+.divider-form {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 30px 0;
+}
+
+.vote-result-form {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .votes-container-form {
+    padding: 20px;
+  }
+
+  .vote-header-form h2 {
+    font-size: 20px;
+  }
+
+  .vote-option-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vote-button-form {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .votes-container-form {
+    padding: 15px;
+  }
+
+  .vote-header-form h2 {
+    font-size: 18px;
+  }
+
+  .vote-button-form {
+    font-size: 14px;
+  }
+}
+
+/* 추천 버튼 스타일 */
+.like {
+  border-color: red;
+  color: red;
+}
+
+/* 비추천 버튼 스타일 */
+.dislike {
+  border-color: #ccc;
+  color: #888;
+}
+
+/* hover 효과 */
+.vote-button:hover {
+  background-color: #f4f4f4;
+}
+
+/* 투표 결과 스타일 추가 */
+.vote-result-option {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.vote-result-option label {
+  width: 100px;
+  font-size: 16px;
+  color: #333;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  height: 20px;
+  background-color: #f0f0f0;
+  margin: 0 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #007bff;
+  width: 0%;
+}
+
+.vote-result-option span {
+  width: 100px;
+  text-align: right;
+  font-size: 16px;
+  color: #333;
+}
+
 .comment-container {
   margin-top: 20px;
 }
@@ -327,161 +556,65 @@ body {
   }
 }
 
-/* 설문 폼 스타일 */
-.survey-container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.survey-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-content {
+  background-color: #ffffff;
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333333;
   margin-bottom: 20px;
 }
 
-.survey-header img {
-  width: 40px;
-  height: 40px;
-}
-
-.survey-header h2 {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
-}
-
-.survey-header .participants {
+.modal-message {
   font-size: 16px;
-  color: #555;
+  color: #555555;
+  margin-bottom: 30px;
 }
 
-.survey-question {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-}
-
-.survey-question p {
-  margin: 0;
-  font-size: 18px;
-  color: #333;
-}
-
-.vote-button-form {
-  background-color: #007bff;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: block;
-  margin: 30px auto 0;
-  max-width: 200px;
-  width: 100%;
-  text-align: center;
-}
-
-.vote-button-form-dis {
-  background-color: #b4b5b5;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: block;
-  margin: 30px auto 0;
-  max-width: 200px;
-  width: 100%;
-  text-align: center;
-}
-
-.vote-button-form-dis img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
-.vote-button-form img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
-.vote-button-form:hover {
-  background-color: #0056b3;
-}
-
-.vote-container {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.vote-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.modal-button {
   padding: 10px 20px;
-  border-radius: 30px;
-  border: 2px solid #ddd;
-  font-size: 14px;
-  font-weight: bold;
-  color: #555;
-  background-color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.vote-button i {
-  margin-right: 5px;
+.modal-button-primary {
+  background-color: #4a90e2;
+  color: #ffffff;
 }
 
-/* 추천 버튼 스타일 */
-.like {
-  border-color: red;
-  color: red;
+.modal-button-primary:hover {
+  background-color: #3a7bc8;
 }
 
-/* 비추천 버튼 스타일 */
-.dislike {
-  border-color: #ccc;
-  color: #888;
+.modal-button-secondary {
+  background-color: #f0f0f0;
+  color: #333333;
+  margin-right: 10px;
 }
 
-/* hover 효과 */
-.vote-button:hover {
-  background-color: #f4f4f4;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-  .votes-container-form {
-    padding: 20px;
-  }
-
-  .vote-header-form h2 {
-    font-size: 20px;
-  }
-
-  .vote-option-form {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .vote-button-form {
-    padding: 12px;
-    font-size: 16px;
-  }
+.modal-button-secondary:hover {
+  background-color: #e0e0e0;
 }

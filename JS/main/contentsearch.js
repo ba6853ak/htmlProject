@@ -85,6 +85,16 @@ document.querySelector(".settings-btn").addEventListener("click", function () {
   }
 });
 
+function Date_Type(DateTime) {
+  // Date 객체 생성
+  const date = new Date(DateTime);
+
+  // Date 객체를 YYYY-MM-DD 형식의 문자열로 변환
+  const formattedDate = date.toISOString().split("T")[0];
+
+  return formattedDate;
+}
+
 // 카드 데이터 (100개 예시)
 let ty = "";
 function setlist() {
@@ -139,13 +149,10 @@ function displayCards(page) {
         <div class="card-body">
             <h3 class="card-title">${cards[i].title}</h3>
             <p class="author">${cards[i].author}</p>
-            <p class="date">${cards[i].date}</p>
+            <p class="date">${Date_Type(cards[i].date)}</p>
         </div>
         <div class="card-footer">
-            <span class="participants">
-                <i class="fa fa-user"></i>
-                <span>${cards[i].participants}</span>
-            </span>
+            
             <span class="likes">
                 <i class="fa fa-thumbs-up"></i>
                 <span>${cards[i].likes}</span>
