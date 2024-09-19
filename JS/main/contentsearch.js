@@ -128,7 +128,6 @@ function displayCards(page) {
 
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, cards.length);
-
   cardContainer.innerHTML = ""; // 기존 카드 제거
   for (let i = startIndex; i < endIndex; i++) {
     const cardHTML = `
@@ -169,9 +168,21 @@ function displayCards(page) {
   const allCards = document.querySelectorAll(".card");
   allCards.forEach((card) => {
     card.addEventListener("click", function () {
-      const cardIndex = this.getAttribute("data-index");
-      const cardTitle = cards[cardIndex].title;
-      console.log(`Card clicked: ${cardTitle}`);
+      const cardIndex = this.getAttribute("data-index") - 1;
+      const index = cards[cardIndex].index;
+      switch (cards[cardIndex].type) {
+        case "설문":
+          location.href = `../../html/writePage/writedPage_3.html?key=${cards[cardIndex].index}`;
+          break;
+        case "투표":
+          location.href = `../../html/writePage/writedPage_2.html?key=${cards[cardIndex].index}`;
+          break;
+        case "대화":
+          location.href = `../../html/writePage/writedPage_1.html?key=${cards[cardIndex].index}`;
+          break;
+        default:
+          break;
+      }
       // 원하는 다른 동작을 여기에 추가하세요.
     });
   });
