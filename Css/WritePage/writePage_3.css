@@ -1,0 +1,134 @@
+/* writePage_3.html 전용 스타일 */
+.write-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .write-header {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-align: center;
+  }
+  
+  .write-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .write-form-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .write-form-group input[type="text"],
+  .write-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .write-form-group input:focus,
+  .write-form-group textarea:focus {
+    outline: none;
+    border-color: #ff5722;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+  }
+  
+  .write-form-group textarea {
+    height: 180px;
+    resize: none;
+  }
+  
+  .write-button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .write-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  .write-button:active {
+    transform: translateY(1px);
+  }
+  
+  .write-button-primary {
+    background-color: #ff5722;
+    color: #fff;
+  }
+  
+  .write-button-primary:hover {
+    background-color: #e64a19;
+  }
+  
+  .write-button-secondary {
+    background-color: #f0f0f0;
+    color: #555;
+    margin-right: 8px;
+  }
+  
+  .write-button-secondary:hover {
+    background-color: #d6d6d6;
+  }
+  
+  /* 글자 수 카운트 스타일 */
+  .write-char-count {
+    font-size: 14px;
+    color: #999;
+    margin-top: 8px;
+    text-align: right;
+  }
+  
+  /* 파일 입력 스타일 */
+  .write-file-input-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+  }
+  
+  .write-file-input-wrapper input[type="file"] {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .write-file-input-button {
+    background-color: #eee;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .write-file-input-button:hover {
+    background-color: #ddd;
+  }
+  
+  .write-file-input-name {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #666;
+  }
+  
