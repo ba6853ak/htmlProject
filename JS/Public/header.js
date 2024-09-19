@@ -17,7 +17,7 @@ function Login() {
         </div>
         <div class="top-menu-links">
           <div class="top-menu-link">
-            <img src="/path/to/profile.png" alt="Profile" style="width: 30px; height: 30px; border-radius: 50%;">
+            <img src="../../Media/profile/1234.jpg" alt="Profile" style="width: 30px; height: 30px; border-radius: 50%;">
         </div>
         <div class="top-menu-link">
             <a href="../../html/User/Profil.html">${userName}님 환영합니다.</a>

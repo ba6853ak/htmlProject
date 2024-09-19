@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>설문 참여 페이지</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* 모달 배경 */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* 모달 컨테이너 */
+      .modal-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+      }
+
+      .survey-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .survey-header h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .progress-bar-container {
+        width: 200px;
+        background-color: #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .progress-bar {
+        height: 20px;
+        background-color: #007bff;
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+
+      .progress-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+      }
+
+      .survey-form {
+        margin-top: 20px;
+      }
+
+      .survey-question {
+        margin-bottom: 30px;
+      }
+
+      .survey-question h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .survey-options input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .button {
+        background-color: #007bff;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .button[disabled] {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+
+      .button.previous {
+        background-color: #6c757d;
+      }
+
+      .button.previous:hover {
+        background-color: #5a6268;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      /* 숨겨진 상태의 질문 */
+      .hidden {
+        display: none;
+      }
+
+      /* 첫 번째 질문에서 이전 버튼 숨기기 */
+      .button-container .hidden {
+        visibility: hidden;
+      }
+
+      /* 현재 질문 번호 표시 */
+      .question-number {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      /* 완료 메시지 스타일 */
+      .completion-message {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .completion-message h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+
+      .close-button {
+        background-color: #007bff;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .close-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 설문 모달 -->
+    <div class="modal-overlay" id="surveyModal">
+      <div class="modal-container" id="surveyContainer">
+        <div class="survey-header">
+          <h2>설문에 참여해 주세요</h2>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text" id="progressText">0%</div>
+          </div>
+        </div>
+
+        <form id="surveyForm" class="survey-form">
+          <!-- 질문 1 -->
+          <div class="survey-question" id="question1">
+            <div class="question-number">질문 1 / 3</div>
+            <h3>우리 제품에 얼마나 만족하시나요?</h3>
+            <div class="survey-options">
+              <input type="text" name="q1" placeholder="답변을 입력해 주세요" />
+            </div>
+            <div class="error-message" id="error1"></div>
+          </div>
+
+          <!-- 질문 2 -->
+          <div class="survey-question hidden" id="question2">
+            <div class="question-number">질문 2 / 3</div>
+            <h3>고객 서비스에 대한 만족도를 알려주세요.</h3>
+            <div class="survey-options">
+              <input type="text" name="q2" placeholder="답변을 입력해 주세요" />
+            </div>
+            <div class="error-message" id="error2"></div>
+          </div>
+
+          <!-- 질문 3 -->
+          <div class="survey-question hidden" id="question3">
+            <div class="question-number">질문 3 / 3</div>
+            <h3>제품 개선을 위해 어떤 점을 추천하시나요?</h3>
+            <div class="survey-options">
+              <input type="text" name="q3" placeholder="답변을 입력해 주세요" />
+            </div>
+            <div class="error-message" id="error3"></div>
+          </div>
+
+          <div class="button-container">
+            <button
+              type="button"
+              class="button previous"
+              id="prevButton"
+              onclick="prevQuestion()"
+            >
+              이전
+            </button>
+            <button
+              type="button"
+              class="button"
+              id="nextButton"
+              onclick="nextQuestion()"
+            >
+              다음
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 완료 메시지 모달 -->
+    <div class="modal-overlay hidden" id="completionModal">
+      <div class="modal-container">
+        <div class="completion-message">
+          <h2>설문에 참여해 주셔서 감사합니다!</h2>
+          <button class="close-button" onclick="closeSurvey()">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const totalQuestions = 3;
+      let currentQuestion = 1;
+
+      const progressBar = document.getElementById("progressBar");
+      const progressText = document.getElementById("progressText");
+      const prevButton = document.getElementById("prevButton");
+      const nextButton = document.getElementById("nextButton");
+
+      function showQuestion(questionNumber) {
+        // 모든 질문 숨기기
+        for (let i = 1; i <= totalQuestions; i++) {
+          document.getElementById("question" + i).classList.add("hidden");
+        }
+        // 해당 질문 보이기
+        document
+          .getElementById("question" + questionNumber)
+          .classList.remove("hidden");
+
+        // 진행률 업데이트
+        const progressPercentage =
+          ((questionNumber - 1) / totalQuestions) * 100;
+        progressBar.style.width = progressPercentage + "%";
+        progressText.textContent = Math.round(progressPercentage) + "%";
+
+        // 이전 버튼 활성화/비활성화
+        if (questionNumber === 1) {
+          prevButton.classList.add("hidden");
+        } else {
+          prevButton.classList.remove("hidden");
+        }
+
+        // 다음 버튼 텍스트 변경
+        if (questionNumber === totalQuestions) {
+          nextButton.textContent = "완료";
+        } else {
+          nextButton.textContent = "다음";
+        }
+      }
+
+      function validateQuestion(questionNumber) {
+        const answer = document
+          .querySelector(`input[name="q${questionNumber}"]`)
+          .value.trim();
+        return answer !== "";
+      }
+
+      function showError(questionNumber, message) {
+        document.getElementById("error" + questionNumber).textContent = message;
+      }
+
+      function clearError(questionNumber) {
+        document.getElementById("error" + questionNumber).textContent = "";
+      }
+
+      function nextQuestion() {
+        if (!validateQuestion(currentQuestion)) {
+          showError(currentQuestion, "답변을 입력해 주세요.");
+          return;
+        }
+        clearError(currentQuestion);
+
+        if (currentQuestion < totalQuestions) {
+          currentQuestion++;
+          showQuestion(currentQuestion);
+        } else {
+          // 설문 완료 처리
+          progressBar.style.width = "100%";
+          progressText.textContent = "100%";
+
+          // 설문 모달 숨기고 완료 메시지 모달 표시
+          document.getElementById("surveyModal").classList.add("hidden");
+          document.getElementById("completionModal").classList.remove("hidden");
+        }
+      }
+
+      function prevQuestion() {
+        if (currentQuestion > 1) {
+          currentQuestion--;
+          showQuestion(currentQuestion);
+        }
+      }
+
+      function closeSurvey() {
+        // 완료 메시지 모달 숨기기
+        document.getElementById("completionModal").classList.add("hidden");
+        // 페이지 새로고침 또는 다른 동작 수행
+        // location.reload(); // 페이지 새로고침
+        // 또는 모달 완전히 제거
+        document.getElementById("completionModal").remove();
+        document.getElementById("surveyModal").remove();
+        // 또는 필요한 경우 추가 작업 수행
+      }
+
+      // 초기 상태 설정
+      showQuestion(currentQuestion);
+    </script>
+  </body>
+</html>
