@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학생 생각함</title>
+    <link rel="stylesheet" href="../../Css/User/profil.css" />
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
+    </script>
+  </head>
+
+  <body>
+    <header id="header"></header>
+
+    <!--사이에 마이페이지 생성-->
+    <div class="header">
+      <div class="title">마이페이지</div>
+    </div>
+
+    <div class="container">
+      <!-- Sidebar Section -->
+      <div class="sidebar">
+        <ul>
+          <li><a href="Profil.html" class="side">프로필 수정</a></li>
+          <li><a href="#" class="side active">비밀번호 변경</a></li>
+          <li><a href="#" class="side">관리자 기능(관리자 전용)</a></li>
+        </ul>
+      </div>
+
+      <!-- Profile Info Section -->
+      <div class="profile-info">
+        <h2>비밀번호 변경</h2>
+
+        <form>
+          <div class="input-group">
+            <input
+              type="text"
+              id="new-password"
+              placeholder="새 비밀번호 입력"
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="confirm-password"
+              placeholder="새 비밀번호 확인"
+            />
+          </div>
+          <div class="error-message" id="error-message"></div>
+
+          <div class="buttons">
+            <button id="changePw">비밀번호 변경</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Profile Section -->
+      <div class="right-profile">
+        <div class="profile-photo">
+          <img src="https://via.placeholder.com/100" alt="프로필 사진" />
+        </div>
+        <button class="change-photo-button">사진 변경</button>
+        <!-- 사진 변경 버튼 위치 수정 -->
+        <div class="profile-details">
+          <span id="name" class="h3"></span><br />
+          <span id="school" class="p"></span><br />
+          <span id="email" class="p"></span><br />
+          <span id="phone" class="p"></span>
+        </div>
+        <button
+          class="delete-account-button"
+          id="deleteAccountButton"
+          onclick="del()"
+        >
+          회원탈퇴
+        </button>
+      </div>
+    </div>
+
+    <footer id="footer"></footer>
+    <script type="text/javascript" src="../../JS/User/mypagePW.js"></script>
+  </body>
+</html>

@@ -200,7 +200,7 @@ function SignUp() {
     const birthdate = new Date(
       yearSelect.value,
       monthSelect.value - 1,
-      daySelect.value
+      daySelect.value + 1
     );
 
     // Determining gender from active button class

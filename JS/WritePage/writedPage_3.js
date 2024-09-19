@@ -14,7 +14,7 @@ const dat_text = document.getElementById("dat_text");
 let resu = {};
 
 getlist();
-
+// 기타 이벤트 리스너
 // document.getElementById("star").addEventListener("click", function () {
 //   this.querySelector("i").classList.toggle("clicked-star");
 // });
@@ -26,6 +26,7 @@ getlist();
 // document.getElementById("comment").addEventListener("click", function () {
 //   this.querySelector("i").classList.toggle("clicked-comment");
 // });
+
 const commentInput = document.querySelector(".comment-input");
 const charCount = document.querySelector(".char-count");
 
@@ -35,7 +36,7 @@ commentInput.addEventListener("input", () => {
 
 function getlist() {
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_1",
+    url: "http://218.158.137.183:8080/writedPage_3",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -131,41 +132,23 @@ function setlist() {
   dat_list.innerHTML = "";
   for (let i = 0; i < resu.length; i++) {
     const cardHTML = `
-    <div class="comment">
-          <div>
-            <span class="comment-author">${resu[i].Name}</span>
-            <span class="comment-date">${Date_Type(resu[i].Date)}</span>
-          </div>
-          <div class="comment-content">
-          ${resu[i].Opinion}
-          </div>
-          <div class="comment-actions">
-            <button onclick="del(${resu[i].index_num})">삭제</button>
-          </div>
-        </div>`;
+      <div class="comment">
+            <div>
+              <span class="comment-author">${resu[i].Name}</span>
+              <span class="comment-date">${Date_Type(resu[i].Date)}</span>
+            </div>
+            <div class="comment-content">
+            ${resu[i].Opinion}
+            </div>
+            <div class="comment-actions">
+              <button>수정</button>
+              <button>삭제</button>
+              <button>신고</button>
+            </div>
+          </div>`;
 
     dat_list.innerHTML += cardHTML;
   }
-}
-
-function del(index_num) {
-  obj = { index_num: index_num };
-  $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_opinion_del",
-    type: "get", //default는 get이기 때문에 생략 가능.
-    data: obj,
-    dataType: "json",
-    success: function (res) {
-      if (res.status == 200) {
-        resu = res.list;
-        dat_text.value = "";
-        obj = { sp: sp[1] };
-        opinion();
-      } else if (res.status == 100) {
-        alert("네트워크 오류");
-      }
-    },
-  });
 }
 
 function input() {
