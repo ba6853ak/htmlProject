@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 레이아웃</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card .icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .card .icon img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .card .title {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .card .count {
+            font-size: 14px;
+            color: #4285f4;
+        }
+
+        .plus-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .plus-icon:hover {
+            color: #4285f4;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="card-container">
+    <div class="card">
+        <div class="icon">
+            <img src="https://via.placeholder.com/40" alt="icon">
+            <div class="title">내가 작성한 생각</div>
+        </div>
+        <div class="count">(0 건)</div>
+        <div class="plus-icon">+</div>
+    </div>
+    
+    <div class="card">
+        <div class="icon">
+            <img src="https://via.placeholder.com/40" alt="icon">
+            <div class="title">내가 작성한 댓글</div>
+        </div>
+        <div class="count">(0건)</div>
+        <div class="plus-icon">+</div>
+    </div>
+</div>
+
+</body>
+</html>
