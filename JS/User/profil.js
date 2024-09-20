@@ -37,7 +37,7 @@ function sidemenu() {
           <li><a href="#" class="side active">프로필 수정</a></li>
           <li><a href="mypagePW.html" class="side">비밀번호 변경</a></li>
           <li>
-            <a href="../Admin/adminPageUserLog.html" class="side"
+            <a href="../Admin/adminPageUserManage.html" class="side"
               >관리자 기능(관리자 전용)</a
             >
           </li>

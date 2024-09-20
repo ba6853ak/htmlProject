@@ -12,7 +12,9 @@ const successOk = document.getElementById("successOk");
 const postForm = document.getElementById("postForm");
 const startDateInput = document.getElementById("startDate");
 const endDateInput = document.getElementById("endDate");
-const quickSelectInputs = document.querySelectorAll('input[name="quickSelect"]');
+const quickSelectInputs = document.querySelectorAll(
+  'input[name="quickSelect"]'
+);
 
 // 제목 입력 필드의 문자 수 업데이트
 titleInput.addEventListener("input", updateTitleCharCount);
@@ -100,7 +102,7 @@ postForm.addEventListener("submit", function (e) {
   // FormData 객체 생성
   var formData = new FormData(postForm);
 
-  const schoolId = localStorage.setItem("SC_ID", resu[0]["SC_ID"]);
+  const schoolId = localStorage.getItem("SC_ID");
   const storedName = localStorage.getItem("Name");
   /// const storedName = "유근형";
   /// const schoolId = 110;
@@ -118,7 +120,7 @@ postForm.addEventListener("submit", function (e) {
 
   // AJAX를 통해 서버로 데이터 전송
   $.ajax({
-    url: "http://localhost:3000/writePage_1", // 서버 URL
+    url: "http://218.158.137.183:8080/writePage_1", // 서버 URL
     type: "POST", // 전송 방식
     data: JSON.stringify({
       title: formData.get("title"),
@@ -164,6 +166,7 @@ confirmOk.addEventListener("click", function () {
 // 성공 모달 확인 버튼 이벤트 처리
 successOk.addEventListener("click", function () {
   hideModal(successModal);
+  location.href = "../main/contentsearch.html";
 });
 
 // 파일 입력 변경 이벤트 처리
