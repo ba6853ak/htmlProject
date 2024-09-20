@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>나의 이용 내역</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../../Css/Public/Public.css">
-    <link rel="stylesheet" href="../../Css/main/myArticleList.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
+    <link rel="stylesheet" href="../../Css/main/myArticleList.css" />
     <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
     <script>
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
 
+        // 서버에서 내가 작성한 글과 댓글 목록을 불러옵니다.
+        loadMyData();
+      });
 
+      function loadMyData() {
+        // localStorage에서 이름 가져오기
+        const storedName = localStorage.getItem("Name") || "유근형"; // 기본 값 설정
+        const baseURL = "http://218.158.137.183:8080/api/my-articles"; // 서버 API 주소
+        const urlWithParams = `${baseURL}?name=${encodeURIComponent(
+          storedName
+        )}`; // 쿼리스트링 추가
 
-        $(document).ready(function () {
-            $("#header").load("../Public/header.html");
-            $("#footer").load("../Public/footer.html");
-
-
-
-
-
-
-            // 서버에서 내가 작성한 글과 댓글 목록을 불러옵니다.
-            loadMyData();
-        });
-
-
-        function loadMyData() {
-            // localStorage에서 이름 가져오기
-            const storedName = localStorage.getItem("Name") || "유근형";  // 기본 값 설정
-            const baseURL = 'http://localhost:3000/api/my-articles'; // 서버 API 주소
-            const urlWithParams = `${baseURL}?name=${encodeURIComponent(storedName)}`; // 쿼리스트링 추가
-
-            // 내가 쓴 글 목록을 불러옴
-            $.ajax({
-        url: urlWithParams, // 쿼리스트링이 추가된 URL 사용
-        method: 'GET',
-        success: function (response) {
+        // 내가 쓴 글 목록을 불러옴
+        $.ajax({
+          url: urlWithParams, // 쿼리스트링이 추가된 URL 사용
+          method: "GET",
+          success: function (response) {
             const articles = response.articles;
             const comments = response.comments;
 
             // 글 목록 추가
-            articles.forEach(article => {
-                // 작성일을 원하는 형식으로 변환
-                const formattedDate = formatDate(new Date(article.date));
+            articles.forEach((article) => {
+              // 작성일을 원하는 형식으로 변환
+              const formattedDate = formatDate(new Date(article.date));
 
-                $('#articleTable tbody').append(`
+              $("#articleTable tbody").append(`
                     <tr>
                         <td><a href="/article/${article.Notice_ID}">${article.title}</a></td>
                         <td>${formattedDate}</td>
@@ -55,89 +50,96 @@
             });
 
             // 댓글 목록 추가
-            comments.forEach(comment => {
-                // 작성일을 원하는 형식으로 변환
-                const formattedDate = formatDate(new Date(comment.date));
+            comments.forEach((comment) => {
+              // 작성일을 원하는 형식으로 변환
+              const formattedDate = formatDate(new Date(comment.date));
 
-                $('#commentTable tbody').append(`
+              $("#commentTable tbody").append(`
                     <tr>
                         <td><a href="..//${comment.Notice_ID}">${comment.content}</a></td>
                         <td>${formattedDate}</td>
                     </tr>
                 `);
             });
-        },
-        error: function (error) {
-            console.error('Error loading data:', error);
-        }
-    });
-}
+          },
+          error: function (error) {
+            console.error("Error loading data:", error);
+          },
+        });
+      }
 
-        function openTab(evt, tabName) {
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(content => content.classList.remove('active'));
+      function openTab(evt, tabName) {
+        const contents = document.querySelectorAll(".content");
+        contents.forEach((content) => content.classList.remove("active"));
 
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach((tab) => tab.classList.remove("active"));
 
-            document.getElementById(tabName).classList.add('active');
-            evt.currentTarget.classList.add('active');
-        }
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
 
+      // 날짜를 원하는 형식으로 변환하는 함수
+      function formatDate(date) {
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
+        const day = date.getDate();
+        const dayOfWeek = [
+          "일요일",
+          "월요일",
+          "화요일",
+          "수요일",
+          "목요일",
+          "금요일",
+          "토요일",
+        ][date.getDay()];
+        const hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, "0"); // 두 자리로 맞춤
 
-        // 날짜를 원하는 형식으로 변환하는 함수
-        function formatDate(date) {
-            const year = date.getFullYear();
-            const month = date.getMonth() + 1;  // 월은 0부터 시작하므로 1을 더함
-            const day = date.getDate();
-            const dayOfWeek = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'][date.getDay()];
-            const hours = date.getHours();
-            const minutes = date.getMinutes().toString().padStart(2, '0');  // 두 자리로 맞춤
-
-            return `${year}년 ${month}월 ${day}일`;
-        }
-
+        return `${year}년 ${month}월 ${day}일`;
+      }
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header id="header"></header>
     <div class="content-wrapper">
-        <div class="tabs">
-            <div class="tab active" onclick="openTab(event, 'myThoughts')">나의 생각함</div>
+      <div class="tabs">
+        <div class="tab active" onclick="openTab(event, 'myThoughts')">
+          나의 생각함
         </div>
+      </div>
 
-        <!-- 나의 생각함 -->
-        <div id="myThoughts" class="content active">
-            <h2>내가 작성한 생각</h2>
-            <table id="articleTable">
-                <thead>
-                    <tr>
-                        <th>제목</th>
-                        <th>작성일</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 서버로부터 글 목록 데이터를 받아와 여기에 추가 -->
-                </tbody>
-            </table>
+      <!-- 나의 생각함 -->
+      <div id="myThoughts" class="content active">
+        <h2>내가 작성한 생각</h2>
+        <table id="articleTable">
+          <thead>
+            <tr>
+              <th>제목</th>
+              <th>작성일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 서버로부터 글 목록 데이터를 받아와 여기에 추가 -->
+          </tbody>
+        </table>
 
-            <h2>내가 작성한 댓글</h2>
-            <table id="commentTable">
-                <thead>
-                    <tr>
-                        <th>댓글 내용</th>
-                        <th>작성일</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 서버로부터 댓글 데이터를 받아와 여기에 추가 -->
-                </tbody>
-            </table>
-        </div>
+        <h2>내가 작성한 댓글</h2>
+        <table id="commentTable">
+          <thead>
+            <tr>
+              <th>댓글 내용</th>
+              <th>작성일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 서버로부터 댓글 데이터를 받아와 여기에 추가 -->
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <header id="footer"></header>
-</body>
-
+  </body>
 </html>
