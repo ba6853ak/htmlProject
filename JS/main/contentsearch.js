@@ -176,7 +176,6 @@ function displayCards(page) {
   allCards.forEach((card) => {
     card.addEventListener("click", function () {
       const cardIndex = this.getAttribute("data-index") - 1;
-      const index = cards[cardIndex].index;
       switch (cards[cardIndex].type) {
         case "설문":
           location.href = `../../html/writePage/writedPage_3.html?key=${cards[cardIndex].index}`;
