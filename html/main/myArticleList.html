@@ -1,102 +1,108 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 이용 내역</title>
-    <!-- FontAwesome 아이콘 사용 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+    <link rel="stylesheet" href="../../Css/Public/Public.css">
+    <link rel="stylesheet" href="../../Css/main/myArticleList.css">
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+
+
+
+        $(document).ready(function () {
+            $("#header").load("../Public/header.html");
+            $("#footer").load("../Public/footer.html");
+
+
+
+
+
+
+            // 서버에서 내가 작성한 글과 댓글 목록을 불러옵니다.
+            loadMyData();
+        });
+
+
+        function loadMyData() {
+            // localStorage에서 이름 가져오기
+            const storedName = localStorage.getItem("Name") || "유근형";  // 기본 값 설정
+            const baseURL = 'http://localhost:3000/api/my-articles'; // 서버 API 주소
+            const urlWithParams = `${baseURL}?name=${encodeURIComponent(storedName)}`; // 쿼리스트링 추가
+
+            // 내가 쓴 글 목록을 불러옴
+            $.ajax({
+        url: urlWithParams, // 쿼리스트링이 추가된 URL 사용
+        method: 'GET',
+        success: function (response) {
+            const articles = response.articles;
+            const comments = response.comments;
+
+            // 글 목록 추가
+            articles.forEach(article => {
+                // 작성일을 원하는 형식으로 변환
+                const formattedDate = formatDate(new Date(article.date));
+
+                $('#articleTable tbody').append(`
+                    <tr>
+                        <td><a href="/article/${article.Notice_ID}">${article.title}</a></td>
+                        <td>${formattedDate}</td>
+                    </tr>
+                `);
+            });
+
+            // 댓글 목록 추가
+            comments.forEach(comment => {
+                // 작성일을 원하는 형식으로 변환
+                const formattedDate = formatDate(new Date(comment.date));
+
+                $('#commentTable tbody').append(`
+                    <tr>
+                        <td><a href="..//${comment.Notice_ID}">${comment.content}</a></td>
+                        <td>${formattedDate}</td>
+                    </tr>
+                `);
+            });
+        },
+        error: function (error) {
+            console.error('Error loading data:', error);
+        }
+    });
+}
+
+        function openTab(evt, tabName) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
         }
 
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+        // 날짜를 원하는 형식으로 변환하는 함수
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;  // 월은 0부터 시작하므로 1을 더함
+            const day = date.getDate();
+            const dayOfWeek = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'][date.getDay()];
+            const hours = date.getHours();
+            const minutes = date.getMinutes().toString().padStart(2, '0');  // 두 자리로 맞춤
+
+            return `${year}년 ${month}월 ${day}일`;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .tabs {
-            width: 100%;
-            border-bottom: 2px solid #ddd;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 12px;
-            text-align: center;
-            cursor: pointer;
-            border: 1px solid #ddd;
-            border-bottom: none;
-            background-color: white;
-            color: #555;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-size: 16px;
-        }
-
-        .tab.active {
-            background-color: #4285f4;
-            color: white;
-            border-bottom: 2px solid #4285f4;
-        }
-
-        .tab:hover {
-            background-color: #5c9efc;
-            color: #fff;
-        }
-
-        .content {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ddd;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        /* 테이블 스타일 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-    </style>
+    </script>
 </head>
+
 <body>
-
+    <header id="header"></header>
     <div class="content-wrapper">
-        <h1>나의 이용내역</h1>
-
         <div class="tabs">
             <div class="tab active" onclick="openTab(event, 'myThoughts')">나의 생각함</div>
         </div>
@@ -104,7 +110,7 @@
         <!-- 나의 생각함 -->
         <div id="myThoughts" class="content active">
             <h2>내가 작성한 생각</h2>
-            <table>
+            <table id="articleTable">
                 <thead>
                     <tr>
                         <th>제목</th>
@@ -112,23 +118,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>학교 시설 개선에 대한 제안</td>
-                        <td>2024-09-10</td>
-                    </tr>
-                    <tr>
-                        <td>학교 카페 메뉴 확장 요청</td>
-                        <td>2024-09-11</td>
-                    </tr>
-                    <tr>
-                        <td>학생 회의 주제 제안</td>
-                        <td>2024-09-12</td>
-                    </tr>
+                    <!-- 서버로부터 글 목록 데이터를 받아와 여기에 추가 -->
                 </tbody>
             </table>
 
             <h2>내가 작성한 댓글</h2>
-            <table>
+            <table id="commentTable">
                 <thead>
                     <tr>
                         <th>댓글 내용</th>
@@ -136,50 +131,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>도서관 운영시간 개선에 대한 댓글</td>
-                        <td>2024-09-10</td>
-                    </tr>
-                    <tr>
-                        <td>교내 복지 시스템 개선 의견</td>
-                        <td>2024-09-11</td>
-                    </tr>
-                    <tr>
-                        <td>새로운 클럽 활동 제안에 대한 피드백</td>
-                        <td>2024-09-12</td>
-                    </tr>
+                    <!-- 서버로부터 댓글 데이터를 받아와 여기에 추가 -->
                 </tbody>
             </table>
         </div>
-
-        <!-- 작성한 생각 -->
-        <div id="writtenThoughts" class="content">
-            <p>여기에 작성한 생각 내용이 표시됩니다.</p>
-        </div>
-
-        <!-- 작성한 댓글 -->
-        <div id="writtenComments" class="content">
-            <p>여기에 작성한 댓글 내용이 표시됩니다.</p>
-        </div>
     </div>
 
-    <script>
-        function openTab(evt, tabName) {
-            // 모든 탭의 content 숨기기
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(content => content.classList.remove('active'));
-
-            // 모든 탭 버튼에서 active 클래스 제거
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-
-            // 클릭된 탭의 content 보이기
-            document.getElementById(tabName).classList.add('active');
-
-            // 클릭된 탭에 active 클래스 추가
-            evt.currentTarget.classList.add('active');
-        }
-    </script>
-
+    <header id="footer"></header>
 </body>
+
 </html>
