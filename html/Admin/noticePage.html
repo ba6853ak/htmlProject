@@ -1,88 +1,84 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>공지함</title>
-    <link rel="stylesheet" href="/Css/Admin/noticePage.css">
+    <link rel="stylesheet" href="/Css/Admin/noticePage.css" />
     <script src="/path/to/your/js/noticeDetail.js" defer></script>
 
-    <link rel="stylesheet" href="../../Css/Public/Public.css">
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
     <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $("#header").load("../Public/header.html");
-            $("#footer").load("../Public/footer.html");
-        });
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
     </script>
+  </head>
 
-
-</head>
-
-<body>
+  <body>
     <header id="header"></header>
     <header class="header--notice">
-        <h1>공지함</h1>
+      <h1>공지함</h1>
     </header>
-    
+
     <main class="main--notice">
-        <div class="container">
-            <article id="notice-detail" class="notice-detail">
-                <h2 id="notice-title" class="notice-title">공지사항 제목</h2>
-                <p id="notice-date" class="notice-date">날짜</p>
-                <div id="notice-content" class="notice-content">내용을 불러오는 중...</div>
-            </article>
-        </div>
+      <div class="container">
+        <article id="notice-detail" class="notice-detail">
+          <h2 id="notice-title" class="notice-title">공지사항 제목</h2>
+          <p id="notice-date" class="notice-date">날짜</p>
+          <div id="notice-content" class="notice-content">
+            내용을 불러오는 중...
+          </div>
+        </article>
+      </div>
     </main>
 
-
-
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const noticeId = getNoticeIdFromUrl();
 
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const noticeId = getNoticeIdFromUrl();
-
-            if (noticeId) {
-                fetchNoticeDetails(noticeId);
-            } else {
-                document.getElementById('notice-content').textContent = '공지사항을 불러올 수 없습니다.';
-            }
-        });
-
-        // URL에서 공지사항 ID를 추출하는 함수
-        function getNoticeIdFromUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('id');
+        if (noticeId) {
+          fetchNoticeDetails(noticeId);
+        } else {
+          document.getElementById("notice-content").textContent =
+            "공지사항을 불러올 수 없습니다.";
         }
+      });
 
-        // 공지사항 세부 정보를 가져오는 함수
-        async function fetchNoticeDetails(id) {
-            try {
-                const response = await fetch(`http://localhost:3000/api/notice/${id}`);
+      // URL에서 공지사항 ID를 추출하는 함수
+      function getNoticeIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("id");
+      }
 
-                if (!response.ok) {
-                    throw new Error('공지사항을 불러올 수 없습니다.');
-                }
+      // 공지사항 세부 정보를 가져오는 함수
+      async function fetchNoticeDetails(id) {
+        try {
+          const response = await fetch(
+            `http://218.158.137.183:8080/api/notice/${id}`
+          );
 
-                const notice = await response.json();
+          if (!response.ok) {
+            throw new Error("공지사항을 불러올 수 없습니다.");
+          }
 
-                // 공지사항 세부 정보 표시
-                document.getElementById('notice-title').textContent = notice.title;
-                document.getElementById('notice-date').textContent = notice.date;
-                document.getElementById('notice-content').textContent = notice.content;
-            } catch (error) {
-                console.error('세부 공지사항을 불러오는 중 오류 발생:', error);
-                document.getElementById('notice-content').textContent = '공지사항을 불러오는 중 오류가 발생했습니다.';
-            }
+          const notice = await response.json();
+
+          // 공지사항 세부 정보 표시
+          document.getElementById("notice-title").textContent = notice.title;
+          document.getElementById("notice-date").textContent = notice.date;
+          document.getElementById("notice-content").textContent =
+            notice.content;
+        } catch (error) {
+          console.error("세부 공지사항을 불러오는 중 오류 발생:", error);
+          document.getElementById("notice-content").textContent =
+            "공지사항을 불러오는 중 오류가 발생했습니다.";
         }
-
+      }
     </script>
     <header id="footer"></header>
-
-</body>
-
+  </body>
 </html>
