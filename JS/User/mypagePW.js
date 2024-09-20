@@ -57,7 +57,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+sidemenu();
 getprofil();
+
+function sidemenu() {
+  sidebar.innerHTML = "";
+  $.ajax({
+    url: "http://218.158.137.183:8080/admin_check",
+    type: "get", //default는 get이기 때문에 생략 가능.
+    data: obj,
+    dataType: "json",
+    success: function (res) {
+      if (res.status == 100) {
+        sidebar.innerHTML = `
+          <ul>
+          <li><a href="Profil.html" class="side">프로필 수정</a></li>
+          <li><a href="#" class="side active">비밀번호 변경</a></li>
+        </ul>
+      `;
+      } else if (res.status == 200) {
+        sidebar.innerHTML = `
+        <ul>
+          <li><a href="Profil.html" class="side">프로필 수정</a></li>
+          <li><a href="#" class="side active">비밀번호 변경</a></li>
+          <li><a href="../Admin/adminPageUserLog.html" class="side">관리자 기능(관리자 전용)</a></li>
+        </ul>`;
+      }
+    },
+  });
+}
 
 function getprofil() {
   $.ajax({
