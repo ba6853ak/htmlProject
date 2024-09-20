@@ -1,118 +1,144 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시물 작성</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../../Css/WritePage/writePage_3.css" />
+    <link rel="stylesheet" href="../../Css/WritePage/writePage_1.css" />
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>게시물 작성</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="../../Css/WritePage/writePage_3.css" />
-  <link rel="stylesheet" href="../../Css/WritePage/writePage_1.css" />
-  <link rel="stylesheet" href="../../Css/Public/Public.css" />
+    <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
 
-  <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
+    </script>
 
-  <script>
-    $(document).ready(function () {
-      $("#header").load("../Public/header.html");
-      $("#footer").load("../Public/footer.html");
-    });
-  </script>
+    <style>
+      body {
+        font-family: "Pretendard", sans-serif;
+        background: linear-gradient(135deg, #ffffff, #f5f5f5);
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
 
-  <style>
-    body {
-      font-family: "Pretendard", sans-serif;
-      background: linear-gradient(135deg, #ffffff, #f5f5f5);
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+  <header id="header"></header>
 
-  </style>
-</head>
-
-<header id="header"></header>
-
-<body>
-  <div class="container">
-    <h2>새로운 생각 쓰기</h2>
-    <form id="postForm">
-      <div class="form-group">
-        <label for="title">제목</label>
-        <input type="text" id="title" name="title" placeholder="제목을 입력하세요" maxlength="200" required />
-        <div class="char-count">
-          글자 수: <span id="titleCharCount">0</span> / 200
+  <body>
+    <div class="container">
+      <h2>새로운 생각 쓰기</h2>
+      <form id="postForm">
+        <div class="form-group">
+          <label for="title">제목</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="제목을 입력하세요"
+            maxlength="200"
+            required
+          />
+          <div class="char-count">
+            글자 수: <span id="titleCharCount">0</span> / 200
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="content">내용</label>
-        <textarea id="content" name="content" placeholder="내용을 입력하세요..." required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="participationPeriod">참여기간</label>
-        <div class="date-range">
-          <input type="date" id="startDate" name="startDate" required />
-          <span>~</span>
-          <input type="date" id="endDate" name="endDate" required />
+        <div class="form-group">
+          <label for="content">내용</label>
+          <textarea
+            id="content"
+            name="content"
+            placeholder="내용을 입력하세요..."
+            required
+          ></textarea>
         </div>
-        <div class="quick-select">
-          <label><input type="radio" name="quickSelect" value="2weeks" />
-            2주일</label>
-          <label><input type="radio" name="quickSelect" value="1month" />
-            1개월</label>
-          <label><input type="radio" name="quickSelect" value="2months" />
-            2개월</label>
-        </div>
-      </div>
 
-      <!-- 설문 섹션 (옵션 관련 기능 제거) -->
-      <div class="survey-container">
-        <h3>설문 추가</h3>
-        <div id="surveySection"></div>
-        <button type="button" class="add-question-button" id="addQuestionButton">
-          질문 추가
+        <div class="form-group">
+          <label for="participationPeriod">참여기간</label>
+          <div class="date-range">
+            <input type="date" id="startDate" name="startDate" required />
+            <span>~</span>
+            <input type="date" id="endDate" name="endDate" required />
+          </div>
+          <div class="quick-select">
+            <label
+              ><input type="radio" name="quickSelect" value="2weeks" />
+              2주일</label
+            >
+            <label
+              ><input type="radio" name="quickSelect" value="1month" />
+              1개월</label
+            >
+            <label
+              ><input type="radio" name="quickSelect" value="2months" />
+              2개월</label
+            >
+          </div>
+        </div>
+
+        <!-- 설문 섹션 (옵션 관련 기능 제거) -->
+        <div class="survey-container">
+          <h3>설문 추가</h3>
+          <div id="surveySection"></div>
+          <button
+            type="button"
+            class="add-question-button"
+            id="addQuestionButton"
+          >
+            질문 추가
+          </button>
+        </div>
+
+        <div class="form-group">
+          <div class="buttons">
+            <button type="submit" class="button button-primary">시작하기</button
+            >&nbsp;&nbsp;
+            <button
+              type="button"
+              id="cancelButton"
+              class="button button-secondary"
+            >
+              취소
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h3 class="modal-title">확인</h3>
+        <p class="modal-message">
+          작성 중인 내용이 모두 삭제됩니다. <br />정말 취소하시겠습니까?
+        </p>
+        <button id="confirmCancel" class="modal-button modal-button-secondary">
+          아니오
+        </button>
+        <button id="confirmOk" class="modal-button modal-button-primary">
+          예
         </button>
       </div>
+    </div>
 
-      <div class="form-group">
-        <div class="buttons">
-          <button type="submit" class="button button-primary">시작하기</button>&nbsp;&nbsp;
-          <button type="button" id="cancelButton" class="button button-secondary">취소</button>
-        </div>
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <h3 class="modal-title">성공</h3>
+        <p class="modal-message">게시물이 성공적으로 작성되었습니다!</p>
+        <button id="successOk" class="modal-button modal-button-primary">
+          확인
+        </button>
       </div>
-    </form>
-  </div>
-
-  <div id="confirmModal" class="modal">
-    <div class="modal-content">
-      <h3 class="modal-title">확인</h3>
-      <p class="modal-message">
-        작성 중인 내용이 모두 삭제됩니다. <br />정말 취소하시겠습니까?
-      </p>
-      <button id="confirmCancel" class="modal-button modal-button-secondary">
-        아니오
-      </button>
-      <button id="confirmOk" class="modal-button modal-button-primary">
-        예
-      </button>
     </div>
-  </div>
 
-  <div id="successModal" class="modal">
-    <div class="modal-content">
-      <h3 class="modal-title">성공</h3>
-      <p class="modal-message">게시물이 성공적으로 작성되었습니다!</p>
-      <button id="successOk" class="modal-button modal-button-primary">
-        확인
-      </button>
-    </div>
-  </div>
-
-  <header id="footer"></header>
-  <script src="/JS/WritePage/writePage_3.js"></script>
-</body>
-
+    <header id="footer"></header>
+    <script src="/JS/WritePage/writePage_3.js"></script>
+  </body>
 </html>
