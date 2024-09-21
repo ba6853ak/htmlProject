@@ -3,7 +3,7 @@ let originalData = []; // 원본 데이터를 저장할 배열
 
 // 데이터베이스에서 사용자 정보를 가져오는 함수
 function fetchUsers() {
-  return fetch("http://218.158.137.183:8080/users") // 서버에서 사용자 데이터를 가져오는 API
+  return fetch("http://ip주소:포트번호/users") // 서버에서 사용자 데이터를 가져오는 API
     .then((response) => response.json())
     .then((fetchedData) => {
       originalData = fetchedData; // 가져온 데이터를 원본 배열에 저장
@@ -94,7 +94,7 @@ function renderTable(data) {
       console.log(newRole);
 
       // 서버로 권한 변경 요청 전송
-      fetch(`http://218.158.137.183:8080/users/${userId}/role`, {
+      fetch(`http://ip주소:포트번호/users/${userId}/role`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -210,7 +210,7 @@ document
 
         // 비활성 상태일 때 삭제 로직 수행
         if (confirm("정말 이 사용자를 삭제하시겠습니까?")) {
-          fetch(`http://218.158.137.183:8080/users/${userId}`, {
+          fetch(`http://ip주소:포트번호/users/${userId}`, {
             method: "DELETE",
           })
             .then((response) => {
@@ -258,7 +258,7 @@ document
         )
       ) {
         // 서버로 새로운 비밀번호 전송
-        fetch(`http://218.158.137.183:8080/users/${userId}/reset-password`, {
+        fetch(`http://ip주소:포트번호/users/${userId}/reset-password`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -23,7 +23,7 @@
       function loadMyData() {
         // localStorage에서 이름 가져오기
         const storedName = localStorage.getItem("Name") || "유근형"; // 기본 값 설정
-        const baseURL = "http://218.158.137.183:8080/api/my-articles"; // 서버 API 주소
+        const baseURL = "http://ip주소:포트번호/api/my-articles"; // 서버 API 주소
         const urlWithParams = `${baseURL}?name=${encodeURIComponent(
           storedName
         )}`; // 쿼리스트링 추가

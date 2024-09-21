@@ -27,7 +27,7 @@ checkEmailButton.addEventListener("click", () => {
     checkEmailButton.style.display = "none";
     obj = { email: emailValue };
     $.ajax({
-      url: "http://218.158.137.183:8080/Email_Check",
+      url: "http://ip주소:포트번호/Email_Check",
       type: "get", //default는 get이기 때문에 생략 가능.
       data: obj,
       dataType: "json",
@@ -86,7 +86,7 @@ function pw_found() {
   const email_Ckeck = localStorage.getItem("email_Ckeck");
   obj = { email: emailValue, check: check_cord, sec: email_Ckeck };
   $.ajax({
-    url: "http://218.158.137.183:8080/pw_found",
+    url: "http://ip주소:포트번호/pw_found",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",

@@ -122,7 +122,7 @@ postForm.addEventListener("submit", function (e) {
 
   // AJAX를 통해 서버로 데이터 전송
   $.ajax({
-    url: "http://218.158.137.183:8080/writePage3", // 서버 URL
+    url: "http://ip주소:포트번호/writePage3", // 서버 URL
     type: "POST", // 전송 방식
     data: JSON.stringify({
       title: formData.get("title"), // FormData에서 title 가져오기

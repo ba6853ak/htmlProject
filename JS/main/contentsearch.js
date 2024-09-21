@@ -5,7 +5,7 @@ const SC_ID = localStorage.getItem("SC_ID");
 function getlist() {
   obj = { SC_ID: SC_ID };
   $.ajax({
-    url: "http://218.158.137.183:8080/contentSerch",
+    url: "http://ip주소:포트번호/contentSerch",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",

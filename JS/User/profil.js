@@ -19,7 +19,7 @@ getprofil();
 function sidemenu() {
   sidebar.innerHTML = "";
   $.ajax({
-    url: "http://218.158.137.183:8080/admin_check",
+    url: "http://ip주소:포트번호/admin_check",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -49,7 +49,7 @@ function sidemenu() {
 
 function getprofil() {
   $.ajax({
-    url: "http://218.158.137.183:8080/profil",
+    url: "http://ip주소:포트번호/profil",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -70,7 +70,7 @@ function del() {
 
   if (confirmation) {
     $.ajax({
-      url: "http://218.158.137.183:8080/profil_del",
+      url: "http://ip주소:포트번호/profil_del",
       type: "get", //default는 get이기 때문에 생략 가능.
       data: obj,
       dataType: "json",
@@ -117,7 +117,7 @@ function save() {
   };
 
   $.ajax({
-    url: "http://218.158.137.183:8080/profil_save",
+    url: "http://ip주소:포트번호/profil_save",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",

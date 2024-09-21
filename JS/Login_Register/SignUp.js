@@ -62,7 +62,7 @@ function ID_Check() {
 
 function ID_DB_Check() {
   $.ajax({
-    url: "http://218.158.137.183:8080/ID_Check",
+    url: "http://ip주소:포트번호/ID_Check",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: ID_obj,
     dataType: "json",
@@ -229,7 +229,7 @@ function SignUp() {
 
 function register() {
   $.ajax({
-    url: "http://218.158.137.183:8080/register",
+    url: "http://ip주소:포트번호/register",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",

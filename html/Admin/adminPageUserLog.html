@@ -1,82 +1,91 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인/로그아웃 기록 관리</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../Css/Admin/adminPageUserLog.css">
-    <link rel="stylesheet" href="../../Css/Public/Public.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../Css/Admin/adminPageUserLog.css" />
+    <link rel="stylesheet" href="../../Css/Public/Public.css" />
     <script src="../../lib/JQuery/JQuery_3.7.1.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#header").load("../Public/header.html");
-            $("#footer").load("../Public/footer.html");
-        });
+      $(document).ready(function () {
+        $("#header").load("../Public/header.html");
+        $("#footer").load("../Public/footer.html");
+      });
     </script>
-    <style>
-    
-    </style>
-</head>
+    <style></style>
+  </head>
 
-<body>
+  <body>
     <header id="header"></header>
 
     <div class="wrapper-container">
-        <div class="sidebar">
-            <h2>관리자 메뉴</h2>
-            <ul>
-                <li><a href="/html/Admin/adminPageUserManage.html">사용자 관리</a></li>
-                <li><a href="/html/Admin/adminPageUserLog.html">로그인 기록 관리</a></li>
-            </ul>
+      <div class="sidebar">
+        <h2>관리자 메뉴</h2>
+        <ul>
+          <li>
+            <a href="/html/Admin/adminPageUserManage.html">사용자 관리</a>
+          </li>
+          <li>
+            <a href="/html/Admin/adminPageUserLog.html">로그인 기록 관리</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <div class="header">
+          <h1>사용자 기록 관리</h1>
+          <div class="user-info">
+            <img src="https://via.placeholder.com/40" alt="User" />
+            <span>관리자님</span>
+          </div>
         </div>
 
-        <div class="main-content">
-            <div class="header">
-                <h1>사용자 기록 관리</h1>
-                <div class="user-info">
-                    <img src="https://via.placeholder.com/40" alt="User">
-                    <span>관리자님</span>
-                </div>
-            </div>
+        <div class="filter-container">
+          <select id="filter">
+            <option value="all">전체</option>
+            <option value="login">로그인</option>
+            <option value="logout">로그아웃</option>
+          </select>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="사용자 ID 또는 IP 주소 검색"
+          />
 
-            <div class="filter-container">
-                <select id="filter">
-                    <option value="all">전체</option>
-                    <option value="login">로그인</option>
-                    <option value="logout">로그아웃</option>
-                </select>
-                <input type="text" id="search-input" placeholder="사용자 ID 또는 IP 주소 검색">
-
-                <button id="search-btn">검색</button>
-            </div>
-
-            <table class="manage-table" id="manage-table">
-                <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>사용자 ID</th>
-                        <th>사용자 이름</th>
-                        <th>로그인/로그아웃</th>
-                        <th>시간</th>
-                        <th>IP 주소</th>
-                        <th>조치</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    <!-- JavaScript를 통해 데이터가 여기에 삽입됩니다. -->
-                </tbody>
-            </table>
-
-            <ul class="pagination" id="pagination"></ul>
+          <button id="search-btn">검색</button>
         </div>
+
+        <table class="manage-table" id="manage-table">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>사용자 ID</th>
+              <th>사용자 이름</th>
+              <th>로그인/로그아웃</th>
+              <th>시간</th>
+              <th>IP 주소</th>
+              <th>조치</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- JavaScript를 통해 데이터가 여기에 삽입됩니다. -->
+          </tbody>
+        </table>
+
+        <ul class="pagination" id="pagination"></ul>
+      </div>
     </div>
 
     <footer id="footer"></footer>
 
-    <script type="text/javascript" src="../../JS/Admin/adminPageUserLog.js"></script>
-
-</body>
-
+    <script
+      type="text/javascript"
+      src="../../JS/Admin/adminPageUserLog.js"
+    ></script>
+  </body>
 </html>

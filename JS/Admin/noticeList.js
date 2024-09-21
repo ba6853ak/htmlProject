@@ -6,7 +6,7 @@ let currentSearchTerm = ""; // 현재 검색어
 // 서버에서 공지사항 불러오기
 async function fetchNotices(searchField = "", searchTerm = "") {
   try {
-    let url = "http://218.158.137.183:8080/api/notices";
+    let url = "http://ip주소:포트번호/api/notices";
 
     // 검색어가 있으면 쿼리 파라미터 추가
     if (searchTerm) {
