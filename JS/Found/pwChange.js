@@ -16,7 +16,7 @@ changePw.addEventListener("click", () => {
     let sp = search.split("=");
     obj = { email: sp[1], pw: NP.trim() };
     $.ajax({
-      url: "http://218.158.137.183:8080/pw_change",
+      url: "http://ip주소:포트번호/pw_change",
       type: "get", //default는 get이기 때문에 생략 가능.
       data: obj,
       dataType: "json",

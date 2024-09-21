@@ -6,7 +6,7 @@ let filteredData = []; // 필터링된 데이터를 저장하는 배열
 
 // 데이터베이스에서 로그인/로그아웃 기록을 가져오는 함수
 function fetchLogs(page) {
-  return fetch("http://218.158.137.183:8080/logs") // 서버에서 데이터 가져오기
+  return fetch("http://ip주소:포트번호/logs") // 서버에서 데이터 가져오기
     .then((response) => response.json())
     .then((fetchedData) => {
       originalData = fetchedData; // 가져온 데이터를 원본 배열에 할당
@@ -64,7 +64,7 @@ function displayTableData(page) {
 // 로그 삭제 요청 함수
 function deleteLog(logId) {
   if (confirm("정말 이 로그를 삭제하시겠습니까?")) {
-    fetch(`http://218.158.137.183:8080/logs/${logId}`, {
+    fetch(`http://ip주소:포트번호/logs/${logId}`, {
       method: "DELETE",
     })
       .then((response) => {

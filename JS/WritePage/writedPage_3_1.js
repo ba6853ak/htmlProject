@@ -13,7 +13,7 @@ const nextButton = document.getElementById("nextButton");
 serch();
 function serch() {
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_3_1",
+    url: "http://ip주소:포트번호/writedPage_3_1",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -119,7 +119,7 @@ function input() {
   };
   console.log(obj);
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_3_1_input",
+    url: "http://ip주소:포트번호/writedPage_3_1_input",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",

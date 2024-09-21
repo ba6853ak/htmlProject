@@ -35,7 +35,7 @@ commentInput.addEventListener("input", () => {
 
 function getlist() {
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_1",
+    url: "http://ip주소:포트번호/writedPage_1",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -76,7 +76,7 @@ function goodbu() {
   let currentGood = parseInt(Good.innerHTML, 10);
   Good.innerHTML = currentGood + 1;
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_good",
+    url: "http://ip주소:포트번호/writedPage_good",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -95,7 +95,7 @@ function badbu() {
   let currentBad = parseInt(Bad.innerHTML, 10);
   Bad.innerHTML = currentBad + 1;
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_bad",
+    url: "http://ip주소:포트번호/writedPage_bad",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -112,7 +112,7 @@ function badbu() {
 
 function opinion() {
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_opinion",
+    url: "http://ip주소:포트번호/writedPage_opinion",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -151,7 +151,7 @@ function setlist() {
 function del(index_num) {
   obj = { index_num: index_num };
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_opinion_del",
+    url: "http://ip주소:포트번호/writedPage_opinion_del",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",
@@ -171,7 +171,7 @@ function del(index_num) {
 function input() {
   obj = { sp: sp[1], dat_text: dat_text.value, Name: User_Name };
   $.ajax({
-    url: "http://218.158.137.183:8080/writedPage_opinion_add",
+    url: "http://ip주소:포트번호/writedPage_opinion_add",
     type: "get", //default는 get이기 때문에 생략 가능.
     data: obj,
     dataType: "json",

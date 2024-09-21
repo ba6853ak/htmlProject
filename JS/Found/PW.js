@@ -20,7 +20,7 @@ findPwButton.addEventListener("click", () => {
     errorMessage.style.display = "none";
     obj = { ID: input };
     $.ajax({
-      url: "http://218.158.137.183:8080/PW_ID_Check",
+      url: "http://ip주소:포트번호/PW_ID_Check",
       type: "get", //default는 get이기 때문에 생략 가능.
       data: obj,
       dataType: "json",
